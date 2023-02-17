@@ -1,0 +1,39 @@
+LIN81001547 [2021-12-13 15:18:28.03746] 'C:\Work\Work\Powershell\PoC\log_file_code.ps1' 1 I This is my log message
+LIN81001547 [2021-12-13 15:21:08.81550] 'C:\Work\Work\Powershell\PoC\log_file_code.ps1' 1 I This is my log message
+LIN81001547 [2021-12-13 16:28:52.17833] 'C:\Work\Work\Powershell\PoC\log_file_code.ps1' 1 I This is my log message
+LIN81001547 [2021-12-15 18:03:01.89526] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 17 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:34:02.21444] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:34:37.69556] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:34:47.89704] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:35:01.03422] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:36:09.41831] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:36:26.99269] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:37:19.13529] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:37:28.80146] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:37:37.42292] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:38:56.99839] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:39:15.98542] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:40:50.26784] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:40:56.42141] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:42:49.16372] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:43:09.61055] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:43:28.48865] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:45:25.45601] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:45:38.68398] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:45:47.84764] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:46:08.10728] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:46:28.26379] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:46:47.44718] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:50:52.97304] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:51:17.80341] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:53:13.85089] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 18:53:39.59528] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:02:04.69480] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 19 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:30:45.16030] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:30:52.00766] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:31:33.51041] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:31:58.39043] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:32:13.60389] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:32:24.53894] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:32:36.77653] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called
+LIN81001547 [2021-12-15 19:32:51.20961] 'C:\Work\Work\Powershell\PoC\CommonFunctions.ps1' 65 I GetJsonParamValue method called

@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="se1.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se9.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002290000000000000012PicRect.Left00000001000005690000000000000013PicRect.Width00000001000001150000000000000014PicRect.Height00000001000000220000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000437000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000017textBoxContactZip00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000437000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000017textBoxContactZip00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000011CaptureData00000000-000000100001360000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000017textBoxContactZip00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000028System.Windows.Forms.TextBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-0000001000000053452900000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000007TextBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001100000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080055055100000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000023000000230000000500000011DisplayName00000000-000000100000003ZIP00000004Text00000000-000000100000015TextBox - 3452900000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000060000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000175	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"textBoxContactZip");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se4.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se7.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002290000000000000012PicRect.Left00000001000003360000000000000013PicRect.Width00000001000001410000000000000014PicRect.Height00000001000000220000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000441000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020comboBoxContactState00000007PO_Type00000000-000000100000009NET Combo00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000441000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020comboBoxContactState00000007PO_Type00000000-000000100000009NET Combo00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000011CaptureData00000000-000000100001361000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020comboBoxContactState00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000029System.Windows.Forms.ComboBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-00000010000000000000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000008ComboBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001300000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080055031800000007PO_Type00000000-000000100000009NET Combo00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000023000000230000000500000011DisplayName00000000-000000100000031ComboBox - comboBoxContactState00000004Text00000000-000000100000031ComboBox - comboBoxContactState00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000010000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000178	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"comboBoxContactState");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se2.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000000590000000000000012PicRect.Left00000001000000080000000000000013PicRect.Width00000001000008300000000000000014PicRect.Height00000001000004390000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000429000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000010tabControl00000007PO_Type00000000-000000100000007NET Tab00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se100000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se100000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000429000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000010tabControl00000007PO_Type00000000-000000100000007NET Tab00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se100000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se100000007000000070000000500000011CaptureData00000000-000000100001353000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000010tabControl00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000031System.Windows.Forms.TabControl00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-00000010000000000000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000010TabControl00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001100000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080059000800000007PO_Type00000000-000000100000007NET Tab00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se100000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se100000023000000230000000500000011DisplayName00000000-000000100000023TabControl - tabControl00000004Text00000000-000000100000023TabControl - tabControl00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000150000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000168	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"tabControl");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se0.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000000000000000000000012PicRect.Left00000001000000000000000000000013PicRect.Width00000001000008460000000000000014PicRect.Height00000001000005060000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000215000000030000000000000010QueryKey_100000000-000000100000015My Process Name00000012QueryValue_100000000-000000100000024Training CRM Application00000007PO_Type00000000-000000100000011NET Process00000003000000030000000500000022CaptureRecognitionInfo00000000-000000100000215000000030000000000000010QueryKey_100000000-000000100000015My Process Name00000012QueryValue_100000000-000000100000024Training CRM Application00000007PO_Type00000000-000000100000011NET Process00000003000000030000000500000011CaptureData00000000-000000100000534000000090000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000015My Process Name00000012QueryValue_100000000-000000100000024Training CRM Application00000010QueryKey_200000000-000000100000016My Process Level00000012QueryValue_200000001000000030000000000000007PO_Type00000000-000000100000011NET Process00000009000000090000000500000011DisplayName00000000-000000100000024Training CRM Application00000004Text00000000-000000100000024Training CRM Application00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000000000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000186	// Recognition Properties
+	context.AddRecognitionProperty("My Process Name", @"Training CRM Application");
+
+	var pos = ScreenPluginNET.RecognizeProcessPOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se9.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pic" type="System.Byte[], mscorlib">
+    <value>
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDACodICUgGiolIiUvLSoyP2lEPzo6P4FcYUxpmYagnpaGk5Go
+        vfLNqLPltZGT0v/V5fr/////o8v///////L/////2wBDAS0vLz83P3xERHz/rpOu////////////////
+        ////////////////////////////////////////////////////wAARCAH6A04DASIAAhEBAxEB/8QA
+        HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+        MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+        V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+        x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+        BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+        YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+        hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+        8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDKaR5CN7ZrqPstv/zwi/74Fc4Yd0SOG527goXtux1711FAEX2W
+        3/54Rf8AfAo+y2//ADwi/wC+BUTTSxzsJZIxGoBJEZzySMdam89N6r8wLdMoQKAEFtADkQRg/wC4KXyI
+        T/yyT/vkUz7XEqqXfJKhshDjHr7CnNcIhbe/8W0AKc5xnHvQA7yYv+eSf98im/ZoD1hj/wC+RR9pi2q2
+        4kNnGFOeOvFDTr5AlT5w2NvbOelAB9lt/wDnhF/3wKPstv8A88Iv++BUc0k0MDO7xdQAdpAGTjnnn9KY
+        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
+        iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+        iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKiljdpUkjdVKqV+Zc5zj3HpUtFAEHlTNJG0kiEI
+        27CoRngj1PrU9FFABRRRQAVGYt0u9zux91ccL/8AXqSigCOKLysqrfJ/Cv8Ad/8ArVJRRQBU1b/kGzfh
+        /MVzVdLqv/INm/D+YrmqAAdRXW1yQ6iutoAKjS4jkGU3keuxuf0qSqcccqWSfPIW+X5cAbeRnoM0AW0d
+        XBKnIBI/EU6s91lAABdELuSVVievHQg+tXkzsXJycdcYoAdTJJFjALE8nAABJP4Cn1DcBdqlt4IOQyKS
+        QaAJFYMoYdD7Yp1U1aRnjM4kAKjGwHrnvj8OtNkWbyiQ0gzKd33jhcnGADn06UAXqKz2E26PMkm0KMMI
+        35Oe4B+nXNSKsgdXzLkysCCSRt5xx+VAFyiq9pnYwO84P3m3fN+B6VYoAKKKKACiiigAooooAKKKKACi
+        iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+        iigAooooAKWkpaACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
+        iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApaSloAp6r/yDpvw/mK5uuk1X/kH
+        Tfh/MVzdAAOorra5IdRXW59qACijPtRn2oAKKM+1GfagAooz7UZ9qACijPtQMk46UAFLRtPr+lG0+v6U
+        AFFG0+v6UbT6/pQAUUbT6/pRtPr+lABRRtPr+lG0+v6UAFFIcg460Z9qAFopM+1GfagBaKTPtRn2oAWi
+        kz7UZ9qAFopM+1GfagBaKTPtRn2oAWikz7UZ9qAFopM+1GfagBaKTPtRQAtFJRQAtFJRQAtFJRQAtFJR
+        QAtFJRQAtFJRQAtFJRQAtFJRQAtFJRQAtFJRQAtFJRQAtFJRQAtFJRQAtLTaKAHUU2igB1FNooAdRTaK
+        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
+        etADqKjFxCSQsqEgZIDDpSQ3MM0YdJFxxkEjIz2NAEtFFFABTTJGpwzqD6E06mIcNKT/AHv6CgA86L/n
+        on/fQo86L/non/fQoSWORSySIyjqQcgVG91Fs3RukmGAIVgcZOKAJPOi/wCeif8AfQo86L/non/fQpd6
+        bc71xnGc9/SkMsYkEZkUOei55/KgA86L/non/fQo86L/AJ6J/wB9Cn0UAM86L/non/fQo86L/non/fQp
+        9FADPOi/56J/30KPOi/56J/30KfRQAzzov8Anon/AH0KPOi/56J/30KfRQAzzov+eif99Cjzov8Anon/
+        AH0KfRQAzzov+eif99Cjzov+eif99Cn0UAM86L/non/fQo86L/non/fQp9FADPOi/wCeif8AfQo86L/n
+        on/fQp9FAACCMg5BopkP+oj/AN0fyqNbpSeY5Am7ZvOMZzj1z1oAnoqGK5jkO0sqvuICluTg4/pT/Nj8
+        zy/MXf8A3c8/lQA+imefEXCCVN56LuGaDLGJBGZFDnouefyoAfSEhRliAPU0BgSQCCRwcdqbL9wf7y/z
+        FAB50X/PRP8AvoUedF/z0T/voUjS4k2Kjue+3GF+uTSSz+WTmKQovVxjA/XNADvOi/56J/30KPOi/wCe
+        if8AfQpkk/lk5ikKL1cYwP1zRJcqjMNjsExuYYwv6/yoAf50X/PRP++hR50X/PRP++hTJLlY2YbHYJ95
+        hjC/r/KnPMqSpGQ2XOBhePz/AAoAXzov+eif99Cjzov+eif99CkaXEmxUdz324wv1yakoAZ50X/PRP8A
+        voUedF/z0T/voU+igBnnRf8APRP++hR50X/PRP8AvoU+igBnnRf89E/76FHnRf8APRP++hT6KAGedF/z
+        0T/voUedF/z0T/voU+igBnnRf89E/wC+hTlZWGVYEexpaZH9+T/e/oKAH0UUUAFFFFABRQeBmoYrgyhW
+        EEgRhkMSuMfnQBNRUX2mDBPnR4HX5xxSvPFHjfKi55G5gM0ASUVDLP5fZW5UY3c8nFShgSQCCRwcdqAB
+        nVPvMFz6nFN86L/non/fQoP+vX/dP8xR58Rk8sSpv/u7hn8qADzov+eif99Cjzov+eif99CkWeJ2KpIj
+        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
+        GPdv++jVcXa/LlcZUk89CO36H8qnQlkUkYJGSPSgBce7f99GjkEct1Hc+tFB7fUfzoAkfiNiPQ1Hj3b/
+        AL6NSSf6tvoajPQ0AGPdv++jRj3b/vo1TtZZJDH+8dyVy4ZQAB6jgd/rT471XdQNmG4GHy34jtQBZx7t
+        /wB9GjHu3/fRqsl1I4TEK5ddy/P/AD4pwuWcL5UYYlA5DNjAP4UAT492/wC+jRj3b/vo1D9pXaWA42B1
+        56+38vzpkt4sbMp2AqMsGfB/Ad6ALOPdv++jT4ujck89z7UwHIyO9Pi/i+v9BQA+iiigAooooAKKKKAC
+        iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
+        iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
+        iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooApat/x4TfQfzrnK6PVv+PCb6D+dc5QBf1b/AI/P
+        8+groF+6PpXN6jKst1uX1rpF+6PpSRc9xaif/WH6D+tS01kDNnJHbimQR02RBJGyNnDDBxUvl/7TfpR5
+        f+036UAQNAjTRynO5M4x3+tCQ7CNsjhB0TjH8s1P5f8AtN+lHl/7TfpQBWNrGVdTu+dtx5/z/k1NT/L/
+        ANpv0o8v/ab9KAGUHt9R/On+X/tN+lHljI+ZvXtQAsn+rb6GozyKlI3KQe/FN8v/AGm/SgCuIFVYwCwM
+        fAPfHpQsOwgLI4QdE4x/LNWPL/2m/Sjy/wDab9KAK6QKnl4LfIpUfT/IpBbKqqEd0wu3Ixkj8qs+X/tN
+        +lHl/wC036UAQNbxt5fBAj+6Af8APtQ0OXLJI8ZPXbjn8xU/l/7TfpR5f+036UAMHSnxfxfX+go8v/ab
+        9Kcq7QeSc880ALRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+        RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+        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
+        FVqKt6aivcMHUMNp4Iz3FAH/2Q==
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Training CRM Application" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAARpJREFUWEftlNsKgkAQhiWCiCCC6FmLDlBUF0HXgdDTRPQKpQ/gA3jWm4kBV73Y
+        XcdFl6Ad+BAW8fv/WdAyY+Zn5ny5gk4KbTW8l7rg8Xxxn4W2Gjz0PE8LwgB5nvdClmUlaZq22wB+wFq+
+        yTTJGwPc7HtJPcDi5ML86MLs4MJ078Bk58B468Bo84Hh+gODVRXAtm0hSZKobYAir2+A1xzlygEochaA
+        15zRGEB0BRQ5ImuOxHGstgGKHEExrzlDOQBFjsiaM6QBRFdAkSMo5jVnRFGktgGKHJE1R7lyAIocQSmv
+        OaMxgOgKqMiaI2EYqm2ACm8DdXnvAWTNtQYQyYMgaB8AofzhKHKlAF3Kfd8XB9BJoTVj5u/Hsr5WzRqW
+        oF4UUgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="se8.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002320000000000000012PicRect.Left00000001000003390000000000000013PicRect.Width00000001000001180000000000000014PicRect.Height00000001000000160000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000428000000070000000000000010QueryKey_100000000-000000100000020My Window Class Name00000012QueryValue_100000000-000000100000004EDIT00000007PO_Type00000000-000000100000010Win32 Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se700000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se700000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000428000000070000000000000010QueryKey_100000000-000000100000020My Window Class Name00000012QueryValue_100000000-000000100000004EDIT00000007PO_Type00000000-000000100000010Win32 Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se700000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se700000007000000070000000500000011CaptureData00000000-000000100001678000000300000000000000011MyGuiEditor00000000-000000100000016CaptureAlg_Win3200000012ObjectType_100000000-000000100000006PBCtrl00000012ObjectType_200000000-000000100000012AccessCtrlID00000012ObjectType_300000000-000000100000013AccessFormlID00000012ObjectType_400000000-000000100000009ProcessID00000012ObjectType_500000000-000000100000006CtrlID00000012ObjectType_600000000-000000100000007General00000010QueryKey_100000000-000000100000020My Window Class Name00000012QueryValue_100000000-000000100000004EDIT00000010QueryKey_200000000-000000100000024My Window Children Count00000012QueryValue_200000000-000000100000001000000010QueryKey_300000000-000000100000018My Window Child Id00000012QueryValue_300000000-000000100000004100100000010QueryKey_400000000-000000100000017My Window Z Order00000012QueryValue_400000000-000000100000001100000010QueryKey_500000000-000000100000023My Window Class Z Order00000012QueryValue_500000000-000000100000001100000010QueryKey_600000000-000000100000020My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080003000300000010QueryKey_800000000-000000100000015My Window Width00000012QueryValue_800000000-00000010000000311800000010QueryKey_900000000-000000100000016My Window Height00000012QueryValue_900000000-0000001000000021600000007PO_Type00000000-000000100000010Win32 Edit00000011QueryKey_1000000000-000000100000016My Parent Window00000013QueryValue_1000000000-000000100000003se700000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se700000030000000300000000500000011DisplayName00000000-000000100000005State00000004Text00000000-000000100000007EDIT - 00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000006CtrlID00000008IconType00000001000000060000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000166	// Recognition Properties
+	context.AddRecognitionProperty("My Window Class Name", @"EDIT");
+
+	var pos = ScreenPluginWin32.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se6.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002290000000000000012PicRect.Left00000001000001080000000000000013PicRect.Width00000001000001650000000000000014PicRect.Height00000001000000220000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000438000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000018textBoxContactCity00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000438000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000018textBoxContactCity00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000011CaptureData00000000-000000100001356000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000018textBoxContactCity00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000028System.Windows.Forms.TextBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-00000010000000000000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000007TextBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001500000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080055009000000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000023000000230000000500000011DisplayName00000000-000000100000004City00000004Text00000000-000000100000028TextBox - textBoxContactCity00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000060000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000176	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"textBoxContactCity");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se2.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se8.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000094000000010000000100000017EventTechnology_000000000-000000100000005Win3200000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se5.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se0.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000010000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se1.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000000000000000000000012PicRect.Left00000001000000000000000000000013PicRect.Width00000001000008460000000000000014PicRect.Height00000001000005060000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000455000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000011TrainingCRM00000007PO_Type00000000-000000100000008NET Form00000010QueryKey_200000000-000000100000028I am a Top Window of Process00000012QueryValue_200000000-000000100000003se000000016MainRelationType00000000-000000100000028I am a Top Window of Process00000025MainRelatedDescriptorName00000000-000000100000003se000000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000455000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000011TrainingCRM00000007PO_Type00000000-000000100000008NET Form00000010QueryKey_200000000-000000100000028I am a Top Window of Process00000012QueryValue_200000000-000000100000003se000000016MainRelationType00000000-000000100000028I am a Top Window of Process00000025MainRelatedDescriptorName00000000-000000100000003se000000007000000070000000500000011CaptureData00000000-000000100001169000000190000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000011TrainingCRM00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000036Training_CRM_Application.TrainingCRM00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000023Training CRM - Contacts00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000004Form00000010QueryKey_500000000-000000100000024NET My Window Visibility00000012QueryValue_500000000-000000100000001100000007PO_Type00000000-000000100000008NET Form00000010QueryKey_600000000-000000100000028I am a Top Window of Process00000012QueryValue_600000000-000000100000003se000000016MainRelationType00000000-000000100000028I am a Top Window of Process00000025MainRelatedDescriptorName00000000-000000100000003se000000019000000190000000500000011DisplayName00000000-000000100000030Form - Training CRM - Contacts00000004Text00000000-000000100000030Form - Training CRM - Contacts00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000130000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000169	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"TrainingCRM");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se4.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000001740000000000000012PicRect.Left00000001000000180000000000000013PicRect.Width00000001000008100000000000000014PicRect.Height00000001000000890000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000442000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000019groupBoxHomeAddress00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se300000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se300000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000442000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000019groupBoxHomeAddress00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se300000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se300000007000000070000000500000011CaptureData00000000-000000100001374000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000019groupBoxHomeAddress00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000029System.Windows.Forms.GroupBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000012Home Address00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000008GroupBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001300000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080092000600000007PO_Type00000000-000000100000011NET General00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se300000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se300000023000000230000000500000011DisplayName00000000-000000100000023GroupBox - Home Address00000004Text00000000-000000100000023GroupBox - Home Address00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000000000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000177	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"groupBoxHomeAddress");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se7.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se6.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se5.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000001940000000000000012PicRect.Left00000001000001080000000000000013PicRect.Width00000001000005760000000000000014PicRect.Height00000001000000220000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000440000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020textBoxContactStreet00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000440000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020textBoxContactStreet00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000007000000070000000500000011CaptureData00000000-000000100001358000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020textBoxContactStreet00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000028System.Windows.Forms.TextBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-00000010000000000000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000007TextBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001700000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080020009000000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se400000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se400000023000000230000000500000011DisplayName00000000-000000100000006Street00000004Text00000000-000000100000030TextBox - textBoxContactStreet00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000060000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000178	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"textBoxContactStreet");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se3.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000000820000000000000012PicRect.Left00000001000000120000000000000013PicRect.Width00000001000008220000000000000014PicRect.Height00000001000004120000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000438000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000015tabPageContacts00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se200000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se200000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000438000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000015tabPageContacts00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se200000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se200000007000000070000000500000011CaptureData00000000-000000100001364000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000015tabPageContacts00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000028System.Windows.Forms.TabPage00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000008Contacts00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000007TabPage00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001200000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080023000400000007PO_Type00000000-000000100000011NET General00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se200000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se200000023000000230000000500000011DisplayName00000000-000000100000018TabPage - Contacts00000004Text00000000-000000100000018TabPage - Contacts00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000000000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000173	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"tabPageContacts");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se3.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se18.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000000000000000000000012PicRect.Left00000001000000000000000000000013PicRect.Width00000001000007960000000000000014PicRect.Height00000001000002730000000000000007PicName00000000-000000100000004pic200000015RecognitionInfo00000000-000000100000455000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000011New_Account00000007PO_Type00000000-000000100000008NET Form00000010QueryKey_200000000-000000100000028I am a Top Window of Process00000012QueryValue_200000000-000000100000003se000000016MainRelationType00000000-000000100000028I am a Top Window of Process00000025MainRelatedDescriptorName00000000-000000100000003se000000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000455000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000011New_Account00000007PO_Type00000000-000000100000008NET Form00000010QueryKey_200000000-000000100000028I am a Top Window of Process00000012QueryValue_200000000-000000100000003se000000016MainRelationType00000000-000000100000028I am a Top Window of Process00000025MainRelatedDescriptorName00000000-000000100000003se000000007000000070000000500000011CaptureData00000000-000000100001157000000190000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000011New_Account00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000036Training_CRM_Application.New_Account00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000011New Account00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000004Form00000010QueryKey_500000000-000000100000024NET My Window Visibility00000012QueryValue_500000000-000000100000001100000007PO_Type00000000-000000100000008NET Form00000010QueryKey_600000000-000000100000028I am a Top Window of Process00000012QueryValue_600000000-000000100000003se000000016MainRelationType00000000-000000100000028I am a Top Window of Process00000025MainRelatedDescriptorName00000000-000000100000003se000000019000000190000000500000011DisplayName00000000-000000100000018Form - New Account00000004Text00000000-000000100000018Form - New Account00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000130000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000169	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"New_Account");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="pic2" type="System.Byte[], mscorlib">
+    <value>
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDACodICUgGiolIiUvLSoyP2lEPzo6P4FcYUxpmYagnpaGk5Go
+        vfLNqLPltZGT0v/V5fr/////o8v///////L/////2wBDAS0vLz83P3xERHz/rpOu////////////////
+        ////////////////////////////////////////////////////wAARCAERAxwDASIAAhEBAxEB/8QA
+        HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+        MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+        V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+        x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+        BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+        YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+        hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+        8vP09fb3+Pn6/9oADAMBAAIRAxEAPwC/K/7mQcnCnJOPSpvJi/55J/3yKhuEHkydeRmrNADPJi/55J/3
+        yKPJi/55J/3yKrSzqGePZzkjdx9aA6GWMIR971zUuSTsVyss+TF/zyT/AL5FHkxf88k/75FNuZHihLRg
+        FsgDPTkgU0XALx9ApVi2f4SMf/XqiSTyYv8Ankn/AHyKPJi/55J/3yKRJ43IAJBPZlI/nSpKkm3Y2dw3
+        D6UAHkxf88k/75FHkxf88k/75FM84/admBs+7nvuxn+VOE0Zdlyfl6nBwPx6UAL5MX/PJP8AvkUeTF/z
+        yT/vkU37RHs35bGcD5Dk/QY5pUmjfaFbJYEjj060AL5MX/PJP++RR5MX/PJP++RTDdwAAlzgqG4U9PWl
+        inEkskYVhsOMkHB4oAd5MX/PJP8AvkUeTF/zyT/vkU+igBnkxf8APJP++RR5MX/PJP8AvkU+igBnkxf8
+        8k/75FHkxf8APJP++RT6KAGeTF/zyT/vkUeTF/zyT/vkU+igBnkxf88k/wC+RR5MX/PJP++RT6KAGeTF
+        /wA8k/75FHkxf88k/wC+RT6KAGeTF/zyT/vkUeTF/wA8k/75FPooAZ5MX/PJP++RR5MX/PJP++RT6KAG
+        eTF/zyT/AL5FHkxf88k/75FPooAZ5MX/ADyT/vkUeTF/zyT/AL5FPooAZ5MX/PJP++RR5MX/ADyT/vkU
+        +igBnkxf88k/75FHkxf88k/75FPooAZ5MX/PJP8AvkUeTF/zyT/vkU+igBnkxf8APJP++RR5MX/PJP8A
+        vkU+igBnkxf88k/75FHkxf8APJP++RT6KAGeTF/zyT/vkUeTF/zyT/vkU+igBnkxf88k/wC+RR5MX/PJ
+        P++RT6KAGeTF/wA8k/75FHkxf88k/wC+RT6KAGeTF/zyT/vkUeTF/wA8k/75FPooAZ5MX/PJP++RR5MX
+        /PJP++RT6KAGeTF/zyT/AL5FHkxf88k/75FPooAZ5MX/ADyT/vkUeTF/zyT/AL5FPooAZ5MX/PJP++RR
+        5MX/ADyT/vkU+igBnkxf88k/75FHkxf88k/75FPooAZ5MX/PJP8AvkUeTF/zyT/vkU+igBnkxf8APJP+
+        +RR5MX/PJP8AvkU+igBnkxf88k/75FHkxf8APJP++RT6KAGeTF/zyT/vkUeTF/zyT/vkU+igBnkxf88k
+        /wC+RR5MX/PJP++RT6KAGeTF/wA8k/75FHkxf88k/wC+RT6KAGeTF/zyT/vkUeTF/wA8k/75FPooAZ5M
+        X/PJP++RR5MX/PJP++RT6KAGeTF/zyT/AL5FHkxf88k/75FPooAZ5MX/ADyT/vkUeTF/zyT/AL5FPooA
+        Z5MX/PJP++RR5MX/ADyT/vkU+mySJEu6R1QZxljigBPJi/55J/3yKPJi/wCeSf8AfIpq3VuzBVniJJwA
+        HHNS0AM8mL/nkn/fIo8mL/nkn/fIp9FADPJi/wCeSf8AfIo8mL/nkn/fIp9V1Eks03790CuFAUL/AHQe
+        496AJfJi/wCeSf8AfIo8mL/nkn/fIqOLetxJG0jOAisNwHGS3oB6VPQAzyYv+eSf98ijyYv+eSf98in0
+        UAM8mL/nkn/fIo8mL/nkn/fIp9VjO8LCFxvlb/Vnpu+vpjv+npQBN5MX/PJP++RR5MX/ADyT/vkUsYZU
+        AdtzdzjFOoAryIqypsULlT90Y9KPOI4KsSO6jiluBmRBkjg9Pwpy8DA6UAMuCPKf/dNWKp3LYQrgklT0
+        q5kUAVZLYGRpFU7+SDu4/wA4pYYpVcl1GOMYOcc1ZyKMigNxk0fmx7c45Bz9DmopLRZJWcuQrIVKj1OO
+        f0qxkUZFAFUWeItmY1OQcxx7fY559KlihETuwOd3QY6D/wDWTUuRRkUAVjZqRne/mbt+7ccZznpnFOFu
+        dskZcGJ8/Lt5GffP9KnyKMigCAwysq7pV3o2VYJx0xyM+9J9ncFWWQBxnJK5Bz14zVjIoyKAKy2m2Jk3
+        5zEI84+vP61JHEY5HbcCrYOMc5wB1/CpcijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKK
+        MijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKK
+        MijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKK
+        MijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKKMijIoAKK
+        MijIoAKKMijIoAKg8qZZJGjkQB23YZCccAeo9KnyKMigCKKN1leSR1YsoX5VxjGfc+tS0ZFGRQAUUZFG
+        RQAVCLdSjCQ72f7zdPpj0x2qbIoyKAGxhlQBm3Ed8YzTqMijIoAgn/1sf0P9KcOlNn/1sf0P9KUdKAIL
+        pdwzzgKehxVrPtUE/wDqn+hqcdBQAfhR+FFFAB+FH4UUUAH4UfhRRQAfhR+FFFAB+FH4UUUAH4UfhRRQ
+        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
+        T/dP9KkHSo5f9cn+6f6VIOlADbj/AFT/AO6akHTpUdx/qn/3TUmfagA/Cj8Kou7CeRv3nyyKN275QMDj
+        Gf6d6RJ38wMWYg44z67f8aAL/wCFH4VWF021S0QG9QVAbOeQOeOOtSxSM+8OoUqcHByOmf60ASfhR+FU
+        47kh2J3tv5UMCB1xgZ+opyTS75E2AvuJxv4AAHfHvQBa/Cj8KpR3brCmY93Rc5JJOAewNSfam3IDEVDc
+        Etkd8cZH+FAFn8KPwqG3nMpYMmwrjjPP4ipvwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/C
+        j8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAP
+        wo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KP
+        woAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/C
+        j8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAP
+        wo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KP
+        woAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAPwo/Cj8KPwoAhl/1y
+        fQ/0qQdKZL/rU+h/pTx0oAbcf6p/901IOgqO4/1T/wC6akHQUARG3jLlyDknJG44J+nSgW0QxhOnufb/
+        AAFS0UARPAjR7VAGF2jOTgfn7UQweXGyMxbcck8/45qWigBjwxyKFZcgdOcYpv2aLGMN1zncc/nmpaKA
+        I/s8WzYFwMg8E5HGOtJ9niyp2nj3PPfn1/GpaKAGRwpFnYCM+pJp9FFABRRRQAUUU0F2ZgqrgHHLY7fS
+        gB1FJiX+6n/fR/woxL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/AHU/76P+FAC0UmJf7qf99H/CjEv91P8A
+        vo/4UALRSYl/up/30f8ACjEv91P++j/hQAtFJiX+6n/fR/woxL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/
+        AHU/76P+FAC0UmJf7qf99H/CjEv91P8Avo/4UALRSYl/up/30f8ACjEv91P++j/hQAtFJiX+6n/fR/wo
+        xL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/AHU/76P+FAC0UmJf7qf99H/CjEv91P8Avo/4UALRSYl/up/3
+        0f8ACjEv91P++j/hQAtFJiX+6n/fR/woxL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/AHU/76P+FAC0UmJf
+        7qf99H/CjEv91P8Avo/4UALRSYl/up/30f8ACjEv91P++j/hQAtFJiX+6n/fR/woxL/dT/vo/wCFAC0U
+        mJf7qf8AfR/woxL/AHU/76P+FAC0UmJf7qf99H/CjEv91P8Avo/4UALRSYl/up/30f8ACjEv91P++j/h
+        QAtFJiX+6n/fR/woxL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/AHU/76P+FAC0UmJf7qf99H/CjEv91P8A
+        vo/4UALRSYl/up/30f8ACjEv91P++j/hQAtFJiX+6n/fR/woxL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/
+        AHU/76P+FAC0UmJf7qf99H/CjEv91P8Avo/4UALRSYl/up/30f8ACjEv91P++j/hQAtFJiX+6n/fR/wo
+        xL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/AHU/76P+FAC0UmJf7qf99H/CjEv91P8Avo/4UALRSYl/up/3
+        0f8ACjEv91P++j/hQAtFJiX+6n/fR/woxL/dT/vo/wCFAC0UmJf7qf8AfR/woxL/AHU/76P+FAC0UmJf
+        7qf99H/CjEv91P8Avo/4UALRSYl/up/30f8ACjEv91P++j/hQAtFJiX+6n/fR/woxL/dT/vo/wCFAC0U
+        mJf7qf8AfR/woxL/AHU/76P+FAC0UmJf7qf99H/CjEv91P8Avo/4UALRTSXVlDKuCccNnt9KdQAUUUUA
+        Qy/65P8AdP8ASpB0qOX/AFyf7p/pUg6UANuP9U/+6akHQVHcf6p/901IOgoArXIYPvbzPLC9UbG31JHf
+        9fpTVupFTLoDjcxIboAfpU7wRyNuYHPfDEA/Ud6BDGCSF65zkk9etAEP2wheYWDE4UYbB6+2e3pToZpZ
+        ZH+TaAoIDZBzz7e1P+zxbduD9dxyPx60qwxqcqCMjbwx/wA/jQBJRRRQAUUUUAFFFFABRRRQAUkX3pP9
+        7+gpaYkiK8gZ1B3dz7CgCaimedF/z0T/AL6FHnRf89E/76FAD6KZ50X/AD0T/voUedF/z0T/AL6FAD6K
+        Z50X/PRP++hR50X/AD0T/voUAPopnnRf89E/76FHnRf89E/76FAD6KZ50X/PRP8AvoUedF/z0T/voUAP
+        opnnRf8APRP++hR50X/PRP8AvoUAPopnnRf89E/76FHnRf8APRP++hQA+imedF/z0T/voUedF/z0T/vo
+        UAPopnnRf89E/wC+hR50X/PRP++hQA+imedF/wA9E/76FHnRf89E/wC+hQA+imedF/z0T/voUedF/wA9
+        E/76FAD6KZ50X/PRP++hR50X/PRP++hQA+imedF/z0T/AL6FHnRf89E/76FAD6KZ50X/AD0T/voUedF/
+        z0T/AL6FAD6KZ50X/PRP++hR50X/AD0T/voUAPopnnRf89E/76FHnRf89E/76FAD6KZ50X/PRP8AvoUe
+        dF/z0T/voUAPopnnRf8APRP++hR50X/PRP8AvoUAPopnnRf89E/76FHnRf8APRP++hQA+imedF/z0T/v
+        oUedF/z0T/voUAPopnnRf89E/wC+hR50X/PRP++hQA+imedF/wA9E/76FHnRf89E/wC+hQA+imedF/z0
+        T/voUedF/wA9E/76FAD6KZ50X/PRP++hR50X/PRP++hQA+imedF/z0T/AL6FHnRf89E/76FAD6KZ50X/
+        AD0T/voUedF/z0T/AL6FAD6KZ50X/PRP++hR50X/AD0T/voUAPopnnRf89E/76FHnRf89E/76FAD6KZ5
+        0X/PRP8AvoUedF/z0T/voUAPopnnRf8APRP++hR50X/PRP8AvoUAPopnnRf89E/76FHnRf8APRP++hQA
+        +imedF/z0T/voUedF/z0T/voUAPopnnRf89E/wC+hR50X/PRP++hQA+imedF/wA9E/76FHnRf89E/wC+
+        hQA+imedF/z0T/voUedF/wA9E/76FAD6KZ50X/PRP++hR50X/PRP++hQA+imedF/z0T/AL6FHnRf89E/
+        76FAD6KZ50X/AD0T/voUedF/z0T/AL6FAD6KZ50X/PRP++hR50X/AD0T/voUAJL96P8A3v6GlpjyIzxh
+        XUnd2PsafQAUUUUAQy/65P8AdP8ASpB0qOX/AFyf7p/pUg6UAMuB+6fk/dNSjoKinz5L5/umpR0FABRR
+        RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+        RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+        RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+        RQAUUUUAFFFFAEMv+uT/AHT/AEp4HHU0yX/XJ/un+lPGcdR+VACXH+qf/dNSDoKjuP8AVP8A7pqQdBQB
+        G88cbbWJyBk4BOPr6U9XVvusD9DUO/yZZNyO245UqpOeAMe341AFdWlkPmBgNwyTggMePTpigC9RUUOd
+        ql925snBzgZ7VLQAUUUUAFFFFABRRRQAUUUUAFMSNGeQsik7u49hT6SL70n+9/QUAL5MX/PNP++RR5MX
+        /PNP++RT6KAGeTF/zzT/AL5FHkxf880/75FPooAZ5MX/ADzT/vkUeTF/zzT/AL5FPooAZ5MX/PNP++RR
+        5MX/ADzT/vkU+igBnkxf880/75FHkxf880/75FPooAZ5MX/PNP8AvkUeTF/zzT/vkU+igBnkxf8APNP+
+        +RR5MX/PNP8AvkU+igBnkxf880/75FHkxf8APNP++RT6KAGeTF/zzT/vkUeTF/zzT/vkU+igBnkxf880
+        /wC+RR5MX/PNP++RT6KAGeTF/wA80/75FHkxf880/wC+RT6KAGeTF/zzT/vkUeTF/wA80/75FPooAZ5M
+        X/PNP++RR5MX/PNP++RT6KAIQqrMwVQBtHQfWn0h/wBe3+6P5mloACQoJY4A5JNMSaNzhSQfRgQfyNLK
+        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
+        mY9z+Zox7n8zQA/FGKj4zjcc+m6lx7n8zQA/FGKZj3P5mlT+Lr1oAdijFFFABijFFFABijFFFABijFFF
+        ABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABi
+        jFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFF
+        FABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFABijFFFAEUv+tT6H+lPHSmS/61Pof6
+        U8dKAG3H+qf/AHTUlR3H+qf/AHTUlABRRRQAUUUUAVrT/j2T8f51NUEcVzGgRTFgeuadtuv+mP61bV2Q
+        nZEtUmeRWM6opVsgHPJ9OMe361Y23X/TH9aNt1/0x/WpsVcrCXEjEXGVO0NJx8vX8KsWnMA5z8zc+vJp
+        dt1/0x/Wjbdf9Mf1p2FcloqLbdf9Mf1o23X/AEx/WiwXBf8Aj+/7Z/1qxUEUcon8yQp93b8ufWp6JBEK
+        KKKkoZ/E31/pRQQQx+UnJo+b+6f0oAiuMDy2b7itlvbg/wBahnnTGYZAu4nLggA49yDmrfzf3T+lHzf3
+        T+lAFOOWVkEhkP3lG0AYOQP8aTz38sssu58fMmPuc/TjHvmrvzf3T+lHzf3T+lAFW3d3mUuyv8rYZTnP
+        TvgVao+b+6f0o+b+6f0oAKVP4vr/AEpPm/un9KVAecjGTQA6iiigAooooAKKKKACiiigAooooAKKKKAC
+        iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
+        iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAil/wBa
+        n0P9KeOlMl/1qfQ/0p46UANuP9U/+6akqO4/1T/7pqSgAooooAKKKKACiiigAooooAKKKKACiiigAooo
+        oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
+        oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
+        oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCKX/AFqfQ/0p46UyQ5lT
+        Hof6U8dKAG3H+pf/AHTUlI6BgQc4PvURi/2n/wC+zQBNRUHl/wC0/wD32aPL/wBp/wDvs0AT0VB5f+0/
+        /fZo8v8A2n/77NAE9FQeX/tP/wB9mjy/9p/++zQBPRUHl/7T/wDfZo8v/af/AL7NAE9FQeX/ALT/APfZ
+        o8v/AGn/AO+zQBPRUHl/7T/99mjy/wDaf/vs0AT0VB5f+0//AH2aPL/2n/77NAE9FQeX/tP/AN9mjy/9
+        p/8Avs0AT0VB5f8AtP8A99mjy/8Aaf8A77NAE9FQeX/tP/32aPL/ANp/++zQBPRUHl/7T/8AfZo8v/af
+        /vs0AT0VB5f+0/8A32aPL/2n/wC+zQBPRUHl/wC0/wD32aPL/wBp/wDvs0AT0VB5f+0//fZo8v8A2n/7
+        7NAE9FQeX/tP/wB9mjy/9p/++zQBPRUHl/7T/wDfZo8v/af/AL7NAE9FQeX/ALT/APfZo8v/AGn/AO+z
+        QBPRUHl/7T/99mjy/wDaf/vs0AT0VB5f+0//AH2aPL/2n/77NAE9FQeX/tP/AN9mjy/9p/8Avs0AT0VB
+        5f8AtP8A99mjy/8Aaf8A77NAE9FQeX/tP/32aPL/ANp/++zQBPRUHl/7T/8AfZo8v/af/vs0AT0VB5f+
+        0/8A32aPL/2n/wC+zQBPRUHl/wC0/wD32aPL/wBp/wDvs0AT0VB5f+0//fZo8v8A2n/77NAE9FQeX/tP
+        /wB9mjy/9p/++zQBPRUHl/7T/wDfZo8v/af/AL7NAE9FQeX/ALT/APfZo8v/AGn/AO+zQBPRUHl/7T/9
+        9mjy/wDaf/vs0AT0VB5f+0//AH2aPL/2n/77NAE9FQeX/tP/AN9mjy/9p/8Avs0AT0VB5f8AtP8A99mj
+        y/8Aaf8A77NAE9FQeX/tP/32aPL/ANp/++zQBPRUHl/7T/8AfZo8v/af/vs0AT0VB5f+0/8A32aPL/2n
+        /wC+zQBPRUHl/wC0/wD32aPL/wBp/wDvs0AT0VB5f+0//fZo8v8A2n/77NAE9FQeX/tP/wB9mjy/9p/+
+        +zQBPRUHl/7T/wDfZo8v/af/AL7NAE9FQeX/ALT/APfZo8v/AGn/AO+zQBPRUHl/7T/99mjy/wDaf/vs
+        0AT0VB5f+0//AH2aPL/2n/77NAE9FQeX/tP/AN9mjy/9p/8Avs0AT0VB5f8AtP8A99mjy/8Aaf8A77NA
+        E9FQeX/tP/32aPL/ANp/++zQBPRUHl/7T/8AfZo8v/af/vs0AT0hJzgZ6+lQ+X/tP/32aPL/ANp/++zQ
+        Arffj+h7Y7ipB0pixAHOWJ92JqQL9fzoAcaaaKKAEooooAKKKKACiiigAooooAKKKKACiiigAooooAKK
+        KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK
+        KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK
+        KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBRTqKKAP/9k=
+</value>
+  </data>
+  <data name="se18.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se21.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002170000000000000012PicRect.Left00000001000000470000000000000013PicRect.Width00000001000000710000000000000014PicRect.Height00000001000000210000000000000007PicName00000000-000000100000004pic200000015RecognitionInfo00000000-000000100000440000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000016buttonAddAccount00000007PO_Type00000000-000000100000010NET Button00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se1800000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1800000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000440000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000016buttonAddAccount00000007PO_Type00000000-000000100000010NET Button00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se1800000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1800000007000000070000000500000011CaptureData00000000-000000100001359000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000016buttonAddAccount00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000027System.Windows.Forms.Button00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000003Add00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000006Button00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001400000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080217004700000007PO_Type00000000-000000100000010NET Button00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000004se1800000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1800000023000000230000000500000011DisplayName00000000-000000100000012Button - Add00000004Text00000000-000000100000012Button - Add00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000070000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000174	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"buttonAddAccount");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se19.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se19.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000001190000000000000012PicRect.Left00000001000000080000000000000013PicRect.Width00000001000007800000000000000014PicRect.Height00000001000000920000000000000007PicName00000000-000000100000004pic200000015RecognitionInfo00000000-000000100000447000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000022groupBoxBillingAddress00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se1800000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1800000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000447000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000022groupBoxBillingAddress00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se1800000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1800000007000000070000000500000011CaptureData00000000-000000100001382000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000022groupBoxBillingAddress00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000029System.Windows.Forms.GroupBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000015Billing Address00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000008GroupBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001100000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080119000800000007PO_Type00000000-000000100000011NET General00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000004se1800000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1800000023000000230000000500000011DisplayName00000000-000000100000026GroupBox - Billing Address00000004Text00000000-000000100000026GroupBox - Billing Address00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000000000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000180	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"groupBoxBillingAddress");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se20.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000001760000000000000012PicRect.Left00000001000006380000000000000013PicRect.Width00000001000001200000000000000014PicRect.Height00000001000000200000000000000007PicName00000000-000000100000004pic200000015RecognitionInfo00000000-000000100000442000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020textBoxNweAccountZip00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se1900000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1900000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000442000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020textBoxNweAccountZip00000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se1900000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1900000007000000070000000500000011CaptureData00000000-000000100001360000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000020textBoxNweAccountZip00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000028System.Windows.Forms.TextBox00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-00000010000000000000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000007TextBox00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001100000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080057063000000007PO_Type00000000-000000100000008NET Edit00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000004se1900000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se1900000023000000230000000500000011DisplayName00000000-000000100000003Zip00000004Text00000000-000000100000030TextBox - textBoxNweAccountZip00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000060000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000178	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"textBoxNweAccountZip");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se20.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se21.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se31.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se32.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+  <data name="se31.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002760000000000000012PicRect.Left00000001000000180000000000000013PicRect.Width00000001000008100000000000000014PicRect.Height00000001000000460000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000443000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000018panelNewSaveRemove00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se3000000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se3000000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000443000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000018panelNewSaveRemove00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se3000000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se3000000007000000070000000500000011CaptureData00000000-000000100001357000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000018panelNewSaveRemove00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000026System.Windows.Forms.Panel00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-00000010000000000000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000005Panel00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001200000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080194000600000007PO_Type00000000-000000100000011NET General00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000004se3000000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se3000000023000000230000000500000011DisplayName00000000-000000100000026Panel - panelNewSaveRemove00000004Text00000000-000000100000026Panel - panelNewSaveRemove00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000000000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000176	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"panelNewSaveRemove");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se32.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000002850000000000000012PicRect.Left00000001000000260000000000000013PicRect.Width00000001000000700000000000000014PicRect.Height00000001000000280000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000440000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000016buttonNewAccount00000007PO_Type00000000-000000100000010NET Button00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se3100000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se3100000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000440000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000016buttonNewAccount00000007PO_Type00000000-000000100000010NET Button00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000004se3100000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se3100000007000000070000000500000011CaptureData00000000-000000100001359000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000016buttonNewAccount00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000027System.Windows.Forms.Button00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000003New00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000006Button00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001200000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080009000800000007PO_Type00000000-000000100000010NET Button00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000004se3100000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000004se3100000023000000230000000500000011DisplayName00000000-000000100000012Button - New00000004Text00000000-000000100000012Button - New00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000070000000000000017DesignTimeVisible00000001000000010000000000000016RecognitionQuery00000000-000000100000174	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"buttonNewAccount");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se30.StoreDesignData" xml:space="preserve">
+    <value>000000160000000100000011PicRect.Top00000001000000820000000000000012PicRect.Left00000001000000120000000000000013PicRect.Width00000001000008220000000000000014PicRect.Height00000001000004120000000000000007PicName00000000-000000100000003pic00000015RecognitionInfo00000000-000000100000438000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000015tabPageAccounts00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se200000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se200000007000000070000000500000022CaptureRecognitionInfo00000000-000000100000438000000070000000000000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000015tabPageAccounts00000007PO_Type00000000-000000100000011NET General00000010QueryKey_200000000-000000100000016My Parent Window00000012QueryValue_200000000-000000100000003se200000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se200000007000000070000000500000011CaptureData00000000-000000100001364000000230000000000000011MyGuiEditor00000000-000000100000014CaptureAlg_NET00000012ObjectType_100000000-000000100000009NetCtrlID00000012ObjectType_200000000-000000100000007General00000012ObjectType_300000000-000000100000012NetProcessID00000010QueryKey_100000000-000000100000018NET My Window Name00000012QueryValue_100000000-000000100000015tabPageAccounts00000010QueryKey_200000000-000000100000024NET My Window Class Name00000012QueryValue_200000000-000000100000028System.Windows.Forms.TabPage00000010QueryKey_300000000-000000100000018NET My Window Text00000012QueryValue_300000000-000000100000008Accounts00000010QueryKey_400000000-000000100000023NET My Window Type Name00000012QueryValue_400000000-000000100000007TabPage00000010QueryKey_500000000-000000100000021NET My Window Z Order00000012QueryValue_500000000-000000100000001100000010QueryKey_600000000-000000100000024NET My Window Visibility00000012QueryValue_600000000-000000100000001100000010QueryKey_700000000-000000100000030My Window Relative Location is00000012QueryValue_700000000-0000001000000080023000400000007PO_Type00000000-000000100000011NET General00000010QueryKey_800000000-000000100000016My Parent Window00000012QueryValue_800000000-000000100000003se200000016MainRelationType00000000-000000100000016My Parent Window00000025MainRelatedDescriptorName00000000-000000100000003se200000023000000230000000500000011DisplayName00000000-000000100000018TabPage - Accounts00000004Text00000000-000000100000018TabPage - Accounts00000005Error00000000-00000010000000000000017RelatedObjectType00000000-000000100000009NetCtrlID00000008IconType00000001000000000000000000000017DesignTimeVisible00000001000000000000000000000016RecognitionQuery00000000-000000100000173	// Recognition Properties
+	context.AddRecognitionProperty("NET My Window Name", @"tabPageAccounts");
+
+	var pos = ScreenPluginNET.RecognizePOs(context);
+
+	return pos;
+00000017MayRegenerateCode000000010000000100000000000000160000001600000005</value>
+  </data>
+  <data name="se30.StoreDirectData" xml:space="preserve">
+    <value>000000080000000100000019EventTechnologyList00000000-000000100000092000000010000000100000017EventTechnology_000000000-000000100000003NET00000001000000010000000500000011Deactivated00000001000000000000000000000007ContRec00000001000000000000000000000013MultiInstance00000001000000000000000000000019MultiInstanceOption00000001000000000000000000000014ContinuousMode00000001000000000000000000000011EnableAddon00000001000000000000000000000005Addon00000000-000000100000000000000080000000800000005</value>
+  </data>
+</root>

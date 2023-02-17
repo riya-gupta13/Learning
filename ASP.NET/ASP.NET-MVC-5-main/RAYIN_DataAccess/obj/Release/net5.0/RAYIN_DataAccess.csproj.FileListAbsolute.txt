@@ -1,0 +1,17 @@
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_DataAccess.deps.json
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_DataAccess.dll
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_DataAccess.pdb
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_Models.dll
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_Utility.dll
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_Models.pdb
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\bin\Release\net5.0\RAYIN_Utility.pdb
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.csproj.AssemblyReference.cache
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.AssemblyInfoInputs.cache
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.AssemblyInfo.cs
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.csproj.CopyComplete
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.dll
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\refint\RAYIN_DataAccess.dll
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\RAYIN_DataAccess.pdb
+C:\Users\riygupta\OneDrive - Capgemini\WORK-RIYA\Learning\ASP.NET\ASP.NET-MVC-5-main\RAYIN_DataAccess\obj\Release\net5.0\ref\RAYIN_DataAccess.dll

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DemoApplicationTests" project="demo" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.riya.spring.boot.demo.DemoApplicationTests" time="3.708" displayname="DemoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.riya.spring.boot.demo.DemoApplicationTests]">
+    <testcase name="saveProduct" classname="com.riya.spring.boot.demo.DemoApplicationTests" time="3.708" displayname="saveProduct()" uniqueid="[engine:junit-jupiter]/[class:com.riya.spring.boot.demo.DemoApplicationTests]/[method:saveProduct()]"/>
+  </testsuite>
+</testrun>

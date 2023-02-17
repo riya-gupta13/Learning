@@ -1,0 +1,1566 @@
+powershell:
+croos platform task automation sol
+other resources also
+linux, win,mac
+
+commands:
+crete new resgrp
+create vm
+create vn and pIP, security grpname
+
+
+backup section in vm:
+elect existingbor create new
+
+backup policy:
+freq:daily, specify no of days-12weeks
+if we want to specify new policy we can
+enable
+
+now again go on backup: there will be restore points
+backup now:=enable
+
+BackupItems: we can see lst backup status
+file Recovery tab: xchoose app consistent
+download give pswrd there will be given pswrd
+
+now open file explorer in vm u have one new E drive
+Restore Vm: Restore conf:create new choose a storage acc
+perform restore
+u will see a new disk in your resources
+
+
+
+4TH SECTION:
+
+azure web apps:no underlying infrastructute,autiscaling,security features
+devops env
+app service pricicng: app service plan create, where we will build acc to plan
+in basic plan we can have unlimited no of web apps
+app service plan will support only one image(windows or linux..) u cnnt run linux app on this plan if it is windows plan
+
+create web app: runtime stack: .netcore
+appserviceplan:basic, no appln insights, thn deplaoy
+go to resource: we have url, we can chk this url on browser
+
+visualstudio=new prjct=asp.netcore=asp.netcortwebapp= configure for https yes= publish=azire=azure app service=ur webapp=finish=publish
+now chk that url on browser again 
+another web app= add = web aap= resrcegrp=name=asp.netv4.8=windows=same region
+same app service plan =no appln insight
+
+visual studuo=asp.net=asp.netwebappln=create=template mvc= run locally
+go app services=url
+visualstudio= again publish=same steps
+
+web app logging:
+go to app=appservicelogs=u can turn on= we can store in storage acc=level=info=webserverlogging-filesys=retention period=1=save
+log stream=real time view of ur app nd logs
+continuous depl: new web app=u have deploymnet tab=runtime=.nrtcore=u can set github acc
+app srvices=choose ur app=signin github=in vs=new prjct=asp.net=give prjct name=longterm suppt=publish to github==go to git tab on top= acc:give ur acc=
+go to webapp in azure=deploymnetcenter=source control=github=sigin=organization=ur acco=branch=master=save
+go tgo app=eplcenter=sync=refresh website=
+
+we can do this using commands also
+create git repo from vs=public repo=copy ur url from github in cmmnd
+
+How to map custon domain name to our app
+godaddy=nd create a new domain name
+azureportal=in app=custom domains=click on add custom domain= take the domain from ur godaddy
+Records=map cname=add txt name or cname take from godaddy and take fron azure and pste in points in godaddy=validate=domain ownership is given
+copy tgo browser and run it =advanced =go to website
+how to amke site secure=go to tls/ssl=crfeate app service= create
+go to bindings tab=add binding=now again chk the url ur site is secure
+
+cross origin:
+Throgh (sourceapi)
+create new prjct=ap.net Core Emptys=next=create
+create folder=moldels= create file
+new service folder=create file
+controller folder= go to  browser= nd run the app=u will get data
+
+Consuming Api:
+again new prjct=asp.netcore empty=new foler=new item=htmlpage=add code
+deploy two webapps on azure
+then publish from vs
+for both of these prjcts
+go in app in azure=cors=enable=allowed origins
+
+we can do it from cli too 
+
+deployment Slots:
+staging envs=to deploy new version of ur app
+version1 = prod slots
+version2 = staging slot:
+it hepls in validating changes
+swap the slots
+rollback
+eliminate the downtime of ur appln
+lab:go to app service plan in app=overview=url=run it
+publish a app from vs to azure webapp=go to deploymnet cneter=go to deplslots=standard plan
+go to sacle up=prod=stagingslots=apply=from vs also publish it
+go to overview=deplslots=u can now add slot=u can frst test thn deploly
+add slot=staging=do not clone=click on that slot=
+go to vs=publish=appservice=slct ur slot=publish=rfreshurl
+after testing to deploy on prod
+go to any slot and click on swap
+now go to the url=nd refrsh
+
+AutoScaling:
+if u have standard plan in appservice plan the u have autoscaling featurein basic, you can do upto3 but ths is manual
+in standartd its autoscaling=in webapp=go to scaleup=standard=apply=so u r updating ur appservice plan
+go to sacle out=go to custom scale=saclebased on metric=rule=cpupercentage=u can also change metric source= current resrce= instance=3
+operator =greater than= 40= you can compare it with memoryper and then  slct perctnge
+cool down period whn our vm is nt wrkng out to scaleout=apply
+u can see in observed cap
+
+Connection Strings:azurewebapp to sql db
+lab: create new sql db=resc grp=dbname=servername=give credentials
+go to configure=basic=networkninpublic endpoint=yes,yes=create
+sql server mngmnt studio dwnld
+in portal in db= resrc=copy servr name=authentication=sqlserverauth=credentials
+databses=execute cmmnds in db
+create table= insert=select
+vs =newprjct=asp.netcoreempty=create
+create folders=models
+create folder=service
+create fold=controleer
+create fold=views
+add code
+to get SqlConnection=tools=negetpackage=searchsql=system.data.sqlclient
+run the prjct
+go in appsettings.json file in vs= enter the connction strings there, enter password in there
+
+azure=webapp=createwebapp=.netcore=create
+publish from vs=choose app=publish
+newtab=run the url
+in azure webapp=config=cnctnstring=all string=tke from vs to here copypaste
+now u can remiove frm vs ur cnction string
+
+azureappconfig=provide cntral place mnge app settngs and feature flag for ur web applns
+app configu=create=resgrp=name=procingdetails=create
+gotoresc=cnfigexplorer=create=keyname any name=apply
+vs new prjct=asp.net web app=create=add Nugetpckg=appconfug=slct ur app.
+in azure go to accsesskey=showvalues=cnction string=replce it in vs in code
+run the app
+
+FeatureFlag=Featuremngr=name=create vs new prjct=create=Nugetpackge mngr=app configurartion search=install
+Install Feature mngmnt=slct ur prjct
+go in azure and enable tghe feature flag, u can add ths feature whn u want
+
+AZURE FUNCTION:
+Add functgion=dev in portal
+template= HTTP TRIIGER(MOST COMMON)
+cODE+tEST= U CAN CHANGE TGHE CODE THERE=SAVE=U GET LOGS THN
+TEST AND RUN= GET METHOD=RUN= u will get response
+if u want to debug u can use log.
+create another fxn= click on add=name=add
+code+test=it runs as csharp script, we also hnave fxn file as function.json
+by defualt action result is a result whch returns various responses of various HTTp response
+HTTPREQ req= contains the req of the user
+get method pass the value and get res
+Post method
+new fxn=code+test=post=run
+Using Vs:
+create new prjct=Azure Functions template=create
+azure fxns version3 use HTTp trigger=create
+run the code pressnt=allow access=tke the url=postman=pass paramtr and get response
+all resrcsazure funtion app=resgrp=name=runtime stack=.net=create
+gp to resc=azure functions
+vs create new fun Azure Function APP=create=slct urt app
+publish=go to azure fxn app
+code+test
+
+Azure Durable FXns:Stateless=to implemnt a wrkflw
+order=pymnet=receipt
+we need sqntial flow
+execute three fxns=the other fxn can execute
+vs=new prjct=azurefxns=name=durable fxn orchestration=see the code=
+publish=azure=azure fxn app=choose ur durable fxn=publish
+in azure=functions=slctg ur fxns=tke the  url=postman=send=it will execute the activity fxns=
+tke url again run on postman
+
+to get data from fxn: cnnct to server
+vs=new prjct=next=create=rename fxn if u want=add new class=columns in db create colmns in hre=code add
+to dwnld SqlConnection=tools=dbsqlclient=
+on azure take db url paste hre pswrd chnge=run thisu will get url = run on postman
+in azure=create fxn app=publish=finsh
+goto fxns=get url=postam=send=sme info frm db 
+
+post in fxn using db
+create new fxn in vs in same prjct= chnge the post req in code add some code=publishd=save
+gotocrse fxn in azure=url=postamn =post=reqbody pass=send
+chk in db 
+
+using cnctn strings:
+in same prjct=mention cnction string, replace this in azure cnctn string add SQFAZURECONSTR before the cnction string=save=continue=publish
+postman=url=get req=u will get info
+
+fxns with webapp:
+reuse same fxn in vs 
+u have to decide on req which form we want the data
+json or lust or any
+u have to chnge the code for ths fxn based on httptrigger
+run the url from azure webapp on browser
+
+Containers:is tool for containerzeds app(isolation)
+docker is tool for containerized app can have dependicies or thrd party libs
+it can crash other appl on thesame vm that is why isolation is necessry
+container hlps in that
+u can run it seperatly in container same vm it hepls in bundling app
+portability: if u want to change the port ur app on diff vm thn jst move the container
+
+Docker:open platform to run applns, isolated env
+u hva eto install docker: it will hlp to create conatiner or on which the container will run
+hosting ur applns, underlying memory cpu evrythng containe will hve access through docker
+container is templte of vm
+means u create a image from tht u create containere
+u need host to run container
+
+azure portal= dwnld docker and all:
+on linux=vm=new vm=subscription=ubuntu server=pswrd
+rest evrythng same=create
+commands to dwnld on vm
+browser=go to link=
+in azure=public IP in putty paste=login=exceute cmnds
+install libs
+to see version docker --version
+running or containers on linux
+u can run based on image
+theres a site dockerhub where u will find images which has nginx(server)
+docker run ___________ (nginx) this is the name of image
+go to docker hub and search for image 
+to run contaqiner we hve to dwnld frm there the image nd then u can
+in nginx container will run on port 80
+and vm on diff that is the isolation
+we can map the port
+images are layers
+container is running on nginx on docker
+on azure=linux vm=add inbound for port
+go to address and browse
+to see images sudo image ls
+sudo container stop name
+
+
+docker desktop on linux
+linux env running on windows itself
+dwmld windows subsystem on linux
+programs= turn windows features on or off=install windows subsystem for linux=virtual machinePLatform
+dwnlod=kernel package=run it=powershell run tht cmmnd= 
+microsoft store=ubuntu 20.04=install
+launch ubuntgu=useranme nd pswrd
+installing docker desktop
+
+docker in windows:
+using cmmnds conatiner contains many layers
+we will not be able to run tht nginx on windows bcoz that image was bsed on linux
+so create new image
+u can chk on docker desktop
+
+
+adding docker on vs:
+new prjct=asp.net core webapp=name=enable docker=create
+
+go on prjct=add=docker support=linux/win
+if u want to create ur own image instaed from nginx
+vs will create a dckrfile for u that will run on container
+vs will give u support for creating the container and run for u
+
+to run this image on vm we hve to publish it on dockerhub
+on dockerdesktop=publish from thre
+vs=publish tht prjct=docker container regisrty=docker hub=personal repo=publish
+qit will publish ur image on docker hub
+but in vs w can do it easily
+publish that prjct on docker hub=go to docker desktop=repos=u cans ee ur image
+
+to pull this now from docker hub to use
+on linux vm cmmnd=will pull=run container
+
+Container Instances:
+fast nd simple way to  deploy ur containers dnt need any provision to host thy have their fully qualified name nd ip address
+add container instances=create=images=dockerhub=public
+ostype=linux=docker host=port mapping=80=create
+tke ip add= u can see ur app
+
+continer images:is bsed on multiple layers
+basimage themn nxt lyer can be=nginx=cnfig file=thn nginx
+wedont bother about images=see tht ur image shld nt be large in size
+all the layers are readonly but top lyer is writable lyr
+dockerfile on vs:publish it locally on machine
+we have created runnable version of our file
+now take the docker file and save it to our runnbale version files
+FROM keyword specifies the base image of ur container=asp.net.3.1
+create container instance:create
+on rescr=ip = home page og app
+
+multistage docker builds:
+
+Azure Container Registry:
+add containeer registry=create=resrcgrp=name=create
+publish from vs on docker container registry
+now u will be able to se ur repository
+
+Container instance:
+Image:
+port 80
+hit public ip on browser
+
+Mounting voulmes
+we can create volume on docker instaed of using container
+cmmnds, image is ubuntu
+mount on target=/app
+this will be mapped to the conatiner=/app
+if we want tp persist data, we can go ahead nd create volumes
+mysql container:
+
+docker compose:tool used for defining and running multi contianer docker appln
+uses a yaml configuration file
+it is used to manage/deploymntg to the two containers at a time
+
+Conatineer grps is alos used to group contgainers and deploy thn using Resrc Mngmnt yaml file
+
+container grps=two containers in one grp
+
+Kubernetes: mnge containers at scale is used to orchestratee your containers for appln, for monitoring ur appl
+
+cluster= master node are vms are mngd by cluster
+master node is used to control the nodes in cluster
+node is used to host app
+load balancing the request across diff pos of container
+deplmnt controller will switch to dif pod if one is not wrkng
+
+
+Section-6::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Azure Storage Accounts- this provides storage on cloud.
+create new acc=rescgrp=name of acc=region=performance(Standard),Redundancy(local yrs)
+ntwrkng=public=dataprotection=enble soft delets for blobs=create
+go to resrc=containers=create=name=accesslvl(Private)
+go to contsiner=upload hr=it is stored in binary
+u can to uploaded file=details=u can edit too
+Azure Storage explorer=dwnld from browser=after=Subscription=azure=login with azure acc
+you can see evrythng thre=u can upload/dwnld frm thre
+
+to provide access we can use access keys, sahred access signature, azure AD
+
+in ur acc=access keys=key1 take=go to storage explorer=selct resrc=storage acc=name and key=copy key from azure hre=next=cnnct
+u can hve access to all in that acc now hre
+
+containers=ur container = it shld be private accesslvl=generateSAS(Shared Access Signatrr)
+u can allow https only and access
+
+Shared Access Signatures:
+go in acc=shardsaccessig= u can provide access to the resrces u want
+start and expiry date ucan give
+ip addresses u can
+it will be generated based on access key
+it generates the links dwn in cnctn string and all baes on things tht u slctd to provide
+u can go nd cnct to microsoft azure storage explorer nd put the access key nd u will get access
+
+u can access sharedAS from store access policy
+slct dates=create
+read from videos
+
+azure storage blobs:
+four classes(BlobServiceClient, BlobContainerClient, BlobClient, BlobDownloadInfo)
+BlobServiceClient=allows to work with azure storage resrcs and blob continer
+vs=new prjct=console app=name=.netcore 3.1=negetPckge mngr=browse=blob=azureStorage.Blobs(dnt choose beta version)=install
+create new storage acc in azure=write code in vs
+
+how to upload blob on container=vs=write code=upload method hlps in doing tht
+
+how to list blobs in container=in container client=method=client_GetBlobs
+
+to dwnloadInfo = we have mthod=ToDownload=specify loc it will dwnld
+we have been wrkng in version 12
+
+my questions cmes frrom ver11
+so:
+nugetpckge=uninstall pckg doe ver 12= dwnld for version 11
+
+SharedAccessSignature to access blobs:
+create sharedaccesssignature in azure in storage acc
+write code in vs
+
+pricing is based on storage amount(hot, cold, archive)
+hot=accessed freq
+cool= accesssed infreq
+archive=rarely accessed and least 100 days, it will be enable only at one lvl
+to access this we hve to rehydrate this and thn use=whn we do tht it has 2 options=standrd priority/high priority
+
+azure Blobs:
+in storge acc= lifecycle mngmt=appplu rule=chooswe type=subtype=if then cndtn we can specify=add=it has code view also
+
+AzCopy=dwnld execuatbe files=extract=to make conatiner=azcopy make cmnd
+it copies data fron one acc to anothr
+use this tool within automation scripts to copy data autromatically
+
+Azure Blob Snapshots:
+read only version
+snapshot u can take
+
+azure=ur blob objct u hve=snapshots tab=dwnld=refresh=again u can edit ode
+if we del blob then we hvr to del snapshots too
+in soft del we can restore blobs and snapshots both
+
+Azure Blob Versioning:
+maintains previous version of objct restore an earlier version subsequent modify blob, newer version is created
+blob versions are immutable, cant be modified enable versioning, u can disable at any point, but ths does nt del existing blobs, version, snapshot
+
+azure=conatiner=blob service=data protection=tuen on versioning=again go to container
+blob obj=edit=versionId= u can go to previous version too
+
+Azure Blob-Change Feed
+data container=storage acc=blob service=data protc = tracking = turn on blob change feed=save
+now anthr cntnr will be created= edit=change add some code=save
+in this the new container tht got created =it will hve the log for this change
+it gets ap= pended
+
+Azure Blobs-lease:
+blob obj=multiple clients hve same pbjct access= if one client changes= thn it shld reflct fr evryone
+so, thy will whn go thy will acquire lease means a lock now no client can modify until tht is relased
+so ths is how it wrkd.
+This is also possible. You just need to ensure an endpoint is configured to process the blobs
+
+in cntnr=in blob = we hve tab= acquire lease= acquire ID
+we can dwnld frm thre= to release, u hve to do break lease thre
+
+leases with dotnet
+memoryStream= dwnloading content of blob to memory, so that we can mke chnge in hre
+StreamReader= display contents of blob using StreamReader
+StreamWriter=to mke chnges/ write to blob 
+
+ARM Templates:
+multiple copies of one rescs
+copyIndex()return currenbt iteration in loop
+if u wnt strt frm particular index -copyIndex
+you can also specify a modefor the deplomnt which can be srial or paralle
+
+azure=template=create=edit tmplte=save=deploy=create
+
+FileShares=file shares=new = add storage acc=premium=it allows files shres=tier=Transaction Optimized
+choose based on ur req=based on accessing
+upload ths
+
+Docker Containers:
+volume to be attached with container=cmnds
+
+Azure Container Instance= Container= .netCore app=which has blob=data
+vlme=fiel share
+vs= azure=docker container reg= container registry
+create
+create file share in azure=access keys= copy username paste in code
+
+Azure Container Instances-Secrets
+publish on container reg
+
+Azure Table Storage:
+non reltional structure
+nosql data
+data is stored in key/ attributs nd values
+follows schemaless design
+in azure portal= tables==storage explorer=tables=add entity=partition keys and row key
+partition keys can be a city in ur data then all entities tht blng to tht entity will go in thre
+so this beacomes so esier to search for specific data
+row keys=is particular row in entities=customerID
+
+.Net Create Table:
+add nuget pckges=search table=microsoft.azure.Cosmos.table install=accpt
+in azure=tables==del=access keys=show keys=copy nd paste in vs
+
+.Net-AddEntities:
+new Class create in ur prjct= inherit microsoft.azure.cosmos.tables
+create objct in ths
+
+Cosmos Db-NoSQLDB=oracle, Microsoft SQL Server, Relational data model
+MongoDb and CosmosDb
+In Mongo=install sftware, maintin vm, increase storage wheen req but in cosmosDb: automatica scales, automatic scales computing, supports many APIS
+
+in API u create=db acc=db=container=item
+in azure=create cosmos db=api=Core(SQL)
+u r charged based on request units which are(cpu, memory,IOPS)
+Apply free tier acc=evrything same=create
+go to cosmos db= create container=sacling=manual
+Partition Key:customerID
+
+Partitioning==logical partitions=physical partitionbs
+we can multiple no if prtitions and we can store upto 20GB of data
+partition key=customerName=sam naem then 2 customers in one partition
+partition key=customerID
+
+how to choose partition key:
+choose prop tht does nt chnge
+and sme rules
+
+CosmosDB- Embedding Data:
+whn there are contained reltnshps btween entities
+one to few reltnshp btween entities
+embedded data changes infreq
+embedded data is queried freq tgthr
+normalizing/denormalizing data
+
+Embed data with .NET:
+code
+
+Referencing data:
+one to many, many to many, many changes to related data
+
+Chnage Feed= this listens to all changes in container and outputs a sorted list of documents that were changed in which they modidfies
+Stored procedure: here you can perform operation at db level
+Triggers: you can perform operation bfore or after cosmos db operation
+
+in azure=cahnge feed= azure fxn=vs azure functions=name=crfeate
+use cosmosDb trigger:whn any cahnge occurs this fxn will be called=create
+
+Synthetic partition Key:
+no value that can behave as partition key
+thn u can add prop tht is combination of prop of othr values=this ixs hre we r generating our own partition key= synthetic partition key
+
+Time to live:
+can specify a time to live for all items in container
+after live toime is reachd, the ite, will ddelete automatically
+the item del using left over request units
+no leftover req units the del of item delayed
+we can set value of time to live in container
+in azure=container=we can add ttl in code
+
+Composite Indexing:
+azure cosmos db by default index all prop but to add anothr we hve to add
+in cosmosdb=settings=replaced the code=we can specify two=this is way we r producing index policy
+
+Azure Data factory:
+rescgrp=region=public endpoint=create
+we r going to create pipeline which will convert csv to json
+go in data factory u will get csv file=publish ths file in storge acc=containers=new container=upload file on local sysytem
+go to data factory=copy data=new linked service=azure blob storage=slct ur acc
+go to factory=ur file=detect ur file=next=textformat=json=u can selct all colmns or ur rq=it will create pipeline
+go to azure ur json file will be thre
+it will be cnverted to json
+
+Consistency Lvels:
+two apps in diff regions=partition keys then leader and then followers diff in both
+one app changes sme data this has to be replicated on othr region.
+thre mybe one option that u may miss sme data to replicate bcoz of concurrent users
+so, one way is you wait tht whn all is done thn u replicate
+this is Consistency:
+strong= it will replicate only whn change is recent
+Eventual: you miss latency in string but here u do not, you loose performace but win on consistency
+if app read then it may read older or new so u may win on performace but loose on consistency
+Boundless Staleness:here reads can lag behind the writes b
+session: here reads can be guranteed for same session.
+Consistent Prefix:here thre is a delay in raeds of most recent data but you will nvr see out of order writes
+means it always see it inorder
+
+In azure:default consistency=thre is limitation on ths based on locations ur app is
+
+Cosmos Db-AZURE CLI:
+cmnds imp
+
+Azure Fxns- Blob trigger:
+vs=crete prjct=azure fxns=create=Blob trigger=name of ur contgainer=name of cnnction string
+
+Azure Fxn-Always on Setting:
+when new or updated blob is detected(Blob storage trigger)
+azure Fxns=(based on comsuption plan, app service plan, basic/standartd)(Always on settings)
+in azure=new rsrc=azure fxn=plan type(app service plan0=create
+in fxns app=config=general settings=Always on(on)(based on blob trigger)
+thre will be small dlay in doing tht thn to avoid tht use this always on setting inj appsrvice plan
+
+
+
+Section7:Azure Security::::
+Basics of AZURE AD:
+AD(identity provider) to access applns
+Azure Active dir to signin access resrcs
+diff pricing models for AD.
+Azure AD users:create new user=let me create new pswrd=userroile=create
+
+RoleBasedAccessControl:
+AzureAd=create identities=authentication=subscription=thy can use resrcs based on role based
+
+thre are sme builtin roles also u can chck thm
+u can provide the role in access control=role assgnmnts
+fr rescrgrp too we can give permission
+
+
+ApplicationObjects:tht u define in azureAD
+we can embed the access keys in ad this is one way we can create appln objct to authorixe the resrcs
+
+Azure Blob Storage-Application Objcts:
+in azure strge acc=container=azure ad=new registration=register
+strge acc=accesscontrol=add role ass=slct ur regstartion in  that=give access to storge acc=add
+clients anmd secrets=add client secret=add for app this is
+
+Azure Key Vault:
+is used to match all the secrets, passwords, it will fetch pswrd from key vault thn you can access
+in azure=key vault=region=choose access policy=vault access policy=create
+use of applcn objct=to sccess key vault
+Secrets=create secret write code in vs
+
+KeyVault-Encryption Keys:
+code in vs= use azure.keyvalut.keys
+
+access policies and roel based(access control):
+diff between two:
+create key vault in azur=azure ad=azure role assgnmnts
+if u want to give access to secrets thn u hav eto give access to key vault
+to do tht u can add role assgnmt=reader role
+thn create new secret in ur acc=access policies=secret=pricipal=user
+
+MANAGED ENTITIES:
+THIS HLPS  to auithncate to services tht support azure AD authntication
+u can do basede on access policy or key vault=u hva to add some secrets md pswrd thn only u can do it
+thn we use mngd entity:azure ad=rolebased control=azure storge acc
+hre u dnt hve to add any secrets fr tht u can directly add this
+
+storage acc= container=add file/blob=access keys=cnction string in vs
+go to vm= cnct to rdp=edit in rdp=local rescrs=connct=file explorer in RDP=tmp folder=ur acc=bin =copy debug folder to d drive
+c drive=create folder=dwnld .NET installer=run file with extension app
+.Net library DefaultAzureCredential() hepls in geting the access token
+Go to vm=system assigned=turnon thta=now u will hve own identity for tht=add role assgnmnt to tht id=save
+anothr role to read data =identity=tht u created=save
+
+Getting access Token: we can use tht inbuilt class(DefaultazureCrerdetial)
+othr way:in vs=mke web req=to ur vmd=get the response=use jsonDeSerializer=go to vm run the managedentity.exe
+Getting access token from powershell:
+vm=access control=role assgnmt=slctmngd identity
+add anothr role as reader role
+u can tke resrc id from vm=prop
+execute the cmmnds
+
+Azure Vm-Server Side Encryption:
+encryption Keys=encrypt data=thn stored in disks
+ways:
+serverside
+azurediskencryption
+u can use ur own key using key vault thn use server side:
+go to azure=create vm=create attach new disk=encryption type=usesplatform mngd key=next=create
+resc=os lvl disk=encryption=u cant chnge it until it is stopped/deallocate
+keyvault=keys=create key=create
+all rescrs=diskEncryptionSet=create=encrytiontype=customermangd=craete
+key vault=access policies=th dekencr will bethre noe=
+vm=disks=encryption=choose ur encryprionset
+
+AzureDiskEncrytion
+server side is used tht is not based on OS
+bit in ths we hve to see tht
+vm=disk settings
+key vault=accessPloicies=enabel azure disk
+now go disk settin=add key settongs
+
+Authentication and Authorization:
+Authntication: the process of proving that you r who u say u r
+Autho=granting access to authntictd user to access resrc
+azureAd=IdentityProvider
+You have to modify the manifest file to get the group claims
+If you are going to generate a new application in Azure AD, you also have to ensure to change the application manifest file to ensure the group membership claims are returned to the web application.
+
+You have to develop a web application that will run on the Azure Web App service. Here users of the web application will authenticate by using their Azure AD credentials.
+
+The user’s permission level would be determined by the Azure AD group membership. You have to configure the authorization for the web application.
+
+You decide to implement the following steps
+
+1) Create a new Azure AD application manifest.
+
+2) You set the value of groupMembershipClaims option to All
+
+3) In the website, you use the value of the groups claim from the JWT for the user to determine the permissions
+
+
+
+user=app=user nd pswrd=loggedin=it calls various apis=uses access tokenfetch info from datastore
+we have service thet is exposed to app
+app maitians its own data store=tht is azure ad
+
+OAuth:
+GrantType:ClientCredential=API=thn fxctionlity in azure
+
+onewayauth:
+applnObjct in AD:app(.netbased) uses(TenantId,ClientId,ClientServer) ClientSecretCredential Class=to get access tokens=thn u can access storage acc(but provide role based access)
+
+Using POSTMAn to access BLOB using OAUTH:
+stirge acc=create container=Private(no anonymous) access=create file and upload it on container
+POSTMAn= copy url and send it will nt
+fr accessing chnage accesslevl=anonymous
+but not right approach
+
+ad=(appln obj)create directory=app regstartions
+strge cc=access control=add role=choose ur regs(Reader)
+and one more for BLOB Reader(slct regstratuon)
+we hve to get the access token=go inappln obj=endpoints=copy paste in conatent-type
+mention values in body:
+grant-type
+client-id
+client-secret
+resource
+take these all values frm appln obj
+thn u will get tgoken
+thn specify this in headers as authorization and also define one more key x-ms verion
+
+to access secrets frm potsman
+create a secret in key vault=access ploicies=secrets=choose get=choose ur app=add
+th copy url in potsman get token paste=specify version in url=thn send
+
+Accessing GRAPHAPI from POSTMAN
+appln obj=api perm=removre perm tht is thre=add=grapg per=appln permission=user.ReadALL=also grant amin consernt
+potsman=get token=invoke graphapi=add authorization header=paste token
+
+OAuth Auth Code Flow:
+web app(.Net)(IIS)
+user logsin=u use AD/Data Store
+suppose user wants to access the browser to access app=API=TO ACCESS PROTECTED RESrc
+it will mke an auth call whn hittng the browser=get token=send req to token endpoint along with auth code
+
+
+Resource Owner=issues Auth code and Authen
+the user who wld be able to access the protctd resrc
+Res Server: this is server that is hosting the protected resrcs. Access is granted to the resrc with use of access token
+Auth Server:The server that will issue the access tokens
+
+For an application defined in Azure AD to 
+access a storage account, you have to implement the permission of user_impersonation. 
+Here the permission of the logged-on user would be used to access the storage account.
+Yes, this can also be achieved via role claims. The required app role can be created at the application level and then assigned to users
+
+Azure Storage API: delegated type permission
+GraphAPI: User.Read
+Microsoft Graph API: delegated
+
+To get the metadata from the local service on the machine, 
+the right URL is 
+http://169.254.169.254/metadata/identity/oauth2/token
+
+You can deserialize the response using the JsonConvert.DeserializeObject method. You can then get a dictionary collection and then get the access key from there.
+
+Here we need to use the flag of IdentityType. For more information on this , one can visit the below URL - https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm
+
+Here since the lifecycle needs to be managed with the resource itself, we need to use a SystemAssigned identity. For more information on this , one can visit the below URL - https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm
+
+
+SECTION8::::
+Azure Monitor:
+metrics=choose vms=choose ur vm=u can see graph=u can set alerts
+Activity Log:dwnld log file
+Alerts:for paticular vm=create alert=susc=rerctype=choosee vms=add condition=based on metrics=cpu perc>80%=Also based on activity log=all evnt lvl=action grp=name=rescrgrp=action type=email=put email add=ok=alert detailsd=enable=create
+to mange - go to manage rules
+go to vm=stop vm=u will get email
+
+Azure Monitor-CLI= cmmnds
+
+APPLICATION INSIGHTS:
+performance mngmt service:
+monitor
+detect anomalies
+diagonose isssues
+how users use appln
+improve perf nd usabilty of app
+to mke it wrk:install small pckg
+
+Req rates,response times and failure rates
+exception page views nd load performance 
+user and session counts
+perf counters
+diagnose tace logs
+any custom evnts or metrics
+
+Funnels:can create funnel from one stage to anthr of app
+u can see how users are progressing thrgh stages of funnels
+Usser Flows=navigate btw pages in site
+wht do users clicj on pge
+whre users churn most of site
+user repeat sme action or nt
+Impact=which site is impacting ur app
+Retention-how users are return from the page
+
+
+In Vs- we only see telemertry data
+in Azure- APPln Insights
+Create APPLICtion Insights=create
+contine Instrumentation key= that is used to configure in vs 
+in ur resrc=live metrics=u can see evrything
+
+Azure Web App=Appln Insght:
+new azure web app-create=Monitoring=Appln Insights=choose ur app
+Vs=publish it on azure web app=publish
+url tke rfrom azure of web app=run=appln insight=live metrics
+appliction insight in webapp=turn on evrytinh
+
+SQL Dependancy-Appln Insights:
+
+Adding Authntication to Program:
+jst add the appreg for this app and configure again in vs
+
+Appl Insights
+You can set a daily cap to ensure that the cost does not exceed a budget. You can go to “Usage and estimated costs” for your Application Insights resource and then hit on Daily cap.
+
+funnel: is the progreesion of the series of steps in an app
+azure=funnels=edit=selct the pages u wnt=view tab
+
+User Flows:wht hppns bfore and after=u can go to user flow=it will mke flowchart
+
+Retention:how mnyusers return back to ur app
+
+Impact=slct event=edit page=u can see impact of one page on anthr
+
+Appln Map=it shos diff components in ur app
+
+Availabilty=u can add test=create test=URL PING=copy url of app nd pste=test frq
+Availabilty=respn time=from diff loc
+
+Azure Cache-Redis
+Redis is product for caching
+dnt store all of data in Redis
+data tht is freq accessed u can store tht in redis, it will nt go to db always
+u dnt hve to worry fr infrastructure
+You can use the Azure Cache for Redis service to store session data. Or use a data store such an Azure SQL or Azure PostgreSQL.
+
+azure=add=azure cache=create=choose prcing tier(Basic)=create
+go to resrc=console=define key SET Count="10"
+thy can be in key value pair
+
+dotnet appln tht wrks with cache=create console based app=nuget=service=newexchangeforredis=write code
+
+Azure Content Delivery Network:
+is used for latency whn it cmes to ur appln which is in diff regions
+use content del ntwrk=thy will access the req frm user=based on region it will directed to the closest region 
+so, we hve fst response time and it also cache the response, so that if anthr user mkes some req it can go ahead nd use tht tht saves time instaed of fetchng it from sql
+Since we have to ensure that the video content cache must expire after an hour, we have to set the behavior as Override to ensure all other cache settings are overridden by Azure CDN.
+
+azure=add=search cdn=create=no region==create
+
+go to resrc=endpoint=add=origin type=web app=add
+tke endpoint hostneme and run on browser
+
+CDN Cache:
+Bypass Cache; do not cache, even cache control exixts
+Override:set the cache time evn if server sets the cache control setting
+Here since videos of varying quality must be cache, that means every unique URL must be cached.
+Setif missing: if cache control setting is present, respect the setting. if stng is not present then set cache time
+
+Azure=endpoint=cache control
+if static website thn caching is good othrwise fr dynmic no
+if static u hve to do sme chnges in endpoint=use bypass cache
+thn try it will populate chnges
+
+Azure FrontDoor Service:
+hpls acclerate ur app perfrmnce by routing traffic on perf of ur req
+service wrks at lyr 7 or HTTP/HTTPS
+will route clinet your client req to fstest nd most avalble app backnd
+an app bckned ia ny internt facng service that could be hosted inside or outside azure.
+
+You don’t need to purge the cache assets. Here the issue is that the file size needs to be less than 8MB
+Yes, the compression type is supported in Azure front door service, the issue is that the file size needs to be less than 8MB
+
+URL BASES: YOU CAN ROUTR Ttraffic based on server based on urls
+Mutiple site:u cvan configure more thn  one website on sme front door
+Session affinity: u can keep user session attchd to sme bcknd
+SSl termination
+web app firewall
+
+whn user req it will hit front dor=it hlps in routing req to diff backnd rule=so tht req can distribute equally between apps(priority rule)
+
+azure=webapp=name of app=disble monitoring
+anthr app=diff region=create
+publish from vs one app tp azure web app
+publish sme app on anthr webapp ucreated
+
+Create Front Door:
+create=frontents=hostnme=anyname=enabled
+backendpools=is endpoint=priority at which our req goes frst
+health probes=ur bcknd pool is healthy or not=30 secs=add
+Routing rule=create
+
+Resrc=copy url=u hve to wait a bcoz of health prob=30secs
+
+Trnsient Faults:
+we hve to mke our services transient faults
+Having shared env=azure cloud env shared between multiple customers.it can load too much, so it should hndle all ths
+your app must hndle these
+the app should retry or hve appropriate startegu fr retry
+.NEt sdk services already has facilities of hndlinf. eg.CosmosDB
+The DocumentClient class automatically retry failed attmpts, u can set max wait time for each retry nd no. of retries.
+you can use exponential backoff.
+
+SECTION9::::
+
+Queue Service:
+send nd receive msgs
+exmple:
+hosting site(web appln)=upload videos=to publish=thy hve to be publishd.u hve to store it in storge of unprocessed videos(cntainer) thn thy r processed nd store in processed storge
+but in this process we hve to ensure tht it only picks videos tht are unprocessed
+tht is where we introduce queue=it will picj msg frm queque thy will nt read sme msg, it wuill read the nxt msg
+once processed it shld be del from queue so we can use anthr app componet which can do tht
+
+storage=queue=create=add message==ok=menas this msg will be queue foR tym u specify, it is in Base64 encoding u can chk tht chkbox
+to add and remove, we will wrk frm prgrms
+
+Azure Bus Service also hve queue service this we will read furthr
+
+.net prgrm tyo add msg
+vs=console=.NetCore3.1=install pckges=Queue=azure.storage.queue
+code write=use Sendmessge mthod for it
+to see prop of msg we can use Peek msg=methodname(PeekMessages)
+Receiving Messaging from queue and del
+use ReceiveMessage method and DeleteMessgae
+
+Azure Functions to process msgs frm queue:
+vs=azure fxns=Queue Trigger
+writte code
+using Base64Encoding:use mthod
+
+Azure Functions-Azure Storage Queue:
+add table in storage acc=go to storage exploree=tables=no data
+and queues also open
+host.json file hve settings reltd to queue
+
+Azure Service Bus:
+provides first in, frst out: which will send frst will receive frst
+publisher publish on queur nd consumer can get
+
+app=topic(msgs)=subscriber will subscribe it will tell u if any new thng is uploaded notify u 
+u can use topics fr tht.
+Topics should be used when you want to have a publisher-subscriber model for messages. Here you need a service to receive events. The ideal service to use here would be the Azure Event Hub service.
+Create service bus=creAte namespace=priocing tier=standard=create
+resrc=queues=create queue=create
+Adding msgs to Queuer:
+Service Bus explorer= send=application json= add msgs=overview=u can see active msgs
+Peek section=u can see count,contents
+Receive section=destructiver receive, it will remove frm queue
+
+.Net
+new prjct=console app=create
+add nuget p]ckgs=Azure.Messaging.ServiceBus=create new class
+add code, use JsonSerializer
+in azure=queues=shred access policies=add=send=add=tke cnction string replave in code in vs
+
+
+Messsage Lock Duration
+Peek and lock is one mthd=u get msg, proceess it and thn del it explicitly
+whn one app picks one msg thn its in lock state so tht no app picks it and thn its del thn othr app can pick anothr
+if the msg is not prccesed, thn it again goes back to queue and the app can again pick and process it
+Receive and del is anothr mthod where frst its del thn received
+
+Time to Live Feature:
+in overview in queues, by default its 14 days so tht consumer can consume it we can chnge tht or we can set this fr each msg also frm prgrm.
+
+Dead LtterQueue:
+app sending msgs to queue=if any issues in processing th n thy r in dead lttr queue(tht were nt processed ot time to live)
+we can enable it in overview in Queues=DeadLettering
+
+Duplicate Message Detection:
+create a new queue= enable duplicate detection
+sender send msg to queue, sender crashes, it mght send msg again
+so that duplicate msgs are nt present, we can enable, queue will identify tht thsi msg came bfore or not but frf this we hve to provide msg a msg id, write code r tht in vs.
+u have tp specify messageId in code.
+
+Service Bus Message Prop:
+Id=ReplyTo=is used if u want to receive the response from the queue thn u can ujse ReplyTo in which we can store these messages in anothr queue(responsequeue)
+
+CorrelationID= it correlates wht has been sent and received
+
+AzureServuce Bus topics:
+app= sending msgs to topic = in topic we can subscribe=each app needs to subscribe, if they subscribe, thy will receive msgs fr tht, thy can use filters to decide which msgs to receive
+
+Service Bus nameSpace:create topic=add subscription in that=add
+ServiceBus Explorer=send= json objcts
+u can see in subscriptions
+Receive do same= u can see in subscriptions
+
+by.Net:
+write code=u will hve subscriptions nd chck
+
+Azure Service Bus Topics-Filters:
+SQL Filters=SQl like condtions
+system-defined prop=must prefixed with sys
+Boolean Filters: this is a TrueFiler, FalseFilter
+Correlation Filters: conditiond can be used to match against user's or sys prop
+Crr filters faster thn SQL filters.
+
+go to subs in azure=add filter=boolean filter=False=such tht it does not receive any msgs, we can send but nt receive here
+SQl Filters=add filter=SQL Filter=cndtion based on msgID=give sys.messageID=3
+add code in vs= set the msgId for each msg
+Correlation Filters: add filter=correlation=congtentType=Appl/json, it means only pick msgs if it is in form of json.
+
+Azure Fxns tht listens SErvice bus:
+create prjct=azure fxn=service bus trigger=add code
+add shared poliy in azure fr ths to listen in queue=tke key paste in vs.
+
+Azure Fxn=Service Bus Topic:
+create prjct=azure fxn=service bus topic trigger:
+code
+
+Azure Service Bus Queue and Azure Storage queue
+More thn 80 Gb of msgs thn use azure storage othrwise ui can use service bsu
+in this service bus: you need guranteed frstin frstout delivery of msgs
+for this u can enable duplicate detection
+u need to enable sessions fr queue
+Azure Storage Queues don’t have the facility to support first-in-first-out ordering of messages
+
+Best Practices:Azuere Service Bus:
+internal mngmnt of cnnctions
+dnt use cnctions directly, as it is diffict to estblish cnnctions
+use sme client objcyt fr multiple operatiins
+
+ClientBatching: delays sending of msgs and instead sends pending msgs as batch, works on older version
+Batched Store is whn queue itslf batches multiple msgs before its written to internl store, hlps in bttr throughput.
+Enable Prefetch: receive quietly acquires more msgs frm queue or topic subs. this is up to value definbed by PrefetchCount
+whn receiver wants to receive msgs, msgs are received from buffer based on no of prefetchd msgs thn addtnl msg nd prefetchd again in bckgrnd
+read ths section notes fr ths
+
+Azure CLI-Service Bus:
+read cmnds frm hre
+
+Azure Event Grid:
+event contains data tht is sent to event grid=event hndlers(using fxns, logic apps, evnt hubs, storage queue)
+
+Azure storage acc: src of evnt, fxns will subscribe to evnt
+
+handshake(Validation code, validation url)
+
+Azure event gid has support sonly fro Blob storage acc
+if u have high sacle, thn use evnt grid, 10000(blobs)
+
+Event Hubs: big data streaming platfrm
+produces,client=in multiple prtition(db)=consumer grps(tht read data)
+
+Event Hubws:
+add= evnt hub=create
+namespace=add evt hub
+no way to del msg frm hub u hve to use msg retention
+one receiver per partition, if  u hve so much data
+
+u can have up to 5 concurrent readers per parftition per consumer grp
+u hve to be crful not to duplicte the process o reading the smne msgs
+
+EvntHub Processor ikt keeps tracks of all msgs in evny hub.
+Yes, Azure Event Hub can be used to get the messages from the various devices. 
+Azure Event Hub capture can then be used to persist the events to Azure Blob storage.
+
+
+The Azure Event Grid service is used to receiving events and would not fit the purpose of the requirement.
+
+azure Event : used for telemetry or distribued data streamninh(Msg size:256kb for basic tier and 1 mbfor stndrd)(whn cxhange occurs in blob)
+evnt grid=lightweight notification of cndtn or state change(Msg size of an evnt is 1 MB)
+Azure Service Bus: ths is raw data tht needs to be consmned(Msg size: 256kb or 1 mb if premium)(exmples:order prosccng nd financial processing)(to receive notrification frm evnts)
+
+Appln Prgrmng Interface: computing interface defines interactions btwn multiple sftwr intermediaries.
+it defines kinds of calls or reqs tht can be made how to mke thm, data formats tht need to be used, convntions.
+user=API Interace=Module,Fxn,Code=data store
+cli is mkng an api call over http
+
+cmpny has data stores and diff set of APIs fr this
+user =web app=go to set of APIs( we can decoupling, d=scalaability,Security)
+
+API Mngmnt
+apps=thy will mke call thrgh api mngmnt to set of APIs to data store
+adv:
+1.hlps in easier mngmnt of APIs
+2.can chnge behaviour of APIs via policies
+3.hve built in caches
+4.can implemntg better security of ur APIs
+
+vs= creating web API:
+asp.net core empty prjct=add folder=models=inside tha add class=course=create json objcts add thm
+add storage acc in azure=create=add container=upload the json file here of courses
+in vs=anthr foldser=services=class(to interact wioth datya)=tke the cnction string and provide her= add mthods=code=nuget azure.storage.blobs
+deserialize the json objct hre
+create new folder=controllers=new controller=mvc=write code
+run ths = u will get data=ths picks dta frm azure strge acc =we can pass the id nd get all those too
+publish ths prjct on web app=chk on browser by running url from azure
+
+create new web app=.net core 3.1=no appln insights
+add API mngmt=choose diff loc frm app=create
+apimngmt resc=aAPIs=add blnk api=name=url of ur app=create
+add operation=name=add url=save
+test tab=send=200ok=tke req url on potmn=send=error=ths is ecurity feature tht api mngt gives
+to access this we hve to give subscription key in in thre pass tht thn u can access
+u can diff apis for evry operation post, getbyid...
+
+we can invoke API from web app to instead of API mngmt but only one at a time cjoose
+app=access restrictions=add rule=action deny=address any=add
+add one more=fr the url of ur apimngmt url(tke it frm apimngmt public ip)
+it will only getresult using apimhngmt service now
+
+API mngmt Policies: are collction of xml stmnts
+can be use to execute an operation on req or resp of API
+
+Apimngmt=ur api=inbound processing=policies=add
+ipfilter to it
+postman=send=forbidden error=nw remove tht ipfiltr frm thre it will wrk
+so like ths u can restrict
+
+conditions in policies=edit in policies in apimngmt=edit thre we added CustomerKey=we hve to give the key in potsmn thn only we can get
+Outbound Processinh:
+api=test=req url=subscription key=potman=send
+policies=edit=we can set-header based on sattus code we want
+
+Caching in api=we cn cache resonses=if we enble cache thn tht response is stored in cache so nxt tym if user mkes same req, 
+it can ftch frm thre=ssaves time
+api=operation=design=operation=add policy=cache resp=durationj=120=save
+test=send chk cache in trace again test=and chk
+
+OpenAPI Specification:
+code in vs
+
+Virtual ntwrkconn-aoi:
+azure api=hosted on vm part of virtual ntwrk(IP)=it hosts on ths=but mybe we want private 
+thn we hve to enable the virtual ntwrk setting:
+external: gateway is accessible frm public internt via an externl load balanacer
+internal: gateway is only accessible frm virtual ntwrk via an internal load blncer(onpremise ntwrk)
+
+create vm=windows sever=allow on port 80=ntwrkng=create new=address range=same=name=ok=next=create
+connct to vm=RDP=add roles nd features=server roles=web server=enable mgmnt service=install
+in vm=IIs=mngmnt service=hit cnctions....
+
+apimgmnt=virtual ntwrk=extrnal=create public ip in azure=thn sekct tht hre=add
+add inbound rule in vm= for 3443,8172,3389,80
+in apimngmt=apis=tke api url frm vm pste hre=apis=add=url add
+postaman=subscription key=send=response
+
+OAuth api mngmnt:postman
+at azure api mngmt tool=send access token thn only we can access send ths thn only we can access
+create a 2 appln objcts in azure(one postamn, other api mngmt)
+in directory=regstrations= add both
+api=expose an api=add
+app roles=applications=apply
+regstartion=postman=req api =add permoission
+api=OAuth=add=any url=endpoint url= from api endpoints tke the keys place= give values=add
+we hve to add policy in policy editor in api mngmnt and in api=add oauth tht we createdc too
+api=manifest(json rep the chnges we amke all are her)=add setting hre for OAuth
+
+from .Net OAuth
+
+
+Azure Logic Apps:
+wrkflow says admin action performed on vm= email admin
+azure fxn is used to define logic to perform steps
+
+logic apps can mke wrkflow and trigger it with cndtn
+
+storage acc=container=add=create a queue
+add resrc=logic apps==create
+.net to send msg to queue with msg id
+go to queue in azure=add access policy for send permission=tke string add in vs
+go to logiuc app resrc=templates=whn msg received=service bus=add listen, mange..
+continue=add queue=new step=operation=create blob action=give cnctn name=storge acc name=choose data container
+now name to blob=dynamic cntnt=msgid=content
+run prgrm in vs=sends msg
+
+Azure Logic Apps-Event Grid:
+logic app=wrkflow=eevnt grid=if evnts emitted resc grp contain operation name for dealloocation of vm=send an email with dcetails using outlook.com cnctor
+
+new resrc=logic app=create=go to rsrc=blank logic app=wrkflow=evnt grid=whn resrc evnt occurs=choose acc=event type=resourceactionsuccess and resourcewritesuccess=add acondtion=expression=triggerr... contyains microsoft.compute.deallocte
+actions=outlook=send email=signin with outlook=subjct.....=save
+stop vm=chk email
+
+Logic Apps-azure fxns::
+lrts add one more action to wrkflow
+add new fxn=httptrigger fxn=code+test
+logic app=add cndtn=azure fxn=data obj=save
+now it will also trigger fxn
+
+Logic Apps-Blob Storage:
+automtic archive blobs:
+strge acc=hot access tier(Blob)=use logic app=
+wrkflow: cnct to strge acc=list blobs in sme interval=set variable= get timestamp cmpre with age variable=if older thn age vrble set the access tier to archive
+
+logic app=template=auto access tier=azure blob strge=give details=continue=Recurrence step=1 min
+set tier age varaible= tke 0 fr testbng=list blobs=details=foreach loop=if true=archive=save
+chk in conatiner access tier now
+
+Azure Notifucation Hubs:
+Azure Notification Hubs need to be used for sending notifications across to devices.
+snd notifications to universal windows pltfrm apps using azure ntfction  hubs
+to wrk with windows store u hve to pay=19 USD
+
+craete resrc=vm =windows 10, version1903=create
+cnct to vm= dwnld visual studio on vm==asp.net=azure=universal dev=dwnld=craete prjct=blank app(univerasl wndows=ok
+setting in vm=devloper mode
+in microsoft partner center=craete app
+in azure=create notification hub=create
+on ntfction hub=windows=add details frm ur prtnr cnter
+
+
+// Stop the Virtual Machine
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+// Get a handle to the virtual machine
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
+// Create an image configuration
+$image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id
+// Create the custom image
+New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+
+First set all of the variables
+Then create the Azure Web App
+Then set the docker image which will be deployed as a container
+Then set the DNS name
+
+
+The Microsoft documentation gives two ways in which you can add a warm-up behavior for your wen applications. 
+One is to add the applicationInitialization configuration element to the web.config file. 
+And the other is to add app settings for your web application
+
+On the virtual machine itself , you can use PowerShell to make a request to the local managed identity to get the access token. 
+You can then use the access token to call Azure Resource Manager.
+
+For using feature flags, you need to make use of the Azure App Configuration service. 
+To ensure the configuration settings are refreshed without the need to restart the web app, you can use the middleware of UseAzureAppConfiguration();
+
+The types of availability tests available are URL ping test and Multi-step web test.
+
+When a blob is moved to the archive access tier, it needs to be rehydrated before it can be accessed. 
+For this you have two levels of priority when it comes to rehydrating the blob. 
+With the standard priority, the rehydration process can take up to 15 hours. 
+For the high priority rehydration process, the job can take an hour for objects under 10 GB in size.
+
+When it comes to an HTTP trigger, the maximum function timeout is 230 seconds. For long-running functions with HTTP triggers, 
+you should use Durable Functions.
+
+Role-based access control is used for authorization and not authentication.
+
+Here since we need all calls to be securely access via the use of Azure AD, we can make use of managed identities in Azure AD.
+
+Here since we need Azure AD resources to remain even when the Logic App gets deleted, 
+we need to make use of a user-assigned identity rather than the system-assigned identity.
+
+To securely access your backend resources via the API gateway instance, you can make use of client certificates that can be stored in Azure key vault.
+
+When you look at the pricing plans for the Azure API management, when it comes to the Consumption plan, it only supports external cache.
+
+Cosmos DB Operator - Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents access to account keys and connection strings
+
+1. AcquireLeaseAsync does not specify leaseTime.
+leaseTime is a TimeSpan representing the span of time for which to acquire the lease, which will be rounded down to seconds. If null, an infinite lease will be acquired.
+2.The GetBlockBlobReference method just gets a reference to a block blob in this container
+3. BreakLeaseAsync - breakPeriod parameter - A TimeSpan representing the amount of time to allow the lease to remain, 
+which will be rounded down to seconds. In this case, it is zero. so it releases the lease.
+
+The correct order is
+
+1.Pepare data or declare variables.
+2. Create the web app
+3. Set the container
+4.Configure custom domain.
+
+The correct sequence of activities are
+# Create a resource group
+#Create an App Service plan
+#Create a web app
+#Create a deployment slot with the name "staging"
+# Deploy sample code to "staging" slot from GitHub
+
+Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, 
+the Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache. 
+Sometimes you may wish to purge cached content from all edge nodes and force them all to retrieve new updated assets. 
+Single path purge: Purge individual assets by specifying the full path of the asset (without the protocol and domain), 
+with the file extension, for example, /pictures/strasbourg.png;
+The scenario in the question asks to purge individual and specific files. So, single path purge is the right choice.
+
+The managed identity policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the Authorization header using the Bearer scheme.
+For managed identity, we no need to send any credentials.
+
+The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan) is a hosting option for function apps. 
+The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.
+A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. 
+The identity is managed by the Azure platform and does not require you to provision or rotate any secrets.
+Your application can be granted two types of identities:
+
+A system-assigned identity is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
+A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. 
+Each rule consists of a condition that selects particular messages and an action that annotates the selected message. 
+For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+Each newly created topic subscription has an initial default subscription rule. 
+If you don't explicitly specify a filter condition for the rule, 
+the applied filter is the true filter that enables all messages to be selected into the subscription.
+
+groupMembershipClaims will get the all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. As website personalization is based on user group memberships, this must be configured.
+
+oauth2AllowImplicitFlow flag is used for browser-based apps, like JavaScript single-page apps. 
+Specifies whether this web app can request OAuth2.0 implicit flow access tokens
+
+You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
+
+While developing an application, you often want to see what's being written to the logs in near real time when running in Azure.
+
+There are two ways to view a stream of the log data being generated by your function executions.
+Built-in log streaming: the App Service platform lets you view a stream of your application log files. 
+This stream is equivalent to the output seen when you debug your functions during local development and 
+when you use the Test tab in the portal. All log-based information is displayed.
+Live Metrics Stream: when your function app is connected to Application Insights, 
+you can view log data and other metrics in near real time in the Azure portal using Live Metrics Stream.
+
+User authentication flow-
+The following steps detail the user authentication process:
+1. The user selects Sign in in the website.
+2. The browser redirects the user to the Azure Active Directory (Azure AD) sign in page.
+3. The user signs in.
+4. Azure AD redirects the user's session back to the web application. The URL includes an access token.
+To redirect user for authentication when user clicks on Sign in, we need Azure AD endpoint URI and Azure AD tenant ID.
+
+Scenario:  Azure Event Grid must use Azure Service Bus for queue-based load leveling.
+Events in Azure Event Grid must be routed directly to Service Bus queues for use in buffering.
+
+Service Bus can now emit events to Event Grid when there are messages in a queue or a subscription when no receivers are present. 
+You can create Event Grid subscriptions to your Service Bus namespaces, listen to these events, and then react to the events by starting a receiver.
+To enable the feature, you need the following items:
+· A Service Bus Premium namespace with at least one Service Bus queue or a Service Bus topic with at least one subscription.
+· Contributor access to the Service Bus namespace.
+· Additionally, you need an Event Grid subscription for the Service Bus namespace.
+
+Event Grid - Event Grid is an eventing backplane that enables event-driven, reactive programming. 
+It uses a publish-subscribe model. Publishers emit events, but have no expectation about which events are handled. 
+Subscribers decide which events they want to handle.
+Service Bus Topics and subscriptions enable relationships between publishers and subscribers.
+
+
+Scenario: File access must restrict access by IP, protocol, and Azure AD rights.
+Auditing of the file updates and transfers must be enabled to comply with General Data Protection Regulation (GDPR). The file updates must be read-only, 
+stored in the order in which they occurred, include only create, update, delete, and copy operations, and be retained for compliance reasons.
+A SAS token for access to a container, directory, or blob may be secured by using either Azure AD credentials or an account key. 
+A SAS secured with Azure AD credentials is called a user delegation SAS. 
+Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, 
+which can be more easily compromised.
+The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. 
+The change feed provides ordered, guaranteed, durable, immutable, read-only log of these changes. 
+Client applications can read these logs at any time, either in streaming or in batch mode. 
+The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+
+You can access the console logs generated from inside the container.
+First, turn on container logging by running the following command:
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
+Replace <app-name> and <resource-group-name> with the names appropriate for your web app.
+Once container logging is turned on, run the following command to see the log stream:
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
+If you don't see console logs immediately, check again in 30 seconds
+To stop log streaming at any time, type Ctrl+C.
+
+The requirement is to minimize the latency. If your function app is on the Consumption plan, 
+there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. 
+To avoid this latency, you should use an App Service plan with Always On enabled.
+
+Azure event hub does not support duplicate detection and Azure storage queue does not provide transactional support.
+
+IdentityType - The type of identity used for the virtual machine. Valid values are SystemAssigned, UserAssigned, SystemAssignedUserAssigned, and None.
+SystemAssigned - This parameter enables the VM with the system-assigned identity
+
+GetPropertiesAsync - Get the blob's properties and metadata
+Metadata.Add - Add metadata to the dictionary by calling the Add method
+SetMetadataAsync - Set the blob's metadata.
+
+AzCopy is a command-line utility that you can use to copy files to or from a storage account.
+
+If your application involves multiple stages, you need to know if most customers are progressing through the entire process, 
+or if they are ending the process at some point. The progression through a series of steps in a web application is known as a funnel. 
+You can use Azure Application Insights Funnels to gain insights into your users, and monitor step-by-step conversion rates.
+
+Impact analyzes how load times and other properties influence conversion rates for various parts of your app.
+
+The retention feature in Azure Application Insights helps you analyze how many users return to your app, 
+and how often they perform particular tasks or achieve goals. 
+For example, if you run a game site, you could compare the numbers of users who return to the site 
+after losing a game with the number who return after winning.
+
+The User Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
+· How do users navigate away from a page on your site?
+· What do users click on a page on your site?
+· Where are the places that users churn most from your site?
+· Are there places where users repeat the same action over and over?
+
+The Isolated service plan is designed to run mission-critical workloads that are required to run in a virtual network. 
+The Isolated plan allows customers to run their apps in a private, dedicated environment in an Azure data Centre using Dv2-series VMs with faster processors,
+SSD storage and double the memory-to-core ratio compared to Standard.
+
+There are varying password length requirements, depending on the tool you are using:
+• Portal - between 12 - 72 characters
+• PowerShell - between 8 - 123 characters
+• CLI - between 12 - 123
+• Have lower characters
+• Have upper characters
+• Have a digit
+• Have a special character (Regex match [\W_])
+The following passwords are not allowed:
+abc@123 iloveyou! P@$$w0rd P@ssw0rd P@ssword123
+Pa$$word pass@word1 Password! Password1 Password22
+
+If WEBSITES_ENABLE_APP_SERVICE_STORAGE setting is unspecified or set to true, the /home/ directory will be shared across scale instances, 
+and files written will persist across restarts. Explicitly setting WEBSITES_ENABLE_APP_SERVICE_STORAGE to false will disable the mount.
+
+Lock down inbound traffic to your Azure Virtual Machines with Azure Security Center's just-in-time (JIT) virtual machine (VM) access feature. 
+This reduces exposure to attacks while providing easy access when you need to connect to a VM.
+
+The Dockerfile is a text file that contains the instructions needed to create a new container image. 
+These instructions include identification of an existing image to be used as a base, 
+commands to be run during the image creation process, and a command that will run when new instances of the container image are deployed.
+
+Platform logs and metrics can be sent to the destinations
+Log Analytics
+Storage Account
+Event Hub
+
+if you want to customize the deployment process, for example you want to run your tests before deploying (or after) and cancel the deployment if they fail?
+That's what the custom deployment feature is about, you just need to add a file to the root of your repository with the name .deployment and the content:
+[config]
+command = YOUR COMMAND TO RUN FOR DEPLOYMENT
+this command can be just running a script (batch file) that has all that is required for your deployment, 
+like copying files from the repository to the web root directory for example.
+
+API Management allows you to secure access to the back-end service of an API using client certificates. 
+The below link shows how to manage certificates in the Azure API Management service instance in the Azure portal. 
+It also explains how to configure an API to use a certificate to access a back-end service.
+
+Time-based retention policy support allows Users can set policies to store data for a specified interval. 
+When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. 
+After the retention period has expired, blobs can be deleted but not overwritten
+
+For business-to-business (B2B) solutions and seamless communication between organizations, 
+you can build automated scalable enterprise integration workflows by using the Enterprise Integration Pack (EIP) with Azure Logic Apps. 
+Although organizations use different protocols and formats, they can exchange messages electronically. 
+The EIP transforms different formats into a format that your organizations' systems can process and supports industry-standard protocols, 
+including AS2, X12, and EDIFACT.
+
+Azure Cache for Redis provides an in-memory data store based on the open-source software Redis. 
+Redis improves the performance and scalability of an application that uses on backend data stores heavily.
+Azure Cache for Redis can be used as a distributed data or content cache, a session store, a message broker, and more.
+
+The correct script is 
+
+1.Get-AzSubscription
+2.Set-AzContext -SubscriptionId $subscriptionID
+3.Get-AzStorageAccountKey -ResourceGroupName $resGroup -Name $storAcct
+4.$secretvalue = ConvertTo-SecureString $storAcctKey -AsPlainText -Force
+Set-AzKeyVaultSecret -VaultName $vaultName -Name $secretName -SecretValue $secretvalue
+5.Get-AzKeyVaultSecret -VaultName $vaultName
+
+Contributor - Can create and manage all types of Azure resources but can't grant access to others
+
+Session is the best consistency setting for user data that contains shopping basket information. 
+Session consistency will ensure that every item the user put in their basket is displayed when they review their basket
+
+To connect on-premises data sources from Azure Logic Apps, download and install the on-premises data gateway on a local computer. 
+The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps.
+
+Scenario: The Shipping Logic App requires secure resources to the corporate VNet and use dedicated storage resources with a fixed costing model.
+If your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, 
+that are inside or connected to an Azure virtual network you can create an integration service environment (ISE).
+An ISE is an instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
+
+
+
+MICROSOFT:
+WebJobs are the only technology that permits developers to control retry policies.
+Azure Logic Apps is the only one of the four technologies that provides a design-first approach intended for developers.
+Azure Logic Apps is the only one of the four technologies that provides a design-first approach intended for developers.
+
+The login notification is an event: it contains only a simple piece of status data and 
+there is no expectation by the authentication service for the client applications to react to the notice in any particular way.
+The delete-account notification is a message. The key factor is that the web service has an expectation about 
+how the data layer will process the message: the data layer must remove the user's data from the database for the system to function correctly. 
+Note that the message itself contains only simple information so this aspect of the communication could be considered an event; however, the fact that the web service requires the data layer to handle the notification in a specific way is sufficient to make this a message.
+Use Service Bus topics if you:
+Need multiple receivers to handle each message
+Use Service Bus queues if you:
+Need an At-Most-Once delivery guarantee.
+Need a FIFO guarantee.
+Need to group messages into transactions.
+Want to receive messages without polling the queue.
+Need to provide a role-based access model to the queues.
+Need to handle messages larger than 64 KB but less than 256 KB.
+Queue size will not grow larger than 80 GB.
+Want to publish and consume batches of messages.
+Queue storage isn't quite as feature rich, but if you don't need any of those features, it can be a simpler choice. 
+In addition, it's the best solution if your app has any of the following requirements.
+
+Use Queue storage if you:
+Need an audit trail of all messages that pass through the queue.
+Expect the queue to exceed 80 GB in size.
+Want to track progress for processing a message inside of the queue.
+
+There are several concepts in Azure Event Grid that connect a source to a subscriber:
+
+Events: What happened.
+Event sources: Where the event took place.
+Topics: The endpoint where publishers send events.
+Event subscriptions: The endpoint or built-in mechanism to route events, sometimes to multiple handlers. 
+Subscriptions are also used by handlers to filter incoming events intelligently.
+Event handlers: The app or service reacting to the event.
+
+Each storage account has two access keys. This lets you follow the best-practice guideline of periodically replacing the key used by your applications without incurring downtime.
+Possession of an access key identifies the account and grants you access. This is very similar to login credentials like a username and password.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

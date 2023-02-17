@@ -1,0 +1,11 @@
+LIN20002609 vipbhaga [2021-12-20 12:22:53.35566] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 296 I StartService_ByName Started with Parameters: P_JSONServiceParamName P_AdminRightsRequired With Values: ServiceNameToStart1 Yes
+LIN20002609 vipbhaga [2021-12-20 12:22:53.36657] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 63 I GetJsonObject Started with Parameters:  With Values: 
+LIN20002609 vipbhaga [2021-12-20 12:22:53.38085] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 76 I GetJsonObject Completed with Return Values: 
+LIN20002609 vipbhaga [2021-12-20 12:22:53.38684] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 93 I GetJsonParamValue Started with Parameters: menu P_Name ErrorAction With Values:  ServiceNameToStart1 Stop
+LIN20002609 vipbhaga [2021-12-20 12:22:53.43870] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 324 E Error ERR_0000002 - Unable to Start Service The term 'ERR_0000007 - Error while Reading Parameter from JSON' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again. at GetJsonParamValue<Process>, C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1: line 102
+at StartService_ByName<Process>, C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1: line 303
+at <ScriptBlock>, C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1: line 385
+LIN20002609 vipbhaga [2021-12-20 12:22:53.44169] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 325 E Error at GetJsonParamValue<Process>, C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1: line 102
+at StartService_ByName<Process>, C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1: line 303
+at <ScriptBlock>, C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1: line 385
+LIN20002609 vipbhaga [2021-12-20 12:22:53.44468] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 329 I StartService_ByName Completed with Return Values: 

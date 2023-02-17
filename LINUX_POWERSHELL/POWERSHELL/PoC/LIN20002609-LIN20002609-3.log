@@ -1,0 +1,13 @@
+LIN20002609 vipbhaga [2021-12-20 12:28:48.10175] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 296 I StartService_ByName Started with Parameters: P_JSONServiceParamName P_AdminRightsRequired With Values: ServiceNameToStart Yes
+LIN20002609 vipbhaga [2021-12-20 12:28:48.10673] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 63 I GetJsonObject Started with Parameters:  With Values: 
+LIN20002609 vipbhaga [2021-12-20 12:28:48.11172] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 76 I GetJsonObject Completed with Return Values: 
+LIN20002609 vipbhaga [2021-12-20 12:28:48.12070] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 93 I GetJsonParamValue Started with Parameters: menu P_Name ErrorAction With Values:  ServiceNameToStart Stop
+LIN20002609 vipbhaga [2021-12-20 12:28:48.12269] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 108 I GetJsonParamValue Completed with Return Values: Yes AdobeARMservice
+LIN20002609 vipbhaga [2021-12-20 12:28:48.12768] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 123 I CheckAdminRights Started with Parameters:  With Values: 
+LIN20002609 vipbhaga [2021-12-20 12:28:48.13067] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 136 E Error ERR_0000003 - Admin Rights not there
+LIN20002609 vipbhaga [2021-12-20 12:28:48.13266] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 137 I Admin Rights are not there
+LIN20002609 vipbhaga [2021-12-20 12:28:48.13865] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 141 I CheckAdminRights Completed with Return Values: False
+LIN20002609 vipbhaga [2021-12-20 12:28:48.14364] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 154 I GetServiceDetailsByName Started with Parameters: P_JsonServiceName With Values: AdobeARMservice
+LIN20002609 vipbhaga [2021-12-20 12:28:48.15062] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 167 I GetServiceDetailsByName Completed with Return Values: System.ServiceProcess.ServiceController
+LIN20002609 vipbhaga [2021-12-20 12:28:48.16758] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 309 I Service AdobeARMservice is Already running and can not start it
+LIN20002609 vipbhaga [2021-12-20 12:28:48.16957] 'C:\Users\vipbhaga\OneDrive - Capgemini\WORK\PowerShell\PoC\CommonFunctions.ps1' 329 I StartService_ByName Completed with Return Values: 

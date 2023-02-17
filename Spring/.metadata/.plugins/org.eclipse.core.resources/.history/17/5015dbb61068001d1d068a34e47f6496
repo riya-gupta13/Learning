@@ -1,0 +1,33 @@
+package com.riya.spring.boot.demo;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.riya.spring.boot.demo.entities.Product;
+import com.riya.spring.boot.demo.repos.ProductRepository;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class DemoApplicationTests {
+	
+	@Autowired
+	ApplicationContext context;
+	
+	@Test
+	void saveProduct() {
+		ProductRepository productRepository =context.getBean(ProductRepository.class);8
+		Product p=new Product();
+		p.setId(1L);
+		p.setName("Mac");
+		p.setDescription("Apple");
+		p.setPrice(1000000);
+		productRepository.save(p);
+		
+	
+	}
+
+}

@@ -1,0 +1,16 @@
+DRILLDOWN
+<drilldown>
+<condition field="correlation_id">
+<link target="_blank">search?q=CorrelationId:$click.value2$&amp;earliest=$input_time.earliest$&amp;latest=$input_time.latest$</link>
+</condition>
+</drilldown>
+
+
+<option name="count">20</option>
+<option name="dataOverlayMode">none</option>
+<option name="drilldown">cell</option>
+<option name="percentagesRow">false</option>
+<option name="rowNumbers">true</option>
+<option name="totalsRow">false</option>
+<option name="wrap">false</option>
+

@@ -1,0 +1,9 @@
+package com.riya.spring.boot.demo.repos;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.riya.spring.boot.demo.entities.Product;
+
+public interface ProductRepository extends CrudRepository<Product, Long> {
+
+}

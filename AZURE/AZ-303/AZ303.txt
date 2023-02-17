@@ -1,0 +1,1295 @@
+CREATING STORAGE ACCOUNT
+when we go and create general purpose v2 (Standard) acc: we can use tables, queues, fileshares,containers.
+Premium is for performance
+
+BLOB SERVICE:
+frst we have to crfaete container-create-name-dff access lvls(how users can access the container) we will go with anonymous.
+Everythng is stored in binary form, choose file to upload, aftr uploading, goi to edit-save and then u can dwnld too
+when we upload the blob we get the url for that, if we access in browser, we cant see it, error
+so, the diff is we are not logged in as a user, as we r an anonymous user thats why we cant access
+go to container-we have to change teh access levl we created it as private not public so change the access lvl to blob(means any user can iterate for all the blobs in container)
+again run the url, u can see the contents.
+
+OTHER ASPECTS:
+we can delete the blob if we dnt want, we cant crate a folder, if we want to create then slct file u want to uplaod scroll dwn u have the option upload to folder then uplaod
+
+USECASE:
+consider we have an app running users are uploadng videos thre thn instaed of storing the videos thre, we shld use container in storage acc, so now hre u r isolating ur storage and ur env whre appp is running.
+
+FILE SERVICE:
+files are nt stored in ctnr but in file share
+users can  acces the fileshare from server message block(map a drive)
+storage acc-file shares-create new-name-max quota-create
+we can add dir too- so its like our local filesys=add dire-upload file
+copy url for the file-error-we have to use the smb protocol to access
+in file shre-connect-it gives all details-copy scriopt frm thre-powershell in ur sys-enter the script
+in windows explorer in ur sys- u will see a new ntwrk loc thre-u can see ur dir-u can also create the file thre too
+table to cnct to fileshare-firewall wil prohibit ths on uir sys-it runs on port 445
+in ur pc-rght click-disconnct
+in comp-map ntwrk drive-give name of folder
+u have the credentials in the script tke frm thre
+this isz how u can map
+
+TABLE
+SQL DATA(TABLE)-SCHEMA DESIGN
+NOSQL DTA(ENTITY)-SCHEMALESS DESIGN
+Partition key hlps to find dta easily and fast
+strge acc-tables--craete table 
+on lft side u have storage explorer-upload files-go on table-add entity- uhve to dfne partition key and row key both
+evrythng is key value pair hre
+
+STORAGE EXPLORER
+in browser-dwnld-launch
+see video
+
+DIFF AUTHORIZATION:
+accsess keys
+shrd signtures
+azure AD
+Access keys- used for authoriztion=strge acc-access keys-show kys-in storage explorere-connct to azure storage=give details
+shared signature at blob lvl- strge acc-containers-ur container-access lvl to private-thn in blob-u hve-tab generate sas
+shrd access sign at acc lvl-- in  strge acc-sas- u can slct services -many options u hve-see video fr ths process
+stored access policy-cntnr-ur cntnr-access policy(can be used along with sas)add-read and list-ths is for container-ok-strge acc-explore-sas-rghr clk on container
+AD-idenmtity store of azure, add new user
+
+REPLICATION:
+Redundacy-azure mkes multiple copies of ur data
+this hlps to protct against plnnd and unplnnd evnts-transient hrdwre failures, ntwrk or power outrages
+locally, 
+zone(availbilty zones-data center failure, data is rplictd in 3 zones),
+geo(for entire region)
+geo-zone=in region using abailabilty zones
+create strge acc-replication-readaccess geo-create
+in strge acc-container-upload obj
+
+ACCESS TIERS:
+HOT- accessed frrq
+COOL- accessed infreq, atleat 30 days
+ARCHIVE-rarely accessed atleat 180 dys
+strge acc-crwatre-v2-in advnced tab=u can decide the access tier-create
+acc-configuraton- chose the 
+Early deletion fee:if u hve blob in cool tier and you change the access tier to hot access tier earlier thean 30 days then u are chrgd the costs for extra 20 days of cool tier
+
+LIFECYCLE POLICIES:
+Lifecycle mhgmnt rules- we can tell the blob storage to chnge the access tier
+in blob-lifecyclemngnt-add rule-we can give the cndtions-add- we can hve multiple rules
+
+CHANGING REPLICATION
+LRS to ZRS-perfom eithr manual or live
+for manual, u basically create anthr acc wiyth ZRS and thn u copy frm source to dest
+u can also req Microsoft to perform live migration, ensures tht u hve no appln dwntime during migration. u can access data as migartion is progressing.
+to migrate from LRS to GZRS or RA_GZRS, frst swithhto GRS or RA-GRS and thn re live migration
+migrate from GRS or RA-GRS to ZRS, switch to LRS thn req a live migratuon
+in azure-configuration-we can change- u will not hve geo,use migartion
+
+strge acc-premium-acc kind-we hve blockblobstrge too
+
+CLOUD SHELL:
+cmnd line interface-for scripts
+powershell-wrkd with mny resrcs
+we can do ths azure portal too
+
+AZURE RERSOURCE MNGR TMPLATES:
+provides the ability to define ur infrastructure as code
+u create templates using json
+this defines infrastructure and configuration of resrcs tht need to be deployd
+-submit tht to azre resrc mngr
+
+RESRC MNGR TEMPLTES:
+DIFF SECTIONS OF TEMPLATES:
+RESOURCES- used to specify resrcs tht need to be deployd
+VARIABLES- are valuestht can be reused in tmplate
+PARAMETERS- can be used to provide values during deplymnt phase
+OUTPUTS- returns values frm deployd templtaes
+
+ARM TEMPLATES-VNET:
+use template to create vnet
+new resrc-template deplymnt-build our own template-add code
+
+ARM TEMPLATES-PARAMETERS
+see video
+
+ARM TEMPLATES-VARIABLES
+see video
+
+RESOURCE ITERATION:
+u can use copy element in arm tmplates to mke multiple copies of resrc
+u can thn use copyIndex() funcxtion tto return the current iteration in loop. The value of copyIndex() sytarts frm zero
+if u want to strt frm particular index value-copyIndex(1)
+u can also specify a mode for deplymnbt which can be seriasl or parallel
+
+
+BACKUP SERVICE FRO VM:
+the data is stored as backup in recovery service vault shld be in sme region as vm
+each time backup is done, it will only look at the chnges 
+we can tke backup evryday we can specify tht in backup policy, we have retention policy(for how many days it shld be retained)
+whn the backup is created it creates Recovery point
+we can choose any recovery point whch we want it can be day before
+we can do file recovery, Vm recovery or disk recovry
+this service is used to bckup the disks allocated to vm
+during backup, an extension is installed on vm
+ths extension is used to tke snapshot of disks attcjd to vm
+for win based vms, the bckup service wrks with win volume shadow copy service to tke an app-consistent snapshot of vm
+for linux based vms, service tkes a file consistent backup
+diff types of snapshots:
+APP-CONSISTENT- backup service captures the memory content, pending I/O operations
+FILESYSTEM- the backup service takes snapshot of all the files at same time
+CRASH- ths hppns the vm shuts dwn at the time of backup process
+
+AZURE MARS AGENT:
+the backup can be on azure or on-premise env
+we can specify where our wrkload is running
+
+VIRTUAL MACHINES:
+after creating a vm
+when we created vm, it created some more resrcs
+vm-connect-rdp-u r cnctng thrgh public ip-specify username and pswrd-cnct-
+in ur vm where u cnctd-server mngr dashboard-add roles nd features-in serverroles-web server-install
+u can chk in internt explorer
+in azure-vm=public ip-run this in browser it will not 
+so go in netwrkng in vm-add inbound-port 80-tcp-action allow-add now if u run u can see IIS
+
+STATE:
+VM- ALLOCATED to os disk
+depends on os u slct
+this disk is mngd disk which is mnghd by azure and provides high availability
+it also provides temporary disk,
+datya on tmpry disk is lost during maintainance event, data is lost whn u redeploy the VM(size depends on instance size u chose)
+
+if u restart/stop vm:
+the public ip address will remaikn as it is. also the data on temporary disk remains as it is.
+If u Stop/deallocate vm, public ip address will lost and data on temporary disk is also erased
+
+DISKS FOR VM:
+Unmangd and mngd disks
+if u decide to use unmngd disks, then u need to mnge storage acc tht wld be used to store disks
+the strge acc can be a genurpose-v1 or genrlpurv2 acc but most of preminum
+micro rcmmnds use of mngd disks
+because thee vailability and duarbilty is mnged by azure. the mngd disks are desgnd for 99.999% availability.
+
+ADDING DATA DISKS:
+in vm-disks-add-name,standard,size(10GB), give detils-add
+on vm-sever mngr-file and storage services-disks-u can see ur disk thre-rght clc-new volm-and u can see in pc
+
+SECONDARY NTWRK INTERFACE:
+a vm-we have ntwrk interfce attach to vm-it can public or private, can be used to cmmnicate btwn vms,
+we get one ntwrk interface by defualt
+we have vms-is hosting applns-consider its private-thy want to go to internt- so it will go to internt-get info thn send
+we cabn hve one interface for public/private and anthr for only p;rivate address:
+this hlps in isolatyiong and provides security
+
+create vm-subnet we have to p;rovude diff-see video fr ths
+
+RESIZING:
+vm-size-u can see diff sizes-slct one-resize
+
+CREATE VM IMAGE
+in vm-images u cam see if we wnt to create new
+if we create image on vm we cnt use tht vm aftr tht we can use the imge but nt vm
+
+on vm-server mngr dassh-sysprp tool-run
+-after creation
+in azure-capture-u can see detaild of vm
+now u can create a vm on this image
+as custom image tht we had has IIS services so aftr creation of this vm it will alsohve
+
+SCALE SETS
+when we scale up or sacleout, its not automatic tht the app tht is runng on vm will we instaled automatically we have to mke it sure, for ths we can mke use of custom script extension
+scale set has integartion with load blncer-it will automatically blnce the wrkload on vms
+
+DEDICATED HOSTS:
+vms are created on a physucal server in azure data cntr-we can also assign ths whole physiacl host under u
+benefit is thet none can deploy any vm on ths, this we be dedicated to u 
+we can also cntrol the maintainence evnts
+we can define when we want to have maintaince
+in azure-crfeate dedicated host-we cnt create ths bcoz it is for large orgnizations
+
+VIRTUAL NETWORKS:
+netwek is hjome of ur devices-thn thy hve their ip addrsss-this is sued to cmmicate witheach othr
+address space is imp as subnet isw subset of address apace-private ip address allocated
+if one vm in one subnt and anthr fr nathr subnt-private ip address allocated
+
+these vms can cmmnicate with each othr
+we can hosts diff wrlods on thm like on one subnt db and on athr-ur app
+
+subnet is assigned on the ntwrk interface-it has two ip addresses-public/private can be used  fr internal cmminction-it is nt flowing on internt else its private
+if ur web app wants to cnct to ur db to fetch data we can use ths
+
+public ip address are from agent pool-has access to internt
+
+AZURE NTWRKNG:
+in public addresses-there are 2 SKUs
+Basic-u can assign eithr static or dynamic ip
+nsg- can optionally used to restrict traffic via the public ip
+no support fr availability zones
+Standard- the ip address needs to be static
+nsg need to used to restrict traffic
+thy r zone redundant by default
+
+NETWORK SECURITY GROUPS:
+is used to control the in/out requests
+it is linked to ntwrk interface
+we can assign the nsg to only subnet for tht vm or it can assigned to whole virtual ntwrk but thn it will be difficlt to mnge
+has inbound/outbound rules
+if we r hosting the app on port 80 thn we have to add the inbound rule for that
+rule conatins:
+Priority
+port
+Protocaol
+Source and Destination
+
+APPLICATION SECURITY GROUPS:
+we hve set of servers hosted on nsg and anthr db on anthr nsg more tght security, it can be inbound ruke for allowing/denying
+to cnt one nsg to access with other nsg we use ip address
+instead we can use Application security grps mkes its easier and link to web servers and then link nsg of db to access asg, can decide the source and destination fr u
+
+JUMP SERVER
+virtual ntwrk-with three subnets
+one is weberver tht cnts with internet anthr for db
+web server cmmnicates with db
+consider db havs public ip but ths is an security issue
+jump server-we create one more vm has public  ip thn tht will interact with browser and thn tht vm will be used to cnct  with db ip(private) and webserver vm using RDP
+
+BASTION HOST:
+ is a service allows to cnct to vm using browser and portal
+is a mngd service
+Azure Bastionis deployed per virtual ntwrk
+u can thn use RDP/SSH into vm via ptivate ip
+in order to create this we have to create AzurebastiobSubnet
+
+create a new vm-no inbound-in ntwrkng-crfeate virtual ntwrk-add subnetname as AzureBastionSubnet-public ip-none(as Bastion)-inbound prts no-create
+in vm-connect-Bastion-use Bastion
+now we are going to cnt via Bastion on public ip on vm-create-credentials-cnct
+now we can strt wrkng on vm as we do
+
+SERVICE ENDPOINTS
+if we want to access sql db and strge acc in private ip, both of thyese are public endpoints
+but if u wnt to ensure private ip addressng in virtual ntwrk on to a vm thn u hve to use service endpoints
+whn we establish thn all requests goes frm virtual ntwrk goes thrgh Azure Backbone ntwrk (endpoint)
+
+PRIVATE ENDPOINTS:
+is a ntywrk interface tht can be provisioned in ur vnet
+allows to cnt privately and securely to a service
+can be a strge acc, Azure Cosmos DB
+its like bringing the entire strge acc inside vnet
+
+CUSTOM ROUTING:
+cmminction btwn vms inside vnet is possible
+system route is attached automatgically to the subnet 
+route table allows to traffic to flow btwen subnets inside vnet
+
+thre is a cse whre u wnt to create ur own route
+conside thre vms with a subnets
+a vm whre the orgnztion install their own firewall,attacks to detect
+so thy want whtvr reqts cme in othr vm frst tghy shld flow frm this vm thn only can process
+so for this we can define custom route table-u define address prefix, whre it hsld go next(hop type), thn hop address(ip address)
+so with this it will be redirescyted acc
+
+USER DEFINED ROUTES:
+three vms with diff subnets
+we want thy if thy hve to acccess vm3 vm1 has to go thrgh vm2 thn it can go to vm3
+see video fr lab
+
+VIRTUAL NTWRK PEERING:
+two vnets
+frst have two subnets-two vm on thm
+in anthr one vnet with one subnet one vm
+we wnt one vm in one vrtl ntwrk to access anthr vnets vm
+to do this wwe have to establish vrtual ntwrk peering, this traffic goes the Azure Backbone ntwrk, thres no latency issues
+can cnnt vnet in sme region or across regions
+can also cnct vnet across diff subscriptions
+also hve to ensure tht ip add ranges dont conflict for vnets
+both of ur vnets are using classic resrc deplomnt model thn u cnt use ntwrk peering, u shld mke use of virtaul private cnctions
+
+POINT TO SITE VPN CNCTION: 
+client machine to access the vnet to access vm over internet via private ip address 
+we hve to use ths
+we have to craete a gateway subnet, thn we have to crfeate a vnet gateway
+on client side, we ahve to have a root certifiacte-export this with public key thn upload ikt to point to site, to cnct we have to hve ujser certifiacte with private tht is generated frm root certifiacte
+frm azure we can dwlnd vpn and thn connct
+
+gateway subnet- this is req by vnet gatyewy. the vnet gteway will use ip addresses in gtway subnet
+VNET Gateway- this will launch vms in gateway subnet and vms will thn provide the req routing services
+
+SITE TO SITE CNCTION:
+Each VPN gateway has two instances, one in active and one in standby. If one instance goes down, we would still have the other one available. Hence, we just need one Virtual Network gateway resource.
+Here we would need to have two VPN devices registered on the client side. This would ensure that if one of the client VPN devices were to fail, you would still have another one available. For this we need to register two Local network gateways.
+
+AZURE AD:
+identity provider in azure
+authnticate the credentails
+in azure, we use azure ad
+it also hlps in authorization to access resrcs on premises ntwrk
+thre are options to join the systems on azure ad, we can these credentail to access resrcs and login/logout
+
+CREATE USERS
+in azure directory-new user-nameroles, grps u can specify-cfreate
+RBAC to access resrcs
+
+CUSTOM DOMAINS:
+users-new user-usernbame get appnded with tenant(dir name)
+we can create a custom domain thn link all the users to thm
+
+azure ad-custom domains-add custom domain-add details-
+u hve to buy the domainname-txt-host-value-save in godaddy
+thn verfiy ina zure
+
+AZURE AD LICENSES:
+u shld buy licenses based on users
+
+AZURE AD AND SUBSCRIPTIONSX:
+tenant- this is a dedicated and trusted instance of azure ad
+Azur Ad- each azure tenant has a dedicated and trusted azure ad directory. this includes the tenant user, grps and applications and is used for performing identity and access mngmnt onto restcs
+
+in azure ad tenant we can create a new dir as well
+why we need anthr dir-thy can create for diff cmpny if thy hve many orgztns
+all resrcs are billed on subscriptyion
+we can ahve diff subsrciption fr dprtmnt too
+one subscription can trust one dir, ikt means tht the users in ths dir can only have access to thius subscriptions resrcs
+
+in azure ad-we can create a tenant
+to switch we can do switch tenant
+
+MFA:
+get a code via SMS
+get a call via regstrd mobno
+use microsoft authnticator app
+the status of user in mfa
+STATUS:
+Disabled- default stste of user
+Enables- the user has been enrolled in azure mfa
+Enforced-the user has cmpltd teh regstrtn process
+
+MFA-TRUSTED DEVICES:
+
+CONDITIONAL POLICIES:
+ automate security fr user authorixation
+diff aspects fr policy
+frst aspect is"who should the policy apply to"
+nxt we the app
+we can say "apply policy who are accessing office365"
+for signin
+azure tries to determine if a legitimnate usrer tryng to signin
+it thn categorizes based on severity lvls
+fr ths us need to have azure ad identity protection in place
+device platfrns
+hre we r syng tht if user is tryng to login frm windws device thn ensure to aplly ths policy
+LOACTION
+hre we r adding a cndtn based on whre user is tryng to access azure form
+CLIENT APPS
+hre we can cndtn bsd on whthr user is using browser, mobile app or desktop clients
+GRANTING ACCESS:
+hre we r syng tht if policy meets teh cndtions whn authntication mechanisms shld apply
+
+in azure ad-security-cndtnal access-new-ee video
+
+
+AZURE AD IDENTITY PROTECTION
+this si atool tht automates and remediates identity based risks
+microsoft uses its inbuilt intelligencee sys to detect any identity based risks
+diff types of rsisks can be detects
+ANONYMOUS IP ADDRESS- hppns whn user signs in frm anonymous ip address
+Atypical travel- this hppns if a user signs in frm locaton tht is not normally used by user fr signin
+Unfamiliar-signin prop are nt same as nrmlly seen fr user
+to use ths we need premium p2 license
+
+
+ACCESS REVIEWS:
+is to create reviwes on various aspects on azure
+users maybe in usergrps,have diff ad role, access to diff azure resrc
+it is imp to run  the access review mybe the user switched dept, has diff role..., so its imp to run the access reviews
+we have to mke use of azure privileged mngmnt
+system can also give reccmndations tht the users has used thr resrc in last 30 days or not
+
+AZURE AD CONNECT:
+if thre qaarfe large no of users thy r hvng prblm to switch their users frm azure directory instance to azure ad thy can use azure ad connect
+we have to install ad connct componentit will ftch users frm dir and thn link to azure ad
+SYNCHRONIZATIONS:
+pswrd hash -user is dupliacted and pswrd also repliacted, so user can use sme usrenbme and pswrd to access onpremises and azure resrcs
+if we chnge a user pswrd in onpremise thn it will ebchnged in azure ad too
+pass thrgh-hre also same pswrd but hre the authntication is hppond in onpremises thn only he can use azure resrscs(credentials are synchronized)
+this service is not used to synchronice the azure ad users to on premise but frm onpremise to azure ad
+used when mybe thre is some services  tht is onpremise but not on azure so we will use ths
+pswrd writeback-we can aslo chnge pswrd in azure ad, will tht be synchronized thre, we can use ths
+
+used to synchronize identity data btwn onpremise env and azure ad
+thre r 2 compnets fr ths:
+- azure ad connect sync componnt-is installed on premise env
+-azure ad connect sync service-the service runs in azure ad
+to use azure ad coonect, u need to hve follownf prerequisites
+u need azure ad tenant
+u need to add and verify ur domain in ad
+use the IdFix tool to identof errors sucha s an dulicates and formatting prblms in ur on-premises dir
+the azure ad cnnct  sync compont must be installed on windows server 2012 standrd or bttr. the server must hve full gui installd. the server must be domain joined , this compnnt must not be installed on domain controller
+durinf config, u need to use
+- azure ad global admin acc for azure ad tenant. the acc shld be a school or org acc and cnnt be microsoft acc
+-an enterprise admin acc for on-premise active dir
+the ad cnnct servr needs DNS resolution fr both intranet and internret.
+the dns servr must eb able to resolve names both to ur on-premise ad and azure ad
+
+Staging mode-b where only users are synchronized not the data
+
+DOMAIN OU FILTERING:
+we can create a new orgztn unit in vm(rdp)-thn add users to it, thn azure ad cnct-in sync-only resrc-configuration
+so it grp those users into one in azure ad
+
+DIFF ACTIVE DIRECTORY SCENARIOS:
+a cmpny might be using active dir in their onpremises 
+thre might be some features tht active dir but are nt thre in azure ad it can be diff policies and mny more
+ways:
+u can install active dir on sprate vm set it up as domain cntroller and establish site to site cnction
+azure ad Domain Srrvices- it allows u to host active dirctory in azure ad
+these are slf mngd
+we dont hve to spunup vm hre
+
+DYNAMIC GROUPS:
+u shld hve premium licenses
+if u wnt usesr to be allocated to a grp based on sme attributes, so based on these it will allocated to grp or the devices of u want
+it can be eithr device grp or user grp
+
+in ad-grps-all grps-new-see video
+
+SELF SERVICE PSWRD RESET: 
+in ad- whn logging in sme user resettd the pswrd-thn u get error tht resttng ur pswrd is not enables
+in ad-pswrd rest-video
+fr self service pswrd reset we have to hve premium license
+
+AZURE MIGRATE:
+this is service tht can be use as assessmnt and migartion of ur wrkloads
+we have physical server/hyper v in onpremises u wnt to send it to azure thn u can use azure migarte service
+before migration it performs the assessmnt of ur vms and tells u abt size wht shld u use and othr thngs so ths hlps in tht too
+-performs a replication of wrkloads
+-u can thn perform a test and final migration
+
+AZURE SITE RECOVERY
+this is business continuity service
+in primary region u hve ur resrcs runng on physical,hyperv.. and are critical thy cnt go dwn
+thn u hve to mke sure tht u hve all ths is replicated in secondary region ths can be done thrgh site recovry
+
+AZURE TO AZURE DISASTER RECOVERY:
+whn u use site recovry, the azure vm continuously replicates onto a diff target region
+if an outage occus, u can fcail over vms onto a scndary region
+whn all is fine in primary region, u can thn fail back and cntinue operations in primary loc
+what are all the components involved in disaster recovery fr azure vm
+for source region, u also need to createe storage acc. This becomes the acche storage acc. in the replication process, the vm chnges are frst stored in cache storage acc bfore thy r sent to target region
+thr replication will crraete following target resrscs:
+-a resrc grp tht target vm will blng to
+-a new vm vrtual ntwrk tht target vm will reside in
+-if source vm is using mngd disks, thn a new strge acc will be created in target regn
+-if source vms are prt of availabilty sets, anew availabilty set will be created in target regn
+-if source vm is part of an availability zone, the sm zone no will be allocated to target vm in target regn
+
+Replicatuon Policy-defalut policy has settings:
+Recovery point retention- set to 24 hrs-ths specifies how long the recovery services keep the recovery hrs
+AppConsistent snapshot- aet to evry 24 hrs-ths specifies hpw long the recovery services takes an appln consistent snapshot
+
+if u wnt ur primary rgion resrs, data to be avalble in scndry region thn juse site recovery
+whn repliaction is ocurring u wikl nt hve any vm runng at tht time
+site recovery mobility service extension is installed on source vm
+continuous replication thn occurs via cache strge acc
+whn data is processed in target regn, crash consistent recovery points generated evry 5 mins
+
+vm-create-inside vm enable IIS services-add inbound rule for port 80 
+in vm-opeartions-disaster recvry-u can chnge the target region-craete
+it is only copying data, not the vm
+create test failovr-it will craete vm based on replicated data
+test failure-latest processed
+see video
+
+AZURE MIGRATE-HYPER-V:
+CAN BE USED ASSESS ANS also to migrate
+u r using hyperV host(physical server) on win 2016 anf thre r othr hyperV hosts running on ths
+want to migarete to azure-we have to frst assess the hyper, it can tell the costs also
+in case of hyperV-u can install azure assessmnt appliance, it will the inventory for all hyper hsosts-pass to azure migrate-it will give ionfo abt sizes fr vm needed for replication -also it we requirng an agent-thn it will be using the Recvry services vault for replication, u will nedd a strge acc tht is used to store the replicated images of on premise mavchine
+and a virtual ntwrk -the new vm will be part part of the vnet
+
+LAB:
+vm-install hyper-V-this has ip address-create ntwrk adapter-thn we created subnets-
+then we dwnldd VHD
+regstrd applianace with azure migrate
+strtd the discovry
+aftr ths assmnt -it tells us is it possible
+-wht wld be the estimated cost
+-Estimated sizing
+
+
+AZURE SITE RECOVERY-HYPER-V
+hyperv host-one running hyperV guest runng on ths
+craete ur revry services vailt
+choose the site recvry and prpeare ur infrastructure-mtion source and destination
+selct hyperV site and hyperV servers
+install azure site recvrfy hyperV provider
+Regster hyperV server
+Specify target details
+Create and associate repliaction policy
+Enable replication
+Storage Acc- used to store replctd images of onpremise mchne
+whn a failover occurs, a vm is craeted out of teh img
+Vnet- new vm in azure will be part of ths vnet
+
+AZURE LOAD BALANCER:
+vnet-hoting applctn-u want to distrivute the trafiic cmng btwn tghe vms
+in ths the users will nt hit the vm frst but the load blncer and thn it will pass to vms
+we have to configure backend pool which are vms and thn link to lad blncer
+FrontendIp-ip exposed to users(ip od load blncer)
+health probe- to chck if vms are healthy or not, if we get response in thrsholg tome thn its healthy if not thn it will send to anthr vm. so this is used to chk the health of vm
+load blncing rules-if req from users is cmng from on its frntend ip , i hve to sent to vm but which port is listening on and thn on tht port it will send req to vm
+
+two types of SKUs
+basic-- in bckend pool we can hve single vm, or vm with avialbilty se and scale sets
+standard- we have multiple vms, availabilty, sacle sets both
+if we ant high availablity thn we can use Standrd
+
+tyoe of load blncer
+a vnet, couple of subnets and vms inside, we have onw web subnet and one databse
+thn the load balncer is placed bfore wen subnet so ths external load blncer(public facing architecture)
+we can hve internal load blncer for db so this is not exposed to internet
+
+LAB:
+two vms
+-install IIs services on both
+-we have to ensure it shld be part of availabilty sets
+-ill place a simple default,hml file
+public ip
+craete load blncer
+create backend pool
+add health probe
+load blncng rule
+
+in case of laod blncr we hve to ensure tht vms shld be part of same vnet
+
+AZURE APPLICATION GATEWAY
+appln lvl load blncer
+u hve aplln gateway via afrntend ip-we can use ths to route to load balnce to diff endpoints in a bckend pool
+required to hve a empty subnet on a vnet
+it also enables a web appln firewall
+is the ability to route traffic based on the url
+consider u hve a clouportalhub.com as ur webapp-and u hve two vms in which one vm is responsible fr hndlng of images uploads and anthr fr video so hre u can mke use of appln gateway to do ths
+ is used to distribute traffic to web applns
+web applns reside on vms, vm scale sets or evn on premise 
+is an OSI layr load blncr
+Secure Sockets Layer(SSL/TLS termination)
+hre reqs to appln gteway can be secure
+thn reqs to bcknd pool resrss can go unencrypted
+ths can lift the burden of bcknd pool fr decrypting reqs
+decryption of reqs can be lft to appln gateway resrc
+can also enable autosacling in fr rersc
+can also enable the web appln firewall feature for appln gateway resrc
+can also enable session affinity whch allows a user session to directd to the sme server fr processingb. If the state of user session is stored on server, thn ths can be useful feature
+
+Diff components:
+Frontend Ip- users will hit appln gateway via frntend ip
+Listener- is a logical entity tht chcks for incmng cnctn reqts. thre can be multiple listeners attchd to ths
+two types of listener confgtions:
+Bsic- hre listener listens to single domain site
+Multisite- hre listeners maps to multiple domain sites
+Routing Rules- used to route traffic frm listenr to bcknd pool
+two types of routing rules:
+Basic- all reqs are routed to bckend pool directly
+PathBased- hre reqs are routed to bcknd pool based on URL in req
+Backend Pools- these can be ntwrk interface cards, vm scale sets, public or internal ip, FQDN or bcknd suach as App Service
+Health Probes- this defines how appln gateway will monitor the health of resrcs in bcknd pool.
+
+LAB:
+url path based routing we are using
+two vms
+IIS services install
+default pages on these vms in folders
+appln gateway
+path routing
+bcknd pool
+
+DIFF BTWN APPLN GATEWAY AND LOAD BLNCR
+appln: mnges traffic at layfer 7(appln lyr)
+- it looks at the data bein passed, if its understandable or not
+- it has to wait to mke data constructive thn route it, it is slow but its intelligent in transferring data
+
+load: mnges traffic at layfer 4(trnsport 
+-only routs based lyr)
+-hre it only looks at the dest port, only ntwrk info
+-much fatser, millions of reqs it routes vry fasty
+
+
+TRAFFIC MANAGER:
+appln running on premise, at us0centrail, us-east
+based on priority
+if u want the reqs to route only to one endpoint  but if tht goes dwn thn route it to scnd
+dns based routing trafficc load vblncr
+allows fr dstribution of traffic across multiple endpoints- the endpoints cld be eithr in azure or outside azure
+diff routing mthods:
+Priority- allows fr anthr endpoint to bcme availble if primary goes dwn
+weightd- ths is whn u want to distribute traffic based on particular weightage
+Performane-this is whn u wnt users to get the ;closes' endpoint in terms of latency
+Geographic- users are directed to specific endpoints based on geogphv loc of dns query bein made
+Multivalue- all healthy endpoints are sent to client
+Subnet- hve set of end user ip addresses are send to specific endpoint
+
+TF-REAL USER MEASUREMENTS:
+we can use this real user measurements to identify which one is the endpoint with lowest latency
+it alreday has this ability but we can also hlp
+we can gnrate a key embed in javascript and send to TF
+
+FRONT DOOR SERVICE:
+hlps accelerate ur appln perfrmnceby routing traffic based on ur perfrmnce endpoints
+service wrks at layer 7 or HTTP?HTTPS
+service eill route ur client reqs to fastest and most availbale appln backend
+an appln backend is any internet facing service tht cld be hosted inside or outside of Azure
+URL BASED- u can route traffic based on url paths
+-if u had a web appln hosted via ur domain url
+- u can route one set of servers and othr set sor anthr servers
+-Multiple site- u can configure more thn one website on same frnt door cofgration
+Session Affinity- u can keep a user session attached to same appln backend
+SSL TERMIANTION- SSL cnctions can be terminates at frnt door itself rather th bein processed by bcknd servers
+web appln firewall- can use ths feature to hlp protect ur web app frm intrnt based attacks
+
+DIFF BTWN FRNT DOOR ND APPLN GATWAY
+frnt door- global, can be redirected to mny resrcs
+-pathbased routing at global lvl
+-load blncers bhnd frnt door but load blncr shld hve public ip
+
+appln gatweway-loc based, we require vnet(empty subnet)-can be redirected to only resrcs in a vnet
+-pathbased routing on vnet lvl
+-u can also achieve 100% TLS/SSL offload
+
+AZURE FIREWALL:
+is used to filter the inbound/outbound traffic
+-we can hve multiple instances deployed too
+in azure, installed on firewall will filtr traffic, diff frm nsg, it is an intelligence tht it automatically identifies
+Azure frirewall-we dnt need the compute env fr ths, mngd by azure
+has builtin high availabilty
+can deploy azure firewall instance across two or more avlbity zones
+can filterbasedon fully qusalified domain names
+can also create ntwrk filterng rules-based on source nd dest ip addresr port nd protocol
+is stateful in nature, so it understanfds wht packets of data to allow
+has builtin threat intellignce- can get alerts and deny traffc frm/to malicious ip addresses nd domains
+
+to create ths we hve to hve a subnet named AzureFirewallSubnet, required for hosting
+vm shld hve a public address
+steps:
+carete our vnet and aazure firewall appliance
+create route table-to tell that all traffic frm subnet needs to be routed via azure Firewall
+aftr creatng assign it to a subnet hostng vm
+create an rule to route traffic on internet
+NAT(Network Address) translationRULE CLLCTION
+
+MANAGEMNT GROUPS:
+cmpny ensures that ataging has diff subscrition and prod has diff subscriptions
+cnser ths blngs to one dept and anthr to anthr
+we can grp subscritions into mngmnt grp
+rolebased access cntrol at mngmt grp lvl thn tht will be applied to evryone in tht subscription
+
+ROLE BASED ACCESS CNTROL:
+is an authorzation sys tht is built on top of azure resrc mngr tht allows to provide finegranted access mngmt of resrcs
+we can define it at resrc lvl, resr grp or subscrition
+if u hve multiple role assignd the cmbined will be sum of role assgnmnts, if u hve a reader nd contributor-finall assgnmnt in contributor role
+
+AZURE POLICY:
+restriction in size of vm, thy can do ths azure policies
+one an specific tags on a resrc
+
+AZURE BLUPRINTS:
+orchestrator the deploymnet of artifacts in azure
+arm tmplates
+policies
+resrc grps
+role based access cntrol
+it shld be part of subscription or mngmnt grp
+common permissions thn used
+diff from arm tmplates as it is infrastructure as code but hre u can deploy anythng
+to save blupeinr, u need to be have contributor access to eithr mngmnt grp or subscription
+Publishing- once bluprint dfnd, u cann publish it, u can assign a version no fr ths
+Assignmnt- bluprnt is thn assgnd to subscription
+BLUEPRINT RESRC LOCKS:
+u can protect resrcs deployd vias blueprint resrsc locks
+evn if thre is a user with owner role still user will nt be able to remve lock
+u can only remive the lock by unassigning blueprint
+if we dnt hve mngmnt grp thn also we have a tenant root grp which cntains both subscription
+
+AZURE WEBAPP
+u can deploy on vm
+or on azure app sevr, u dntg hve to mnge underlyng infrastructure(Platfrm as service)
+it has features such as Autoscaling and security
+it has devops capabilities which inclueds continuous deplymnt
+
+APP SERVICE PLAN
+FREE- associate 10 webapps, 1 gb(60 CPU minutes/perday)
+Shared- associate 10 webapps, 1 gb,(240 CPU minutes/perday)
+Basic-scale up to 3, multiple azure apps link to plan(Paas), we have two apps runng on one instance, if u create one more thn one cmpute instance is not enough, so this is the benefit u hve cmpute instnces upto 3
+hosting of ur web apps also depend on the os, u hve to spun up new vm if u wnt to create on linux. So this also mttrs
+
+iIf we want tke backup or app thn the app service pln shld be stndrd or highr
+
+whn it cmes to app service plan it can be eithr windows or linux
+
+WEB JOBS:
+feature for web apps
+this allows to run bckgrnd tasks
+webJob Types:
+Continuous
+-strta immediately whn webjob is created. to keep the job frm ending, the script typically does its wrk inside an endless loop. if job does end, u can restrt
+-runs on all instances tht web app runs on. can optionally redirect the WebJob to single instance
+supprts remote debugging
+TRiggered
+strts only whn gtrigerred manually or on a schedule
+runs on single instnce tht azure selcts to load blncng
+Dsnt support remote debugging
+
+APP SERVICE LOGS
+can enable diagnostics of ur webbased applns in azure web app service
+Application Logging- these atre logs messages tht are generated by appln code
+Web Server- this is araw HTTP req data
+Detailed Error- these are copies of .html error pages tht wld hve been sent to client browser
+Failed Req Tracing- ths provides detailed tracing info on failed req
+Deploymnt logging- these are logs generated whn content is published to an app
+
+AUTOSCALING
+overload webapp, so we want tto incfrease instance based on ths
+-scale based on the CPU percentage, sacle in too
+in basic u can only scale up to 3(no autoscaling manually we have to)
+in stndrd u can choose (autoscaling)
+cooldwn period we hvae to decide how much time the vm will tke to cooldwn
+
+SLOTS:
+- u hve choice to validate all appln chnges in staging deplymnnt slot
+-u can  thn swap the staging with prod slots
+ths hlps eliminate dwntime fr ur appln whn new chnges are deplyd
+-u can also easily roll bck chnges
+ths feature is also avialble in Standrd plan or higher
+
+APP-AZURE VNET
+-public service anyone can access on internet
+if we wnt to interact with db(this will be in vnet not hvng public ip)
+to interact-is to exposr ths to internet but ths is not secure so a way is to use azure vnet
+
+AZURE FUNCTIONS
+allows u to run small pieces of code as fxns
+u just develop and upload the code to an Azure fxn
+U only get billed fr the amount o time the code is run
+can use varirty of prgrmng lnguage in azure fxns
+C#, java, javascript, powershell, python
+u can use libraries by using nuget and npm pcks
+INVOKING FXN
+-HTTP trigger
+-Timer trigger
+-Blob Storage, queue, evnt hubs Trigger
+
+PRICING PLAN
+Consumption- u can only run fr the time the code runs
+App service- u already hve an app service plan tht runs on web app, u can reuse the same plan to run azure fxns. ths wld save on cost if u already hve an app service plan
+Premium-u get no of pre-warmed instances tht are always online and ready to run ur fxns. The plan also aads more compute whn req
+we cnt crfeate the backup in consumption plan
+tht feature is available in app service plan
+so it varies on the plan
+
+BENEFITS:
+ecommnerce appln-to purchase products
+we hve diff modules for evry page, so this tkes more space of cpu. so instead mkng it as modules, create fxn
+mybe the lngge is diff lnguage but azure fxn u can hve the app in java
+msg added to queue thn in fxns u can use binding
+
+AZURE LOGIC APP
+cloud service hlps schedule, automate and orchestrate tasks
+how it wrks:
+frst design a wrkflw in azure logic apps
+each wrkflw with atrigger
+trigger is fired via a specifuic evnt
+whn trigger is fired, the logic app engine create a logic aoo instance tht runs wrkflw
+Connectors of logic apps
+these cnntrs provide easy access to evnt, data and actionsthte are sent frm externl applns, services and systems or pltfrms
+u hve built in cnnctrs tht can cnnct to azure servies such as Azure fxns, azure api apps'
+u hve mngd cnnctrs tht can cnnct to pltfrms such as office 365, Microsoft Dynamics
+LAB
+azure logic app-prticular evnt occurs-add blob to blob storage
+
+Evnt grid- service3e tht can listen to evnts from othr services
+
+AZURE SERVICE BUS
+QUEUE
+-provide frst in frst out
+-receiver will receive msgs in order in whch thy r received
+
+TOPICS
+subscribers and publishers
+we can subscribe to prticular evnt to get notification we can usr ths
+
+for creating service bus we have to create a namespace, hre u will be creating the topica nd queue
+in queue- we have peek means we r only seeing teh msgs but receive is we r actually fetchng tht msg
+in queue we only hve consumers but in topic we have subscribers and consumers
+topic- we can forward it futrethr too if we want on quue or evnt
+hre whoevbr will be subscribed fr rreceving the msg u can receive
+
+DOCKER CONTAINERS
+3 apps to deploy, thy deployd on one physical server, libraries and dependencies it hve
+if we mke chngfe to one app on depndncy, but now u dnt knw wht effct will tht hve on othr applns in tht server
+u canm deploy theses apps on diff vms, so ths is how u can isolate 
+
+Container deply-u hve hypervisor fr vms-but hre ur app is embed in cntainer
+container has libraries, OS we can hve multiple containers, now u can use diff cntner fr ur apps
+os fr cntnr is just lghwght
+how to run ths containers so we need cntnr toolset tht is docker
+
+toolset to create, run, deploy ur app as container
+container is
+stndrd unit of sftwere
+contains ur sftwr code and whtvr is req to run ur sftwre code
+the container is lightweight and standalone
+u could easily port this and run it on any computing env
+WHY DOCKER:
+hlps to containerize ur app, mkes it easier to maintaina nd deploy
+sinced its smaller in size, becomes fster to deploy
+also reduces the size and cost fr ur infrastructure
+build commn docker images
+since u can deploy the same appln on diff computing env, it reduces the blame game whn u hve the scenario,"But it wrks on my computer"
+
+LAB
+create linux vm
+cnct tto vm
+installed docker image
+ran a container which has nginx
+
+nginx image wich image we want
+how the docker knws abt ths image or where does it pull frm, place called Docker hub
+has public repository has all images and finds the image whch we specifies pulls it 
+thn we issue docker run cmmd aftr pulling image
+nginx server runs on prt 80, by default
+we wanrt to expose the port of vm, so ths docker run cmmnd maps ths
+
+.Netcore app on linux vm
+on vm install the ASP.net core sdk
+publish ur app
+copy the publish folderr to server
+run the applnb using dotnet
+by default config, ths app runs on Kestrel server but ths dsnt hve all features, so we will run it on our server(nginx we bserver)this behaves as a reverse proxy and frwrds the req
+we have to add code to frwd header info
+modify the config file
+
+dockerfile-is list of instruvtions of how to craete a image, now instead of going and doing all those steps u just have to specify those in dockerfile, thn run
+frst step is install asp.netcore sdk
+specify the wrkng dir
+copy all files frm particulart folder to my wrkng dir
+ thn setting env variable 
+expose the port
+wht shld run our app 
+here we will be running teh dockerfile which will create the image and the conatiner fr us
+
+AZURE CONTAINER REGISTRY:
+now consider we want same image in aothr vms too, so diff ways are:
+one way is to publsih the image to dockerhub as public repo thn use it
+othr way is to publish the image to cntnr regstry, u can simply dwnld frm thre and use
+
+create cntnr regstry-cmmndsexecute ut fr ths we need to install azure cmmnd line interface
+
+Azure Container Instance
+service u can use to deploy cntners in isolation
+u dnt need to mnge underlying infrastructure
+u can persist data using azure files shares
+the cntnr also gets an IP addresses and a fully qualified domain name
+
+AZURE WEB APP- CONATINERS
+- can pickup image frm cntnre regstry and craete web app based on tht
+
+AZURE KUBERNETES
+many cntnrs and many components of a web app a cmpny has
+ so to manage these containers and mnge these vms hosting ur cntners is vry difficult,tedious task, 
+so to mnge these cllctively  u can use kubernetes
+
+how to deploy kubernetes
+dwnld and install kubernetes and mark ita s amster node/cluster
+on these u hve nodes, which is used to run ur container, these nodes will be mngd by master, on these nodes also we have to install kubernetes and thn link to master node using kubectl
+kubectl is acmndline interface to deploy nodes on cluster
+
+open source pltfrm tht is used to mngng cntainerized wrkloads
+kubernetes is able to provide a DNS name to ur cntnr
+if thre is a high load on ur containers, kubernets can load balnce and distribute ntwrk traffic
+kubernetes can also restrt containers tht fails
+it can be used to replace or kill cntnre
+alos hlps to store and mnge sensitive info such as pswrds, OAuth tokens and SSH keys
+fully mnged service on azure
+mkes it easy to deploy and mnge cntnrizd applns
+it hlps to remove the burden of mnging the underlying infrastructure for the kubernetes deploymnt
+
+LAB
+create kubernetes cluster
+service principle is use othr resrcs in azuire as well
+
+Understanding to deploy appln on kubernetes
+whn u running a cntnr on a node in a cluster thn it is running on pod(it has its own ip address)
+we can multiple pods runng fr particualr deploymnt
+to load blnce, traffic dsttibutionand for high availability we can specify, the number of pods to be running
+Replica- number of pods to run
+Rolling Deplymnts-chnge the cntnr image, it will go replace the cntrs running in pods gradually
+Healing- if cntnr fails-th ths sftwre will go and restr the cntnr in a pod
+
+SERVICE PRINCIPLE
+we r using azure kubernetes and azure cntnre regstry
+if we want to mke one service talk to anthr service thn ths service has to be authorized to use ths service  thn hre we can use service principle
+its like a sep identity, will get id, a role defined, thn ths will give the specified roles to use ths service
+
+AZURE SQL SERVER
+infrastructure as a service-vm thn on that we install sql server
+anthr is Platfrm as a service-we dnt need to mnge the underlyng infrastructure
+thre are diff ioptions
+single db
+mngd instance-lift and shift thre onpremise db
+Elastic pool-cmbine dbs in a pool so tht thy use the one underlyng infrastructure
+
+Infrastructure as a service
+have full cntrol ovr SQL Engine
+its easy to migrate frm an on-premise instance, beacuse u can install ur own db version
+u hve private IP addressing via the vnet
+BUT
+u hve to mnge the underlying vm
+u hve to mnge SQL instance
+u hve to implement ur own high avaialability sol
+u need to mnge the bckups
+
+Platfrm as A Service
+hre 99.99% availabilty is guranteed
+it has features such as builtin backups, patching and revry
+has built in advncd intellignce and security
+BUT
+Migration frm an existing on-premise instance might be more dffclt
+some SQL features may nt be available
+u dnt hve the concept of private addressing. u need to mnge access via firewalls
+PURCHASING MODELS:
+Database Transaction Unit and vCore Based
+
+Datbase Transaction Unit(DTU)
+-Blended measure of CPU, Memory and read-write rates
+Thre atre diff service tiers
+Each service tier has diff features and diff pricing
+if u want higher perfrmcee thn u shld go with Premium
+
+vCore Based
+u can independently scale the compute and storage
+can choose diff service tiers
+u also hve replica's for high availability
+u can also mke use of Azure Hybrid Benefit
+U can save on costs if u hve existing SQL server licenses
+
+Managed Instance Offer
+new deploymnt model tht allowsfr easy migration of existing on-premise SQL server databases
+Provides 100% compatibilty with latest SQL SErver on-premises(Enterprise Edition) database engine
+Also provides a native vnet implementation
+hre thre is no mngmnt of infrastructure
+
+if u want to cnct to db frm diff wrkstation thn use server set forewall feature 
+
+ELASTIC POOLS
+two sql db, u r using 5 DTUS for each db
+but this is not engh u want to scale up but this is not easy
+when u scale out the DTUs, u might get a slight interruption to the db service
+this is beacuse new compute services are created. The current db connections are dropped. And new connectionsa against the new compute resrc
+
+wht u can do is use Elastic Pool-u can define ur dbs in a ealstic pool
+u can distribute the DTUs at elastic pool lvl,
+elastic pool will hndle the DTUs in suach a way that the underlying dbs can hndle any type of loads and thre will be no interruption, as it will hve the compute instance as it has a min of 50 DTUs 
+
+cost-eefctive sol tht can be used to mngng multiple dbs tht hve varying and unpredictable usage demands
+the db tht are part of ealstic pool need to be on a single server
+these dbs wld share the resrscs
+the resrs are alreday allocated at a set price
+beacuse the resrcs are already available for all dbs based on the eDTUs provisioned, the sacling of dbs based on load is done automatically
+Whn u move db in and out of an ealstic pool, there can be a brief outage in order of secnds. Hre again at theend of operation, the existing db cnnctions are dropped
+
+LAB
+create sql db
+want to use ealstic pool yes-create elastic pool-basic-apply
+craete
+on db-server-u can see ur elastic pool-configure-dbs-add db
+
+WORKING WITH DATA IN SQL DB
+we hve 3 tables
+orders, course, customer
+we hve primary key, Foreign key constraint
+see video if u want
+
+AZURE SQL MANGED INSTANCE
+diff btwn sql db and mngd instance
+whn we use sql db, we might nt get all feaures of microsoft sql server, u want to migrate to Azure and need less maintainace overhead and want to use all of the faetures of SQL server thn this is not possible with SQL db
+SQL db is a public resrcs
+So, for this you should use Azure mngd instance service
+100% compatibilty with latest SQL server Enterprise edition
+Provides native vnet implementation
+High availability  backups
+hre this is deployd on a vnet, the key thng hre is security, so if u dnt want use a public resrc u can use mngd instance
+
+LAB
+craete sql mgd instance
+thy dnt hve DTU model
+this is for cmpnies who want isolate and secure db
+Azure Hybrid Benefit-if u hev the license thn cost is less
+pswrd shld be 16 chrctr in lngth
+it will craete new vnet
+this creation tkes around 6 hrs to cmplt
+on mngd instance- how to cnct
+mngd instance is part of vnet, so we will create a vm on this vnet and then install sql server thn use
+vm in one subnet and m,ngd instance in anthr subnet
+cnct to vm via RDP-local server
+enhaced-off
+internet explorer-sql server mngmnt studio dwnld
+enter details for server frm azure and cnct
+
+SERVER SIDE TRANSACTIONS:
+db transaction- is a set of db cmmnds tht can be excuted for creatinga procees
+if one step fails the entire tarnsaction shld rollback
+thre are three tabels craete order, charge customer, generate receipt
+these tablkes can exiust in one sql db
+ths can be in a multiple sql dbs on same server too
+reason can be one db must be hndled by diff dprtmnt
+if u r wrklng with .Net appln thn it has aset of libraries which can be used to handle 
+multiple sl dbs on sme server
+Transaction are supported only if
+the dbs can be multiple azure sql dbs on sme server
+the dbs can be multiple azure sql dbs on diff servers
+the dbs can also be hosted on azure sql mhngd instance
+
+AZURE SQL-ACTIVE GEO REPLICATION
+sql has this feature of high avaialbilty but to mke it more higher available, we can use ths feature
+ths feature allows u to create a readable secondary db
+the db  wld be based on preimary db
+the secondary db can on the same server or a diff srver
+this is not supported for Azure SQl mngd instance
+it will create anthr db, will be added on sme server or secondary server
+this repliaction will be cntinuous
+scenario
+u hve amin app wrkng with dat
+and the reprts wrkng withh data
+so hre primary db can be used to wrk with ur app whereas the secondary db will be wrkng with reports
+scenario
+have a failover in polace
+primary db in one region and secondary db in anthr region
+if primary rgn goes dwn thn secdry db can be used but hre the failover has to eb manually triggered
+
+LAB
+craete a sql db
+in db-geo-replication, we can used sme region or anthr regn
+so if we choose diff regn we hve tob craete a sql server alos in tht regn
+in new db-set firewaall-add clientIP, so that u can access tht db frm ur machine
+
+AUTO FAILOVER GROUPS
+avialble at sql db server lvl
+also fr mngd instabce lvl
+it is used to repliacte a grp of sql dbs
+ths feature is built on top of active-geo replication
+ths feature is availbale fr azure sql mngd instance
+hre u can replicate and failover a grp of dbs on a server
+the failover can be done manually or automatically via a policy
+primary db is to autofailover thn secndry will be in a diff regn
+
+LAB
+on sql server
+failover grps
+craete
+u hve to create a server in diff regn
+create
+
+ach partition can store upto 20GB of data
+whn we chose partition tht will decide how many segregations we will have
+mybe we chose based on customer names
+mybe we chose for customer id
+or city..
+once we set the partiton key for cntnr we cant chnge it, we have to create anthr cntr thn copy all data into that, so please choose partition key smartly
+
+REPLICATING DATA
+we can do replicate data in many regions, globally
+-multi-region writes-means ur data can written also in diif olace
+we can also have a additonal region also, if primary goes dwn u can go to scndry
+
+CONSISTENCY LEVELS:
+Strong- u get consistency but loose on performance
+-iit goes to the place whre chnge is made and waits to replicate once it is replicated thn only u can write again, if u want data to be consistent in all places thn use ths
+Eventual- u can win on performance but loose on consistency
+Bounded Staleness- hre the raeds can be lag behind writes by atmost 'k' versions of an item or by "T" time interval
+we decode the value for k
+Sesion-hre reads can be guranteed for the same session
+Consistent Prefix- hre thre is a delay in the raeds of the most recent data but u will nvr see out of order writes
+
+GRAPH API
+
+KEY VAULT
+thy mght be using certificates, encryption keys, pswerds, secrets
+key vault can be used for ths
+e have dontprgrm, key vault and pswrd we have
+we want to authorize the machine to access
+
+in AD, appliaction objct we can define, it will be represented as dotnet prgrm tht will be used to access the key vault
+
+DISK SERVER SIDE ENCRYPTION
+encrypting ur disks attchd to azure
+u can do ths if the underrlyng data is in azure data center
+how can we do ths
+ServerSide- whn we use ths, data is already encrypted in azure
+if we want to use our own encryption based based on customer keys
+we can do it in :
+crtaete vm-in disk-create new disk-encryption key platfrm mngd-create
+on vm-on ur os lvl disk
+stop vm, u cnt do it if it is in start state
+craeet an encryption key-in key vauilt-shld be in sme loc as vm-keys- ctrete key
+disk encryption sets-craete sme grp-locencryption type-customermngd key-current version-create
+in vm-oslvl disk-encryption-customrmngdkey-strt vm
+its done
+
+anthr way tht is disk based encryption
+if windows-bitlocker
+if linux-dmtripfeature
+u need keyvault too
+we can hve disk encryption in both cases whthr it is stndrd SSD or Stndrd HOD, both are mngd disks in azure but if we hve unmnd diskas, thn also we can do thts but note the unmngd disks are stored in strge accts
+When you specify the volume type as All, when enabling encryption, all disks will be encrypted. This works for both managed and un-managed disks. It also works for all disk types
+
+FIREWALL SETTINGS
+key vault is public rersrc butr if we want it to be in a private vnet thn we can also do tht in firewall sttngs
+in keyvault-firewall-private endpointg-choose avnet-subnet-slct tht endpoint-add
+in vnet -sevice endpont-add
+
+MNGD IDENTITY
+in case of vm, will be generated fr vm itself tht can be in ad and can access key vault, ths can be used fr authntication
+
+
+AZURE MONITOR
+we can get the metrics like cpu usage, disk metrics, ntwrj stats, also alerts u can get
+ACTIVITY LOGS-control place activities
+-whn a vm is stopped
+-whn a vm is created
+LOG ANALYTICS-central sol for all ur logs
+APPLN INSIGHTS-Perfrmnce, mngmnt system for ur live applns
+
+DYNAMIC THRESHOLD-ALERTS
+-mkes use of advncd machne laerning
+-mkes use of historical to identify any patterns or anomalies that might indicate possible service issues
+-when u choose to use dynamic thresholds, u have to mention a setting knwn as senstivity. there are thre settings
+High- hre an alert rule will be triggered on the smnllest deviation that cld result in more alerts
+Medium- here u go less tght and more blncd thresholds and fewer alerts will be generated
+Low- hre alerts will only be triggerred is thre are large deviations
+
+LOG ANALYTICS
+central sol for logs
+vms or on-premise severs
+-we can send all logs to log analytics, aftr sending thre we can use custom queries and marketplace for solutions
+
+AZURE AUTOMATION
+Process Autoamtion- orchestrate processes using graphical, powershell and Python runbooks
+Configuration mngmnt- cllct inventory, track chnages and configure desired state
+Update mngmnt- access compliance and schedule update installation
+Shared capabilities-role based access cntrol, secure, global store for variables,credentials,certificates,connections
+Flexible scheduling
+Shared modeuls
+source cntrol support
+Auditing
+tags
+Heterogeneous- wind, linux
+Azure and on premises
+
+LAB-
+craete automation acc
+we have a script
+will log into our acc using service principle
+we have to imprt some modules
+in automation acc-modules-browser gallery-seach -Az.Accounts,Az.Compute
+craete a runbook 
+paste teh script-publish
+in monitor-alerts-mnge alrt rule0crete a alrt rule
+ur vm-add cndtion-ntwrk
+in action grp-choose automtion runbook-ur acc-schemq-no--ok
+create
+
+UPDATE MNGMNT
+availbale as part of azure automation
+in wind-Update agent
+in linux- apt
+update mngmnt is used along with log analytics
+we will be haing or agents can be wind or linux, thybe sending the updates/logs to log analytics-thn automation-will query fr teh update whichg aare missing and thn update
+
+LAB
+create linux vm
+create azure automation acc-
+create log anbalytics wrkspc too
+in vm-extensions-to add extrnal sftweres if we want
+once we use update mngmnt, hre we will teh extensions
+in automtionn acc-update mngmnt-link the wrkspce loganalytics
+cnct to vm
+seach updates-install now
+but we cnt do it fr evry vm, if we have so much vms
+tht is the reason we r doing ths autonation
+in automation-update-add-add ur vm-enable
+vm shld be in  runng state
+
+DIAGNOSTICS:
+hre u can send the platform logs for azure resrtcs to get a detailed disgnostic and auditing info
+azure resrc-log anlytics
+or resrc-strge acc-th to data factory
+or resrc-evnt hubs-sql db
+
+ACTIVITY LOGS
+-can send activity logs via diagnostics sttngs onto azure strge acc, evnt hub, log analytics
+-diff categories of info is:
+-Administrative- ths contains the record of all create, update, delete and action operations tht are performed via resrc mngr
+Sevice Healthg- cntaines the recrds of any service hlth incidents
+Resrc Health-ths cntins recrds of any resrc hlh events tht occur onto resrcs
+Alert- ths gives recrd of teh activationbs fr azure alerts
+Autoscale-ths contains evnts of any autoscale evnts tht occur as prt of ur subscription
+Reccmndation- ths gives recmmndation evnts frm azure advisor
+Security- ths cntains recrd of alerts generated frm azure security cnter
+Policy- ths cntains the recrds of all effect action operations that are performed by Azure policy
+
+DIAGNOSTICS- STORAGE ACC
+- can capture metrics for ur storage acc and also gets logs abt how data is being accessed in ur acc with hlp of diagnostics sttngs
+with the logging facility, following types of requests are logged:
+Successful requests
+Failed req, including timeouw, throtting, authrztn, and othr users
+req tht use shred access sign
+req that are made by strge service itslf
+Evnt anonymous req are logged
+the logs are stored in a $logs container
+there r 2 log entry formats-verion 1.0 and vesion 2.0
+Version 2.0 adds field for logging info abt the req made to the Blob and Queue tht are authrzd with use of OAuth token
+
+AZURE FXN APP-METRICS
+can also hve  alot of metrics available fr fxns
+Response Time- this is the time tkn fr the appln to server req
+Average memory wrkng set- ths is the avg amnt of memeory used by the app in MB
+Data In- ths is the amnt of incmng bandwidth tht is consumed by the appln
+Data Out- ths is the amnt of outgoing bandwidth tht is consumed by the appln
+Fcn Execution Count- ths is the number of times the fxn was excetud
+Fxn Execution Units- This is the amnt of MB used per milliscnds 
+
+AZURE WEB APP -METRICS
+-u r using an app service plan tht is based on Basic, Stndrd or premium th we can use use below
+CPU perctnge- ths is avg CPU used across all instnaces of app srvice plan
+Memory per- this is the avg memory used across al ..
+Data In- ths is the avg incomng bandwidth tht is used
+Data Out- ths is the avg outgoing bandwidth tht ...
+- u also hve s lot of metrics fr  web appln
+Response Time- ths is the time for app to server req
+Memory per- -ths is the avg amnt of memry used by app in MB
+Data In- amnt of incmng bandwidth tht is cnsumned by app
+Data Out-amnt of outgoing bandwidth tht is cnsumed by app
+
+RESRC TAGS
+cmpny with multiple dept, we can use tags hre, it can aloow us to split, identify, grp resrc
+
+COSTING IN AZURE
+-has many ways to tackle costs
+Cost Analysus as prt of subscription
+-u can see the current sondng
+see spndng per resrc
+see ur forecasrs
+Cost Analysis
+see ur spendng history
+see the spnding based on tags, resrc types
+Azure Advisor- gives u rcmmndations on costing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+{
+        "user_id": 32,
+        "username": "Riya",
+        "password": "Riya@123",
+        "email": "riya@gmail.com",
+        "gender": "f",
+        "state": "Punjab",
+        "bio": "",
+        "role": {
+            "roleid": 1,
+            "rolename": "Admin"
+        },
+
+        "user_id": 113,
+        "username": "Nidhi",
+        "password": "Nidhii@123",
+        "email": "nidhi@gmail.com",
+        "gender": "Female",
+        "state": "Raj",
+        "bio": "Scorpio",
+        "role": {
+          "roleid": 2,
+          "rolename": "General user"
+        },
+
+      "user_id": 51,
+      "username": "Salonee",
+      "password": "Salonee@123",
+      "email": "Salonee@gamil.com",
+      "gender": "f",
+      "state": "Orisaa",
+      "bio": "Scorpio",
+      "role": {
+        "roleid": 2,
+        "rolename": "General user"
+    }
+  }

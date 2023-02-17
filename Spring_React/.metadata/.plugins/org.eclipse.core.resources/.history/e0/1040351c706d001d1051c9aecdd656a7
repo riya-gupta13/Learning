@@ -1,0 +1,5 @@
+package com.springboot.kanban.domain;
+
+public class Project {
+
+}

@@ -1,0 +1,5 @@
+script tag doesn't have the self closing tag
+when importing js files in html, the sequence of importing them also matters, so remember that
+VARAIABLE-data container
+we define it as let var='Riya'
+constants- constant value that never changes

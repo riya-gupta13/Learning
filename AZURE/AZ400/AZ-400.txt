@@ -1,0 +1,1660 @@
+
+SECTION 2
+WHY DEVOPS:::
+lifeacycle of prjct:
+req-- Design-- Develop--Testing-- Deploymnt
+ths was really dffclt to mnge, so many cmpnies adopted agile approach for faster time to prod, Regular featutre changes and to keep up with market trends
+Agile--- Faster Integration cycles and Fster depl cycles tht where we cme to devops.
+
+Implementing Devops:
+Culture Change thy hve to doi if thy r adopting ths
+culture chnge--- dev-- depl-----Reduce time,Reduce approvals,Revist processes---Dont comprise in quality, Teams need to tke accountability, so thy hve to keep these all in mind whn wrkng with devops.
+So thy hve to chnge the way the org thinks,
+thy hve to chnge the org builds
+chnge the way the org implemetnts
+
+Another chnge--tool set:::
+diff tools in market
+Trello-planning
+Jia--Continuous mngmmnt
+git--source cod mngmnt
+Jenkins--Continuous integ
+Testing--Selenum
+Monitoring--Dayadag
+Clod--AWS, Azure
+
+AZURE DEVOPS TOOLS:
+Azure Borads--Hpls in plnng
+Azure pipelines--continuous integ, deploy
+Azure Repos--Source codee repo
+Azure Test Plans--for manual and exploratory testing
+Azure Artifacts--used for mnging pckgs
+
+
+AGILE Process:::
+idea: deliver software via smaller chunks or increments
+gather req---user story
+req has user story-if this is done customer tkes user story, req are kept into backlog, backlog--userstory
+Epic-larger sum of work tht can be vroken dwn to stories
+once we got stories tht r in backlog
+thn we implemnt sprints, we can place the userstories acc to us in sprints, each sprint is of 2 weeks
+sprint: craete a time based frame. In sprint, you decide which user  stories can be implemntd
+using sprint hlp to brk dwn large piece of wrk into smaller fragmnmts.
+Each set of fragmnts can be devloped testd and deployd sepeartely
+
+Consider a team is put into place for execution of work in sprint,
+Role-Product owner-decides wht sprint is going to achievr and backlog items to in clude in sprint
+The team has normally daily standup mtng to chk how wrk is progressing
+
+
+AZURE BOARDS:::
+new wrk item--new user story-title
+Iteration is sprint we want to assign
+go to userstory--we can chnge state by dragging to anthr
+
+Agile Processes: by default whn we crete devops prjct it will create based on agile process
+wrkflow is transition of userstories based on states
+create new prjct-choose type-basic-wrk items-only epic, issue, task are avialable
+
+to del prjct=prjct settngs-delte
+
+Workitems-add task-login--ad anthr task-add-login 2--link ths to userstory
+
+wrk items--reltd wrk-link-added as child item to user story-add both-save
+wrk items-userstory for task login1-iteration 1
+sprints- wecan move the taks 
+we can assign other task on 2 iteration thn see in sprints
+we can give strt and end date to iteration-- go to prjct sttngs-iteration selct
+
+azure devops--org settings-add users(we can add external or active directory users)
+
+Users to ad based on plan:
+Basic-- 5 users, roles: versioning, tools for agile, java, build, release and more
+Stakeholder: unlimited users, roles: wrkng with backlog, work items and queries
+Visual Studio subscribers also get basic features. Additional features aree azure Test Plans can be assignd to users by access levl, basic+testplans
+Permisiions for prjct contributors:L defailt security grp for users whi will contrivute to prjct
+
+PERMISSIONS IN AZURE DEVOPS::
+Prjct settngs--grps
+orgnztion sttngs
+
+QUERIES::
+new query--filters define we can-task
+save query- give name-save as shared query-ok
+Charts--new chrt-based on query we can create chart-we can add ths chart to dshboard
+if u go to dshboard u can see thre ur chrt
+we can add tags to wrk items
+thn we can use these tags in query, if we wnt
+
+CHARTS::
+Dashborad-overview-edit-add widget
+
+
+CHART WIDGETS:
+BurnDown-displys burndwn across teams and multiple sprints, is basically used to see wht wrkitrems is left 
+Focuses on remaining wrk within specififc time period
+BurnUp- displays burnup across multiple teams and multiple sprints. Create release burnup or bug burnup
+Focuses on cmpltd wrk
+we can eithr use burndwn or burnup
+
+Chart for Work Items: Visualize wrk items like bugs, iser stories and features usinf shared wrk item queries.
+FOCUSES ON ARE WE ON TRACK TO CMPLT THE SET OF WRK BY END OF DATE
+
+Cumulative Flow Diagram(CFD): Visualize the flow of wrk and identify bottlencks in sftwre dev process
+This helps to see itmes as thy move thrgh the diff states
+
+Cycle time-
+visualize and analyze your teams cycle time using a control chrt
+measures the time tken for team to cmplt wrk items once thy hve begun actively wrkng on thm
+Lead Time: 
+Visualize and analyze your teams lead time using control chart
+measures total time elapsed from creation of work items to their cmpltion
+
+dashborads-edit-burndwn-configure-done
+we can chnge configuration based on our req
+	
+QUIZ::
+You can organize your user stories or work items into your backlog to help plan, prioritize, and organize the work.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 3:
+SOURCE CODE VERSIONING
+AZURE REPOS
+GIT- decentralized system
+we can make the copy of repo and mke chnges to all files we want thn upload
+
+git init-creates repo
+git add . - add all files
+git status-- will show nt commmitred
+git commit -m "ffirst commit"- added to git repo
+git status- no commit
+git log- can see commit no.
+git config -list= if user.name or user. email not specified u can
+git config --global user.name ""
+git config --globak user.email
+
+make chnge to file 
+git status
+u can see the change
+thn u can commit or restore(discard chnges)
+git commit -m ""
+
+git log-- two versions u will see
+make chnge to file2
+git diff- it shows diff btween both files bfre chnge and aftr chnge
+
+previous version of file to go thre:
+tke commit no in git log which u want
+thn
+git checkout copiedno
+
+GITHUB ENTERprise:
+if orgnztion wants on their own server(onpremise server) thn this is used
+
+AZURE REPOS:
+prjct-azure repos-one repo u will get-u can create new repo
+in ur comp create new folder-two files-git init-git add . -- git commit--git remote add or......--push-refresh in azure
+mke chnge commit-- push
+whn u create prjct we hve thre version cntrol by default git thts why we get empty git repo bfoir itself we can chnge if we wnt
+
+instaed of mkng chnges to preod app in git-create new branc-copy ur whole app thre-thn do chnges thre
+we can create multiple branxhes--thn u can merge branches
+-create shortlived branches-create for diff features
+-delte the branch if its no longer req
+where the head points thre u r wrking, so this is imp
+
+create branch
+git branch nameofbranch
+git checkout nameofbranch
+git status
+git log
+mke chnges
+git add .
+git commit -m ""
+git log we can see the head pointing to
+
+MERGE::
+implicit/FastForward Merge:
+
+master branch, chnge to diff branch
+we wnt to merge so now fast frwrd will merge these chnges to master 
+git checkout master
+git merge feature(nameofbranch)
+git log
+head points to both branches now
+git log --graph- we can see the graph of the commits
+
+Explicit Merge
+wh we hve mde chnges to master as well as feature branch
+to quit frm log do ctrl+q
+git chckout feature
+create new file -- add file--commit--git log
+head points to feature now
+
+git merge feature
+hre merge is done based on recurrsor
+git log--u can history of feature and master branches - it will merge all history of commits 
+git log --graph --decorate --oneline
+
+SQUASH RANGE:
+whn we dnt wnt the git history in cmit history of master
+git checkout feature
+mke chnges 
+commit
+now if we will merge it will copy history of commits too we dnt wnt tht thn
+git merge --squash feature
+meger conflict - to reslove- remove the version which u dnt wnt-thn
+git add .
+git commit -m "Resolved Conflict"
+git log
+u will only see latest commit msg
+
+AZURE REPOS:
+git status
+git pudh origin master
+in azure repos- we can see evrything
+to push branch
+git push -all origin
+u can see ur feature branch too in repos
+
+PULL REQ::
+git checkout master
+create new branch
+git branch new-feature
+git checkout new-feature
+add file
+commit file
+git checkout master
+
+prjct settings in azure devops: branch policies:
+require min no of reviewers--1
+....
+git push -all origin
+error-craete pull req
+
+create pull req in repos-create-- in reviwers - add reviewr-
+now u hve to add opional reviwer to approve
+login with anothr acc= go to pull req=approve
+now gain login with ur acc=complte
+now see the file- it will come
+
+
+remove branch policies-toggle off
+mke chnge to one file-commit tht
+
+now on my local anthr devlopr mke chnges to file--commit
+now push
+git push origin master
+frst we hve to pull all chnges thn push
+git pull
+thn git push origin master
+thy hve to frst pull thn push push so tht thre are no conflicts
+
+Visual Studio
+new prjct-asp.netcore=3.1-create git repo on top left option we hve
+create and push
+if u mke chnges in visual studio-rght clck on tht commit on local it will thn-we can push it too- to remote repo
+
+BRAnches frm visyal studio
+view-window for git chnges
+master branch-craete branch-feature-mke chnge to file-rght clck-git-commit-push
+
+Azure REpos and VIsual Studio
+VS-new prjct-.netcore
+devops=new repo-tke url
+in VS-git repo create-existing remote-create and push-login
+in repos u can see the files'mke chnges -commit-push
+
+Using .gitignore File::
+all the executrable files are hre
+as git commit shld only hve code in place
+
+we can add hre the files we want to ignore
+echo FileA.txt >> .gitignore
+.gitignore
+git add .
+git status
+git commit
+so now it will not add FileA.txt hre whn u commit but will add all other files
+
+TEAM FOUNDATION VERSION CONTROL
+new repository in devops-use team foundation version cntrol
+VS-.net core-mange cnctions-use microsodt acc=choose ur prjct=map and get
+add sol to version cntrol=checkIn-add cmmnt=yes
+in repos-refresh
+to mke chnges frst chkout thre-thn chkin
+ths is centralized system
+
+
+GITHUB AND AZURE BOARDS INTEGRATION::
+prjct settings-github cnctions-authorize azure boards-slct repossitory
+in github it will install azure boards
+
+prjct=wrkitems-newitem-save
+in github in browser mke chnges to file-commit changes in msg give
+Fixed AB#79(this menans azureboards#wrkitemno)
+hre thre r some msgs tht azure boards hve predefibed
+so hre fixed meand its compltd
+
+GITFLOW:
+master branch-records release histiry
+develop branch-we will mke chnges hrfe thn merge with mster branch with specific release
+
+HOTFIX Branch are based off the master branch 
+yiou can dwnld anmd install gitflow
+this tool can be used in addtion to ur nrml git cmmnds for ur repo
+it can be used to amintain your branches
+
+Azure Repos-Forking repository
+gir repository u hve 
+2-5 dev wtkng on single repo
+but in lrge org ths can be difficlut thre
+
+thn u can craete fork repository
+it creates server version of ur repos
+thn u can merge this repos with main server repos by cfreating pull req
+
+in ur devops- u hve option of fork=only the default
+
+GIT CREDENTIALS
+Authntication cresdentials for git
+
+whn we insatll git thn the git is installed hre too
+
+Storage oof credentails
+-git credential sys has a cache mechanism tht can be used to cache ur credentials
+-thre r diff settings whn it cmes to cache
+-default setting is not to cache anythng at all
+-next cache settings is to keep credentials in memory for certain period of time
+-u can also define setting to save  credentials in plain txt file on desk
+on windows- we hve windows credential mngr
+
+in cntrol pnl=general credentails=remive fir azure devops
+create file add file-commit
+push origin
+now ths time it will ask creadentials
+now again if I will do ths thn i dnt need toi add credentials b cox thy r cached now
+
+
+USING PERSONAL ACCESS TOKEN
+usersettings-personal acces token-read and write only
+remove credentail frm windows credntial mnhgr
+add generic credential-pswrd from repos
+add file now frm thn commit-push-it will directly push bcoz it uses personal access token now
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 4- CONTINUOUIS INTEGRATION::
+many devlopers wrkng on feature branch thn merge after mkng pull req-thn deployable verison- to build ths- thre will be build admin-will tke code frm git -thy will build thn on server or local macvhone thre wthy will build
+frst thy hve to tell build admin thn thy can so
+we are automating, hre we use build sftwre it can automatically take code frm thre thn build, it can capture bugs too.
+Advantages::
+-Helps to automate the builds
+- can automatically pickup code and perfrm build
+-hlps to detect bugs early on dev cycle
+so, this provides continuous integration.
+
+BUILD PROCESS:
+source code- has to be cnverted in exe, or dll -we can use MSBUILD(.net core CLI), .NETFRAMEWRK(deprnds on the prgrmng lng)
+
+bin folder we hve build prjct for VS
+build is smthng tht tkes source code and convert it into format whch can be used to build/runn the app
+
+AZURE PIPELINES::
+CI/CD(CONTINUOUS INTEGRATION/CONTINUOUS DELIVERY)
+pipelines will automtically if any coide commit thn it perform,s build--test--deploy
+
+trigger(CI/CD PIPELINE)
+tht will trigger the pipeline
+stages(logical boundary in pipeline): build-- QA--prod
+
+in stage u can jobs(u wnt to do do in particular buils satge)
+job-this is used to represent an execution boundary for series of syteps
+a stage can consist of multiple jobs
+-you can run the step as task or a script
+-the task is pre-packed script tht performs certain action
+Script- used for running custom code like PwerShell or Bash script.
+
+whn pipelines has to build thn to do tht it has to run a VM tht will tkecare of tht we cnt see ths will be disposed aftr using
+ths VM is kind of agent(part of agent pool)
+diff types of agent:images:
+1.win2016
+2.macos-10.14
+3.ubuntu-16.04
+
+
+STARTING AZURE PIPELINES
+devops-prjct-pipeline-create(yaml file)
+where is ur code it will ask
+azure pipleine
+pool-Vm resrc, event pool(set of images tht can be used)
+vmImage: 'ubuntu-latest'
+we can create oyur own agent as well
+steps:
+-bash: echo "Our First Pipeline"
+in yaml please keep note of identation
+run ths
+removeothr all code
+give commit msg
+save and run
+jobs
+
+pipelines-u can see ur pipeline thre
+pipeline- edit
+same pool
+jobs:
+- job: Firstjob
+  timeoutInMinutes: 10
+  steps:
+  - bash: echo "The first job"
+- job: Secondjob
+  steps:
+  - bash: echo "Our Second Pipeline"
+save and run
+after cmpltion
+
+create new repos-tke url
+vs-new prjct-asp.net core we app-new prjct-craete-git create git-existong remote-paste url-push and cfreate
+chk in repos ull hve
+
+new pipeline-azurerepos git-repos-asp.net core-review pipeline:
+trigger-master branch any chnge thre, it will trigger ths
+pool-vm it will gitke to build we require build tools
+task-install nuget tools-provides bundle for all pckgs, ity depends on ur app prgmng
+@1-version no 
+it will install all tools on vm 
+now it will use to restore ths all
+it also add tests for testing, we can remove tht for now
+save and run
+save
+run it
+
+
+EDIT PIPELINE:
+ur repo-startup class-mke chnge
+u will see it will automatically trigger the pipeline
+
+frm gihub to pipeline:
+create rep in github- add ur as.net core app to git-sync-publish
+in pipeline-github-authorize-approve and install-asp.net core-remove taks of testing-save and run
+
+
+To create self hosted agent
+azure portal- create VM 
+1. install git.exe
+2, install nuget.exe
+3. install vs .netcre for build of.net sol
+4.azure pipelines agent
+
+azure- vm create- rdp- cnct- install git on vm
+azure devops- agent pools- default-add
+
+JENKINS SETUP:
+new vm on azure portal=create-rdp-cnct
+dwnld jdk 11
+thn jenkins dwnld-2.249.1
+For continuous integration aspect for Jenkins, you have to setup a service hook in the Azure DevOps project.
+
+Security in CI/CD pipeline:;
+phases:
+integarted dev env/ pull req - static code anlysis, code review, link to wrk items
+Continuous integration - static code, vulnerability scans, unit tests, code metrica
+Development- Penetration testing, infrastructure scanning
+Testing- infrastructure scanning
+
+Testing:::, 
+Unit Testing= various modules, if the unit gtest gives wht we want
+Automated- Frameworks- NUnit, JUnit
+Code coverage, code metrics, static code analysis
+Automated Functional Testing- how the system wrks as desires
+load- simulates users, virtual users, it tells if in prod thn 100s of usera will be able to hndle, or how will it behave
+
+
+Source Code Analysis:
+thy look at code, abd provide recommndation, various rules
+
+VS-asp.netcore app-aanalyze-analysis
+add nuget pckg-fxcop-ok-accept-build the sol-properties- u can see diff rules-warning msgs and all
+whn we publish on pipeline-thre also we can see all this
+create new repos in azure repos-git-remote=push
+devops-pipeline-remove test- save and run-u can see warnings or errors if any
+
+now mke chnges to code add cmmnt-commit-sync-push-gives error- so fr tht u hve to frst pull thn push
+
+Open Source Packages:
+WhiteSource Bolt
+Black Duck Detect
+
+
+devops-orgnzations settings-extensions-marketplace-whitesource-will install it-in extensions now u can see tht
+ Existing pipeline-edit-in tasks-WhiteSorce Bolt
+- task: WhiteSource Bolt-save-commit-run
+aftr job cmplt-on job-we hve whitesource bolt report
+
+
+AZURE PIPELINES- UNIT TESTING::
+VIDEOS LAB
+
+CODE COVERAGE: 
+is imp to understand, mybe thre is snme code tht is not used, so thn ques comes why we need tht can we remove tht why to keep extra baggage for tht
+if unit testing is not running a prticular part of code thn we can remove tht code, ths is code coverage
+
+in unitest prjct-nuget-coverage.msbuild-install
+devops=new repos-create-url
+in vs-git-url-create and push
+new pipeline-asp.netcore-repos-yaml-commit-save and run-now see code coverage reprt
+
+SONARQUBE:
+to improve code quality, metric improve
+
+sonarclous- same as sonarqube but clous version of it, well use it
+login-same as devops
+create org-anyname-freeplan-create prjct
+in devops-crfeate new repos-vs -asp.netcoreapp-push on repos
+
+pipelines-tht will build anfd do sonarqube analysis
+devops-orgzn settings-extensions-marketplace-sonarCloud-getitfree-install
+prjct=settings-service cnction-scroll dwn-chosse sonarCloud-token-go to snarQube-my acc-security-generate-paste thre-verify
+
+pipeline-create-azureRepos--repo-asp.netcore-show assistant-Prepare analysis-give evruthing-now publish-prepare gate result
+after running-see in sonarcloud-u can see evrything bugs, quality metrics all
+
+TECHNICAL DEBT:
+-could be anythng tht could slow or hinder entire devlpmnt process
+-especially whn it cmes to devloping code, amunt of technical debt can increase overtime.
+-as technical debt increases, it can become more difficlt to mke chnges to code.
+
+Wht are situatoons tht can cause:
+-whn dev are under pressure to deliver and app code is nt up to mrk
+-overtime of improper code, subsequent chnges to code tht uses bad coding practices can become more difficult
+-whn design of appln is not done properly
+-thn subsequent code base will not be proper as well
+-whn reviews r not conducted or refractorng-hlps to see how code can be improved
+
+sonarcloud-perspective-maintainabilty-if more complx code thn it can give u more metric based on tht menas no. of days
+
+frm slack::
+settings and admin-manage apps-azure pipelines-add-selct chnnl-run cmmnds as given thre
+once done
+we can subscribe to pipelines tht r in devops and thn receive notifications acc to tht
+
+
+AZURE PIPELINES-CLASSIC EDITOR:
+prjct-new pipeline-scrooll dwn-classic editor-azurerepos-choose repo-asp.netcore-we hve classic pipeline-remove evrythng except(use nuget 4.4.1, Nuget restorfe, Build Solution)
+in agent specification-give win 2019-run-aftr job cmpltion u can see
+
+FLAKY TEST::
+CI/CD pipeline
+thres pipeline tht runs fr evry build we do, so now lets say thre r certain builds tht r build
+so, Flaky tests are the one which can pass/fail result evn if the code fremains same or the build env was aame, so evn if test case runs aftr build thn the test paases 90% but sme part is failld so this will mke build also fail is wht flaky tests 
+prjct settngs-test mngmnt-flaky testdodetection--it will detect the flaky test, it only hppns whn we hve lot mny testcases
+
+PARALLEL JOBS:
+orgnzation sttngs-private prjcts-we can one only one parallel job if we want more thn we hve to buy ths parallel job link with subscription
+we canm only hve one build  at a time bcoz of ths restriction
+once we run concureent it will only run aftr the frst job fnshes it build process.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECTION-5
+HOW TO BUILD OUR INFRASTRUCTURE:
+
+Publish azure app to pipelines:
+in portal -craete app-create
+in Vs-create asp.net - publish-app on azure webapp
+refresh url after creation- u can see ur app now
+create vm-dwnld sftw- in ntwrkmg-inbound-allow port 80-deploy
+dwnld rdp file-cnct
+ob vm-add roles and services-server roles-iis-install mngmnt service-install
+tools-start-IIS-machine-mgmnt service-enaable remote cnctions
+in azure-ntwrkng-add inbound rule-port 8172
+in vm-local server-IE enhanced info-dwnld .Netcore-choose hosting bundle-install
+another toll-webdeploy-dwnld-run
+in azure-configuation-dns name-give
+in vs-publish-azure vms-ur vmedit-pswrd-save-publish
+
+Custom Script Extension:::
+vm-ntwrkng-inbound rule for port 80
+whn we will run the url, it will now bcoz for tht we hve to add role of IIS on vm and then run
+for doing all ths we can write a custom script.
+
+file:
+import-module servermanager
+add-windowsfeature web-server -includeallsubfeature
+
+these are powershell cmmnds
+
+to wrk with custom script extension(.ps1), we hve to hve a storage acc in azure
+craete storage acc
+then create container-thn on container-upload the file-cutom script
+vm- extensions-custom script extencion-browse-container-choose file
+now it will tke the file and run the powershell cmnds on vm
+
+POWER SHELL DESIRED STATE CONFIG:
+1. a dsc config doc
+2. a target node for dsc config
+3. config data- this is env data for config
+
+diff btween custom and ths is:
+in custom- itw ill run only once whn we add the file
+but hre we cann use it with azure automation
+which hlps in
+consider a scnario tht u ran ths script frst tiem but smone deltd the IIs service frm vm, in ths case the axure automation will automatically install it again bcoz it is thr responsibility of it to mke IIS service prsnt in vm and if its not, it will run script again
+
+
+
+in azure-vm-ntwrkng-port 80 allow inbound
+
+file....................
+it is .ps1 file
+create cntainer-upload file-zip contents of file
+vm-extension-powershell desired state-upload files
+
+
+AZURE AUTOMATION:
+to maintain state of vm
+steps:
+1. azure automation acc
+2.powershell DSc srcipt
+3. compile
+4. asociate a DSc config with node
+
+in vm-ntwrkng-rule for port80
+create azure autimation-can cnct with vm in any region
+script file
+automtion acc-state config-configuartions-uplaod-ok-click on file-compile-nodes-add-choose vm-cnct-node config-config mode-apply and autocorrect-ok
+
+POWER DSC FOR OTHER MACHINES:
+-you can also enable ths for your on-pemise or cloud based env
+-this is applcable foe both win and linux based mchnes
+-for wind machines
+-ensure latest version of windows mhgmnt frmwrk 5 in installed on machine
+-genearte dsc metaconfigs
+apply metaconfig settings
+
+
+ARM templates:
+json tepmlate-submit to resrc mngr-thn rsrc mngr uses ths to set config of rescrs
+
+
+NESTED OR LINKED TEMPLATES:
+if we ant many resrcs to be deployed we can use ths by nesting
+benefit is we can create resrcs across resc grps
+we have resources tempalte inside tht anthr resrcs tmplate
+
+azure-custom tempate-create-give resrc grps-save
+
+
+create container-upload the custom script-u wrote-execute
+
+
+STATIC IMPLEMENTATION:
+we can store pswrd in key vault
+create vault-create secret-pswrd-value
+ARM template-one file
+other file for parameters- gibe ref to keyvault for pswrd in tht-copy resrcId is the parameter value for key vault
+in key vault-access policies-allow resrc mngr tmplate - enable tht
+now execute
+
+
+DYNAMIC IMPLEMENTRATION:
+if we dont want to create tghe parameters file, we directly want to assign it in ARM templates thn u can this, microsoft inbuilt template for tht
+it will auitomatiucally get the resrcID and deploy it
+execute it
+
+
+TERRFORM::
+
+Use infrastructure as code to provision and manage any cloud, infrastructure or service
+this can be used for deploying rersources
+
+hre the file is terraform file
+u hve to run terraform executable file, it can be run in powershell, cmd,azure cli....
+
+Azure cloud shell- it has terraform installed
+
+terraform file-executable thn run
+
+Provider- hlps to extend functionality of terraform
+we can use Azure Provider to interact with Azure
+Steps:
+-init- dwnlds the executable to execute
+-terraform plan- craetes plan which terraform -terraform apply- uses to craete a plan on wht to do based on config file.
+applies the config file
+
+in VS
+3 files:
+-storage acc to create
+- vm creation
+- key vailt usinbg to store
+extension - HashiCorpTerraform-install
+.tf is extension
+it has modules/ function predefined in terraform, it is less complex as cmpred to ARM
+
+to run:
+--terraform init
+--terraform plan -out filename  ------> it will convert our file extension to .tfplan
+--terraform apply 'storage.tfplan'
+
+
+Terraform Virtual Machine:
+file
+now no need to execute the init cmnd. directly run the plan cmmnd
+
+Terraform Key Vault:
+if we want to destro teh resources created by terraform u can use
+terraform destoy cmmnd
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 6: CONTINUOUS DELIVERY::
+
+it means now the appln should be deployed on prod env
+
+AZURE RELEASE PIPELINES:
+we are going to save this in pictorial form
+
+ARTIFACTS-FRST STAGE
+we will from take build file from azure pipeline
+thn we will publish it in form deploymnt file to azure app
+we can triiger oit based on commit 
+approval also we can define- tht it ask for approval before deployng
+we eill need agent for ths- it will denld teh artifacts from azutre pipleibes and thn is used to run the tasks that are part of deplmnt
+
+AZURE RELEASE PIPLELINES-AZURE WEB APP:
+
+crteate web app on azure
+thn devops-new pipelines-azure repos-asp.netcore-yaml file-remove testing- add task
+aftr building we hve to keep it smwhre so tht release can tke it from thre-so before runnng select artifact name- any-location-azure pipelines-save and run
+
+pipelines-releases-we have diff templ;ates-choose azure web app template-in artifacts-choose the buildpipeline-stage1 -choose subscription-choose apptype-save
+
+create relaese-craete-will create new release-it will manualyy trigger -we can see logs aftr cmpltion
+
+For continuous it shld tgrigger:
+ur relaese pipeline-edit-lightning bolt-enable-save
+
+
+AZURE RELEASE-MUTIOPLE STAGES:
+edit release-add stage-app service-we can add in parallel or in continuous
+create new web app in azure
+devops-name the stage-choose app-save
+mke chnge in ur app thn it iwll be tgriggered automatically
+
+ARM TEMPLATES IN RELEASE PIPELINES:
+create container-upload both parameters file and armtmplates file
+crreate release pipeline-artifact add-stage 1 add arm tepmlate-give values-save
+
+APPROVALS AND GATES:
+-can give more control over deploymnt pipeline
+-u can define pre-deploymnt and post-depl cndtions in pipeline
+-SCENARIOS:
+--lets say tht user needs to validate change req bfore deplymnt can be done to stage= Predeplomnt approval
+--tht user needs to validate the depl which has been done to stage bofre the depl can be done onto anothr stage= Post-deplymnt approval
+--u mght wnt to ensure tht thre r no active issues for prjct bfore deplomnt is carried onto a stage= Predepl gate
+-- appln has been deployd onto staging env and it needs to ensured
+
+AZURE RELEASE PIPELINES-APPROVALS::
+deployed on two stages till now
+now- e can add approval aftr the syage, bfor..
+
+predeploymnt stage bfore production-edit-search for -predepl approval-give approver-save-ok
+chnge in app-commit-thn release will be triggered
+
+AZURE RELEASE PIPLEINES-GATES:
+go to predeploymnt approval-gates-
+diff azure gates-choose for query work items-
+
+go to ur prjct in devops-wrk items-create query- wrkitemtype-bug and state <> closed-run
+
+hre gate is automating the proceess of approving, we dnt hve to do it mnually
+go on shared queries-security-permissions-search for prjct name-read-allow-do same for the query u created-read-allow
+on pipeline-go to predeploymnt approval-gates-
+diff azure gates-choose for query work items-
+choose query-threshold-0-evaluation time-1 min-reevaluation time-5 min(it will aftr frst evalution if any  ugs thn agian reevaluate)-save
+
+go into prod stage-logs- u can chk logs
+
+on wrk items-bugs-close all-items-close-appln issue-close-save
+thn run the query
+now see the pipeline-it will be executed-as we closd all bugs
+
+AZURE POLICIES:::
+
+azure-policy-defntns-filter in category
+allowed vms size SKUs-u can limit the SKUs size of vm if u want
+policy-require tag on resrcs-scope-on ur resrcgrp-tagename-department(measns if any resrcs in ths rsrc grp thy hve to be with tagname departmnt)-create
+u will see non-compliant-u mybe hvng sme if u didnt define it with tag(storage acc he didnt)
+go to storage acc-ur storage acc-tags
+
+new storage acc-same name-create-it will give error for validation-to crfeate give tag-thn it will be created
+
+
+GATES USING AZURE POLICY:::
+new piplne cfreate-stage1-edit-predeplymnt cndtions-gates-chkin azure policy compliance-evaluation-5 mins-save-create release
+eit will fail bcoz we saw we hve one resrc tht is non compliance
+in azure go add tag to the resrc-so now the gate will pass-but it will tke time
+
+
+DEPLYMNT GROUPS::
+logical set of dplymnt target machines that have teh gaents installed
+if we want to deploy the app on ur vms thtn f=define thm in deplymnt grp
+1. create vm - install IIS and Hosting Bundle
+2. reg server in azure pipelne in deplymnt grp
+3. use azure piplnes to deply an ASP.NET CORE app to deplymnt grp
+
+in azure-create vm-on ths install IIs, asp.netcore bundle
+on prjct in devops-deplymnt grps-add-grpname-details-windows-copy script frm thre-enable use of persnal acces tokn
+go to ur vm run tht script frm powershell-enter PAT
+in devops-PAt-usersettings-new token-scope-deplymnt grps-create-copy
+paste in vm-enter no fr tags
+in delpymnt grp -targets u can see ur vm
+
+create new release pipeline-emptyjob-artifacts-one build pipeline-continuos deplymnt trigger-enable-stage1-edit-remove agent job-add delpmnt grp job-choose ur deplymnt grp name-save
+thn in edit only -we hve to add task-u can see the artifact thre add tasks-IIs webapp mnge and IIs website task-save
+now mke chnges in repos-triggered release pipelne
+
+
+DOCKER ON LINUX-- REVISION
+
+AZURE PIPLENES-BUILD IMAGE TO CONTAINE REGSTRY::
+1. Copied the published contents onto server
+2., used docker build cmmnd to build and image
+3. tag the image nd push to azure container reg
+
+azure pilplnes-from repos-whn code is picked frm repos it is not published version-thn we hve to mke ensure tht it mke the pubblished version of code thn build
+
+vs- craete dockerFiile-copy docker file-publish on repos-create new repository o=in repos-
+on vs-sync-publish
+
+pipelines-azurerepos- docker(build and push)-give ur regstry-imagename-val;idate and configure- yaml-thres task for dockerfile-save and run
+containerinstance(great way to test the cntainer reg) in azure-start-it will trigger
+
+AZURE PIPLENES-DEPLOYE THE CONTAINER ON KUBERNETES CLUSTER:
+azure-see videos 
+for ths thng-146 video
+see vidoes for KUBERBNEETS
+
+
+HELM::
+PCKG MNGR SOL FOR APPLN THE NEED TO BE DEPLYD ONTO KUBERNETES
+
+multiples yaml files mybe we had, so we can gropum thm into one thn run tht will be more easy tht interatc the kubernetes to deploy
+
+ in azure-kubernetes cluster-create-execute cmmnds on powershell
+aftr doing cmmnds u will app-sql-mysql file thre
+
+CREATING HELM CHARTS:
+
+in azure cloud shell-give credentials- for existimg kubernetes 
+run cmmnds
+copy the yaml fule in templates folder and del evrythng from tht folder onluy keep these 2 files thre
+for chart-- more Chart.yml(cmmnd)
+thn run cmmnd to install the helm
+in azure-cluster-workloads-nthng thre
+ thn see u will get
+
+
+AZURE PIPELINES-SYSTEM DEFINED VARIABLES::
+evrythng tht is build aftr pipeline is copied to build.artifactsStagingDirectory
+ to chnge ths we hve to chnge the sys def var
+
+System.DefaultWorkingDirectory
+
+
+CONTAINER JOBS:
+are useful for if u have diff appln with diff versions of ur prgmng lng and u hve to deploy on one agent(vm)
+
+go ahead and use-diff agents for multiple versions but thn costs more
+
+u can use container jobs-ths hlps in runng the app inside their own container in only one vm
+so ths is so cost effctive
+
+
+azure pipeline-ths will build tha app on container inisde vm
+so ths app will run on contnr tht is runng on vm- for this u just g=have to specify container in yaml file
+-save and run
+
+deply appp using ths pipeline:
+edit in pipeline-again we have to make sme changes in yanml file- add task for it
+for this we have to copy build files-to build.artifactsStagingDirectory
+thn frm thre to container
+
+create release-empty job-add artifact-stage-add-azure app service-choose ur cnctn-choose ur staging app-choose ur zip file-save-run
+
+
+ACR(AZURE CONTAINER REGISTRY) TASKS::
+AZURE COMMAND LINE FOR CONATINER REG
+
+docker build
+docker tag
+docker push
+az acr build
+
+ACR TASKD-Advavantage- whn a chnge hppns to base imge- thn if any chnge made to ur image using ACRT it will ensure tht it mkes chnges to whole
+
+azure-regstry create-cmmnds now- ths will crate a repository in regstry
+
+REGISTER THE LINUCVM AS AGNT ON DEVOPS
+devops-setting prjct-agent pools-agents-linux-run cmmnds
+
+if we r using self-hosted agaent thn in yaml file we have to specify demands: instead of vm-image:
+
+
+AZURE SQL DATABASE-PRIMER::
+azure-add sql db-create server thre-DTU model-enalble both in firewall rules-create
+
+tke server name-cnct to it-craete tble-insert into tblr
+
+in VS-specify ur cnction string in apppsettings file- save-run locally once
+
+azure-webapp-config-scroll dwn-we can dfne new cnction string 
+ 
+craete new repository in repos
+
+pioeline-new=repos-ur repository-publish build artifacts-folder -add-save and run
+craete release-empty job-ur build pipeline-continuos deply triggr- stage1-add azure sql- give details -pswrd(give as $(variable)-save- variables tab define ths varible and specify value
+add anthr task ur webapp-add app service settings-ur plan-save and run
+
+
+IMPLEMENTING OWASP-PIPELINE::
+to improve security to ur webapp
+this will look into vulnearbilities in ur webapp
+
+consider
+buildpipeline(repos)-anthr stsge(webapp)- aftr thsi-thre will be security stage whre we will hve the OWASP tool tht will go to ur app url-chk for any vulnerabilities and will give u report accdngly
+
+tasks/steps::
+-craete resrc grp
+-create storage acc-it will use the file share for mounting so we need ths
+--craete OWASP container
+-call baseline server
+--dwnld file
+--convert reprt format
+--publish test results
+--Destroy OWASP container
+
+see video for lab-169
+
+AZURE KEY VAULT-RELAESE PIEPLINE:
+azure-key vault-carete
+on key vault-secrets-generate-pswrd-value-save
+
+create a vm using cli cmmnd
+run the cmmnd
+
+relaese pipline-new-empty job-no artifact-stage-add task-add key vault(will fetch all secrets from key vault, if u wnt to be specific u can do tht too by using secret filter)-nect task-azure cli-shell-inline script-pste the cmmnd-put the vcariable at end with ur secret name
+
+azure-access policies-to give users fcility to fetch-(tke it frrom devops-prjct settngs-pipelines-service cnctions-manage service principle-the top heasder is ur service principle)-save
+
+pipeline-craete manual rekease-now u can see a new vm in ur azure
+
+VARIABLE GROUPS::
+
+pipelnes-library-variable grp-craete-name-allow access to alllow pipelines-add variable-gibe name of secret-save
+
+new pipeline-azurerepos-asp.net core-yaml code replace-specify variables: variable grpname-save and run
+this is usegul if u want sme variablkes to be visisble across pipwlines
+
+KEY VAULT-VARIABLED GRP:
+
+crete secret in key vault
+in vrble grp-enabme link secrets frm azure key vault as variables-give subscription-keyvault name-authorize
+varaible-add-choose secret-save
+
+pipeline-edit-mke chnges in yaml
+now hre we r accessing the pswrd from keyvault thrgh variable grp
+
+RELEASE PIPELINES-VRAIBLE GRPS::
+in ur previous pipeline in relaese-edit-u hve a tab for vrble grps-link vrble grp
+go to taks-remove-key vault task-in azure cli task-in inlinescript-add pswrd-savbe and run
+u cxan see ur vm now
+
+USING SELENIUM::
+purpose-web Ui testng tool-to trest ur UI
+VS-prjct-unittestng prjct-run all tests
+
+PIPELINES-SELENIUM::
+create new repo in repos
+pipelines-new-ur git-add code in yaml-save and run
+-got to artifact
+
+release-emptyjob--add artifact-choose ur pipeline-tasks-visual studio Test Pltfom-next-vs-test-save-enable continuous deplymnt-relaese
+
+BLUEGREEN DEPLOYMNTS::
+deploymnt on env
+Strategy :
+has two env:
+1. Blue-all users will access on blue env
+2. duplicate on anthr env tht si green
+benefit of two env
+it allows to switch anytime
+hlps in testng we can test on one env
+-Quick switchovr to servr env
+2.time to test tghe newer env before swtchover
+3. Can switch back to older env
+but the cost is more hre
+
+Example:
+azure load balancer u hve can hlps switichng the traffic
+
+OTHER STRATEGIES:
+1. Canary deplyment- Deploy the newer version to a subset of users first
+
+Example:
+use azure traffic mngr have two env-current and newer
+so azure trffic mngr hlps in rouyting so u can set whre u wnt to route the most traffic or perfom switch ovr
+
+2. Rolling depl- set of vms part of sacle sets
+example-instead of deployng newwr version on all vms we can deploy on one thn in all slowly
+or we can deploy sme features on one vm for testnf thn deploy on further
+
+
+DEPLOYMENT SLOTS::
+app-version 1 running
+wnt to deploy new version
+thn u can use- depl slots-staging ofr prod slot
+
+1. You hve chnce to validate all applns chnges in stgng depl slot
+2. u can thn swap staging slot with prod slot
+3. hlps in eliminitaing the downtimefor uer app whn new chnges are dplyd
+4. u can also easily roll back chnges
+
+azure-webapp-standard app service paln-create
+on webapp
+VS-create app-publish on webapp
+mke chnges to index page
+
+in webapp-deplymnt slots-add slot-add
+u will hve two urls for both prod and staging
+
+VS-deploy ths on webapp-diff slot
+we can swap the slots if we nwt new version on prod
+
+create new repo-inn repos
+del trhe staging slot in webapp in azure
+w will create it from piepeline
+
+pieplines-creatre-repos-asp.netcore-task-publish-save and run
+release piepline-empty job-artifacts- choose ur pipeline-choose slot-add task in stage1-azure cli- choose cnction-powershell-inline script-add script-anthr task-azure app service deploy-give details-go to pipeline-add new stage-emtyjob-postdeplymnt-enable-add approver-add task-action swap slots-save
+mke chnes in repos to trigger
+
+TRAFFIC MANAGER::
+is global service
+used to route service from user on DNS levbel
+install IIS on vm
+we can configure the DNs name in vm
+
+ROUTING METHOS-TRAFFIC MANGR::
+1. Priority Routing- consider ur app runng in one region with priority 1 and if it goes dwn thn u shld hve anthr vm in diff region-we can asssign priority thn traffic mngr chks health if vm not healthy thn it routes to anthr vm
+
+2. Weighted Routing: app-traffic mngr-applns in diff tregions-we can assign weightage to it-it means evryone will be routed hre if 100% weightage thn based on ur weightage the traffic is routed, hlps in distributing
+
+3. Performance Routing:
+appls in diff regions-if rqust cmng from nearby region it will route on thjt vm based on region
+
+create webapp in azure-.netCore-craete
+create anthr webapp in diff region-.netCore-create
+
+VS-publish app on webapp
+VS-chnge indexpage-publish-on anthr webapp
+
+azure-traffic mngr-create-mthd-priority-resrcgrp-create
+in traffic mngr-add endpoint-specify jur webapp-give priority 1-add
+add anthr-anthr app-priority2-add
+Configurartion-DNS-60-save
+tke DNs of trafiic mngr-on broweser-prod
+to switch-stop the prod vm
+
+AZURE PIPELINES-TRAFFIC MNGR::
+azure-strt-prodapp-del one endpoint frm traffic mngr
+
+devops-repos-publish same app hre frm VS
+
+piepline-add tasks-publish-save and run
+Relaes-emptyjob-
+add artifact-stage1(Preprod)-add task-appservice deploy-save-anthr azure cLI-powershell-inline script-add(hre we will create endpoint and give it priority 2)-save-
+add anthr stage(prod)-azure appservice mnge-choose ur prod app-continuous depl-save and run
+mke chnges in app-triggered
+
+TERRAFORM-AZURE RELEASE::
+see video for ths-192 and 193
+
+
+TROUBLESHOOTING PIPELINES::
+devops-u can chk ur jobs whre it failed
+2. edit piepline-use right image of vm(vm-image)
+u can install java, Docker File...
+3. with .net, see the version correctly thn use, shld mtch the lnguage
+4. release piplines-logs-dwnld log
+5. edit release-tasks-ths also runs on agent-hre also it hsld mtch ur image(which image u r using)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 7:
+
+SITE RELIABILITY::
+how reliable our setup is
+-almost impossible to get all time available
+-thn is customers, do thy want it alltime up
+-if we use premium services, availabity sets wth it prvodes 99.99% availabilty
+-SLA(SERVICE LEVEL AGREEMNT)
+
+AZURE LOAD BALANCER::
+-set of vms hosting app, to access thr req shld be equally distrivuted on both thn we sue the load balanacer, it rtedrects the req
+-BASIC SKUs- no SLA
+-Standard- get SLA
+
+in azure-create vm-select ports(80,3389)-create
+on vm-create anthr-same-create
+cnct to vm1 by RDP-servermngr dshborad-install IIS-upload a file with html tct in c drive-inetpub-wwwroot-save
+now go tke ipaddress u can see the file-u hve to go by path(ipaddes/filename)
+do ths same for anthr vm too
+
+vm-in ntwrkng--interface-ipconfig-disassociate and static-do ths for both-save
+create new resrcc-public IP address-used to assign load balncer-samr region as vms-create
+
+cfreate load balncer-sme region as vms-public-Standard SKU-create
+
+in load balncer-add bckndpool-vrtual ntwrk-in vm-add vms=add
+also add healthprobe(chk health)-port80-save
+add load balanving rule--add
+in loadblncer-overview-ipaddress-on browser-stop one-thn chk 
+
+VIRTUAL MACHINE SCALE SETS:
+1.will automatically scale up the no of vms based on demand
+2. u define the config of vm that would be part of scale set
+3. u can define scaling cndtions
+we can specify the amount of CPU used thn scale up whn reaches thre
+we can integrtatee ths with load blncer-so frm scale sets the reqs go to load blncer thn it will distribute
+
+create resrc-scaleset-it will spinup identicalvm--in ntwrk interface-edit-allow trafiic on port 80, 3389-ok-keep initial count as 1-Health section-enable-scrool dwn-automatic repair policy-enable-grace period-30(running vms on port80, the heath extension will nt get response will rk unhealthy, but if we enblr ths, it hlps in creatng same vm if its failing)
+
+we will udse custom script extension to install IIS on vms
+
+in scaleset-instances- u can see runnng vm
+script.ps(powershll script)-it will install IIs on vm and create a html file too
+create contaoiner-upload the script file-tke the url-browser-dwnlds the file
+run cmmnds
+
+load blncer-inbound NAT rules-open RDp-tke the ip addres and port no-cnct-servermngr-remove loads-restart mchne- u canm see ur scnd vm in instances
+
+SCALING POLICIES:
+scalesets-sacling-rules-add rule-percntage CPU-goes bynd thrshold-Metric Source-storage acc u hve-queues-add-name-ok-in Metric-strage queue-slct ur queue-if msg count>2-increase vm by 1-ok-svae
+
+in queue-add msgs(to incresae CPU %)-thn chk in instances-vms increased-3 vms are runng
+
+
+AZURE MONITOR AND LOGGING:
+-gives u metric for varous resrcs
+-we can craete alerts for Beyong CPU%
+-ACTIVITY LOGS:--CONTROL PRICE
+	--WHN VM IS STOPPED
+	--VM IS CREATED
+-LOG ANALYTICS:
+--central soln for all ur logs
+--APPLN INSIGHTS:
+--perfrmnce mngmnt sys for ur live appln
+-AZURE STORAGE ACCOUNT
+-- u can use ths to store all the logs
+-u can use monitor for ur on-premises server and on-premises web appln
+
+METRICS-MONITOR:
+search - monitor-metrics-ur vm-u can choose wht u wnt to see-we can craete dashboard-pin ths-go on dashboard-u can see-edit-u can see the way u wnt-dff charts..
+
+DIAGNOSTICS:
+platform logs we can send of ur resrc
+u hve SQl db-we can streeam logs to store in:
+-log analytics 
+-storage acc-thn send to-azure data factory
+-event hub-thn send to-azure sql db 
+
+ACTIVITY LOGS IN MONITOR:
+operation-json-history-u cans ee evrythng
+diagnostic setting- we can add-we can choose destination we want and the log we want
+thr reasin we will use ths if we want to analyze abt a rescr we can use ths
+create dignostic settng-admin-storage acc-ok
+in storage acc-container-u can see thre in folders-dwnld and see evrythng
+
+MONITOR-Alerts:
+alerts-for a vm if we want
+create-choose resrc--cndtn-percntage CPU
+signal logic-metric-ntwrk-alert log-static-threshold valur-1kb
+aggregation granularity-it will tke the values for 5 mins tht it will tke aggregate-if its going bynd evaluation-thn alert will be triggered-choose 1min-ok
+create action grp-wht will we do whn ths hppns
+-choose email notification-create-ww can use ths action grp across resrcs
+
+DYNAMIC ALERTS::
+-dynamic thrshold in monitior use advanced machine learning
+-ths technioque mkes use of of historical behviour to identify any pttrns or anomalies tht mght indicate possible service issues
+-whn u choose to use dynamic threshold, u hve to mention a sttng knwn as senitivity.
+thre are threee setytngs:
+1. HIGh: here an alert will be triggered on smalllest deviation tht could result in more alerts
+2. Medium- here u hve less tght and more blncd threshold and fewer alerts will be gnrated
+3. Low- hre alerts will only be triggered if thre are large deviations
+
+azure-monitor-alerts-new alert-rersc-vm-cndtion-%CPU-dwn-alrt logic-dynamic-threshold sensitivity
+below scroll-no of violations .....jst wntd to tell nt cxrating
+
+
+AZURE FUNCTION ALERT:
+create function app-runtime stack(Poewershell core)-enable appln insights-enable
+on fxn app-add fxn-http trigger-name-add
+code + test-del-add ur code-tkng req-convertng to json
+monitor-create alert-ur vm-cndtn-ntwrk-scroll dwn-alert logic-static-thrshold value-1kb-i min-create actn grp--actions-choose ur fxn-create
+in monitor u can evrythng
+
+add resrc-automation-create
+we hve a runbook based on powershell
+ths will stop vm if alert based on ths
+in automation- modules-browse gallery-Az accts-ok-again browse gallery-az modules-also az.resrcs- various others
+runbooks-create-poershell-create-codecopy paste-save-publish
+monitor-alert-ur vm-cndtn-ntwrk-vry low thrsholf-1 min granularity
+action-actins-no notifications-runbook-crfeate
+aftr creation -rtefresh in alert-u can see evruythng
+
+MONITORING VIRTUAL MACHINES::
+-Azure Diagnostics Extension:
+--can be used to collct monitoring data from the guest operating system and wrkloads tht run on azure vms
+-- can archive the data onto azure storage acc
+-- an agent is installed on vm via a vm extension
+--it can collect data such as:
+---event logs
+---perfrmnace and filebased logs
+---IIS logs
+---.Net appln logs
+
+-LOG ANALYTICS AGENT:
+--can be used to cllct monitoring data from guest operating system and wrkloads tht run on azure vm, other cloud providrers and on-premises as well.
+--all the data is cllctd in log analytics wrkspace
+--can cllct data sucha s:
+---evnt logs
+---perfrmnce and filebased logs
+---cllct info on other insights and soltns as well
+
+-DEPENDANCY AGENT
+--ths agntg is used to cllct data tht is discovered abt the processes runnng on vm
+-- ths requires prior installation of log analytics agent
+
+-TELERAF AGENT:
+--used to cllct perfrmmne data frm linux cmp and send it to Azure Monitor Metrics
+
+DIAGNOSTICS-VM:
+in vm-monitoring-dignostics sttng-storage acc-save-configure-basic
+monitor-metrics-vm-apply
+see video fr ths-216
+
+AZURE LOG ANALYTICS:
+create-log anlytics-create
+
+ur rercs-log anytics-advanced settngs-event logfs-add-save
+vms-one vm-cnct, cnct anthr vm 
+thn aftr smtime u can see the logs
+we can query the logs with sme queries by runng the query
+
+VM-DEPENDANCY AGENT::
+vm-insights-enable-it will chosse new log anlytics wrkspace or existing-willsend logs to it
+aftr smtime-u cxan see logs
+
+IT SERVICE MANAGEMENT CONNECTOR::
+-azurfe monitor records all ur metric alerts and log alerts
+--most of times, cmpanies will hve their own IT service mngmnt sol like ServiceNow, System Center Service Managaer
+--u wnt to craete wrk items in external system based on alerts created in Azure Monitor, u can use the IT service mngmnt cnctor
+--ths will allow wrk items to be created automatically based on metric and log alerts
+--also will hve option to sync the incident and chnge req data frm ISTm tool onto Log Analytrics wrkspace
+
+azure-It service mngr cnctor-create-choose ur log anlytics wrkspce-create
+in tht-iTSM cnctn-add-u cann give details and create
+
+APPLN INSIGHTS::
+--apln perfrmnce service for web devlopers
+--can use ths tool to monitor ur appln
+--can hlp dev detect anomalies in appln
+--can hlp diagnose issues
+--can also hlp undersatnd how usrrs use ur app
+--also hlps u imprive perfrmnce and usability of app
+-- to wrk with ths-install instrumntation pckg withn ur app
+--can see statistics ur appln locally in vs as u run ur app
+--can also use appln insights resrc in azure to monitor ur app
+
+VS-new prjct-asp.net-mvc-create-rghtclck prjct-add insights telemetry-run
+u can see evrythng aftr running in view-otherwindows-appln insughts
+creater webapp in azure-in monitor-create new appln insights-create
+ur app-insights-live metrics
+now publish ur vs prrjct on ths
+
+
+SMART ALERTS::
+-SMART DETECTION::
+--builtin feature available in appln insuights
+--based on telemetry data tht is sent onto appln insights, can detect potential perfrmnce prblms and failure anomaliesin app
+--uses machine learning to look at data and thn send alerts based on diff cndtns
+
+-CONTINUOUS EXPORT:
+--allows to send data cllctd by appln insights iontoi an Azure storage acc
+
+in appln insights-smart detection-settings
+
+also continuous export-type of data-strge acc-cntanr-create
+
+AVAILABILTY TESTS:
+create appln insights-resrc mode-classic
+in ths-availability-add test-URL ping type-u can choose loc-if u wnt to chk latency-also we can create alerts-create
+thn u can see insights
+
+AZURE LOGIC APP-ALERTS APPLN INSIGHTS::
+create logic app
+-on resrc u will be directd to designer-paste json pyload-......
+
+CONTAINER INSTANCES-LIVELINESS PROBE::
+-CONTAINER GRPS:
+--nthng but cllctn of cntnrs
+--these cntainers get scheduled on sme host mchne
+--thy wld shsre the same lifecyvle, resrcs, local ntwrk and storage vol
+--the deplymnt can be done via resouce mngr templates or yaml filr
+-smtimes cntnerizd applns which run for long periods of time, can go to broken states. these cntners need to be repiared by restrng cntnr
+--the LIVELINESS PROBE can chk whthr container is in healthy cndtn or not and thn restart the container as req
+--the rediness probe can be used to ensure the cntnr is ready to hndle incmng req
+--say u hve db cntnr tht needs to load data frst bfore tkng on req, u can mke use of readliness probe
+
+app.yml file tht will deploy cntnr with nginx image
+thn we hve liveliness probe for 5 sec 
+run cmmnds in powershell
+
+
+PROMETHEUS::
+--freely avialble
+open source monitoring system
+- u can monitor sys whether thy r in clous based env or on ur premise env
+-u can monitor both Linux and Windows based env
+-Prometheus has an inbuilt data model tht is used to store the metrics in form key/value pairs.
+all metrics are exposed on an endpoint:
+-we hve to install agent(WINDOWS VM)/ agent(LINUX VM)
+
+The Prometheus server pulls the metrics from each endpoint after a certain duration of time.
+You can also add code to ur appln to instrumnt the appln and send data
+
+see video fr lab(231,232)
+
+PROMETHEUS SERVER:
+create vm- ivoke cmmnds on ths vm frm powershell
+add ibound rule for port 9090
+see videos fr ths
+
+
+VISUAL STUDIO APP CENTRE:
+--is a cloud based Devops soln
+--hlps to build,test and distribute applns
+--u can build ur appln tht are build on Androie, iOS, macOS platfrms
+--can configure App Center to pickup source code frm GITHUB, Azuire Devops, Bitbucket or gitlab
+--can also test ur applns on devices tht r availbe with app cntr
+--can also distribute built applns to testers fr testng
+--distribute appln fr testnf, u need to wrk with dstribution Groups
+-- can create diff types of dstribution grps::
+---PRIVATE- default type, testers can only be invited via email
+----users added to these grps will receive email notification to test appln if release has been assgnd to grp
+---PUBLIC-u can enable unauthnticated installs frm public links
+---SHARED-Ths hlps to create grps tht can shre applns across single organiztion
+
+1. Register and login with APP CENTER
+2. CRete appln in tht
+3. Dwnld android studio
+4. dwnld appln form
+5. embed appln secret onto local appln in GIthub
+6. Publish appln on Githuib
+7. Initiate a build in app cntr
+
+u can sign in with github acc-add new app-name-android-java/Kotin
+dwnld android studio-install-start it
+th go to github-smple code-dwnld-del azure-pipelines fiule
+aftr installtion-open exitng prjct-SDK MNGR-install version29-sync prjct
+
+in appcntr-overview-u will hve a secret thre scrool dwn ull see
+in android studio in main activity file-add secret value-enble version cntrol-commit
+
+create nbew repo in github-thn in android-push
+
+APP CENTER-BUILDS::
+IN APPCXENTER-build-github-ur branch-build-save and build
+dwnld build frn thre if u wnt
+
+SIGNING BUILDS::
+-When u wnt to run tests, distribute the appln to users and send push notifications, the android pckg kit must be signed
+- generate the Signed APK frm android studio fr appln
+-use the signed certificate whn running the build
+-the signing of ur applnb via a certificate hlps to ensure nobody else tampers with appln. This is same whether u distribute ur appln via APp center or iTunes store
+
+see video fr lab-240
+
+IOS APPLN-APP CERNTER
+- u have app-on appcenter, after signing in u hve to:
+-generate a .p12certificate to signin ur appln
+-u also hveto generate a provisiong profile via Apple dev acc
+-profile has devices which are allowed install the appln. Unlike android, u cnt install any appln on ios device
+
+LIst of Steps:
+1 register devices in apple dev acc
+2 add devices to provisiong profile
+3 dwnld provisioinng profile
+4 build appln with provisiong profile
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+SECTION-8:::
+
+AZURE TEST PLANS:
+devops-ur prjct-testplans
+orgnzatn-settngs-billing-basic+testplans-strt free trial
+
+prjct-testplans-newtestplan-name-add steps(manual testcases)-Go to the appln
+2.Click the login screen
+3. enter user credentials
+4. log into aplln
+-save and close
+new test case:
+1. Click on category section
+2. Choose certification category 
+-save and close
+Execute section-slct both-run for web appln
+
+
+CREATING ABUG-TEST CASES::
+execute agin the testcases-for testcase2 mrk it failure-add cmmnts-u can add bug-name it-save and close
+wrkitems-bug-u can see all steps thre
+
+testcases-we can assign testers too
+Chart section-based on result
+
+TEST AND FEEDBACK EXTENSION:
+search for test and feedback-go to visual marketplace link-install-add extension
+extensions-test and feedback-settngs-add url of ur azure devops orgn-signin-slct ur prjct
+to test ur app-start symbol-add notes-save
+u can see sessin timeline-screenshot save-u can create new bug-aftr testng
+in devops-runs-u canb see evrythng thre
+
+UNDERSTANDING PACKAGES::
+cpmny dev set of applns
+prgrmng lngs useing-sme functionality is to be usd by anthr app-we can do tht create these clasees in dlls and thn import thm, so instead  of creatng again and codng u can import directly
+
+u can also import these dlls into a pckg thn ths pckg directly can be used by appln
+like NUGET 
+If i want to shre pckgs:
+1. whre do i store my pckgd
+2. how can otyhres consume these pckgs
+3. how can diff pckg versions maintained
+
+u can use anthr sol on internet tht can be use to store ur build code in form of pckgs tht can be used by anthr applns
+
+AZURE ARTIFACTS:
+-service allows u to create and share Maven, npm and Nuget pckg feeds frm public and private sources
+-artifacts are stored in feeds
+-with feeds u can grp pckgs and control access to pckgs
+-u can create public feeds frm wiythin Azure Devops prjct
+-these feeds allow one to shre pckgs publicly with anyone on internet
+
+devops-prjct-artifacts-create feed-name-visibilty-members-crteate
+thn cnct feed-.net
+
+PUBLISHING PCKGS IN NET.ORG::
+on site-nuget.org-search cosmos db-any one pckg how to install-it tells evrythng
+in VS-prjct-mnge NUGEt pckgs-browsing frm nuget.org-cosmosdb-install-thn u can use ths functionality
+we will create a pckg like ths
+
+
+craete new prjct-search class Library(.NET Core)-name-crfeate-rename class-add a method in class-on prjct-rght clck-prop-build ths soln
+thn again rghtclk-pack-go to nuget.org-signin(signup bfore)-to publish pckg-we hve to craete API key-crfeate-name-Glob Pattern-*-create-u hve the key now- tke in notepad
+copy pckg nme from VS
+cmmnd run in cmd
+if u get error thn u hve to give unique name in prop-thn run cmmnd agin
+vs-new prjct-.net prjct-create-nowwe wnt to use tht pckg tht we created-NUGET-search for applibrary(name tht u gve)-install-in prgrm u can use tht by creatng objct of it
+
+
+PUBLISH TO AZURE ARTIFACTS:
+we creted feed-how to publish hre on feed the pckg
+use sme pckg
+dwnls nuget.exe file
+to publish on azure artifacts-run two cmmnds
+chnge source in cmmnd with ur prjct soiurce in feeed u cans ee tht-chnge the details in cmmnd thn run
+see video once for ths-250
+
+UPSTREAM SOURCES:
+feed w define inn artifacts
+upstream source-nuget is site whre w hve mny pckgs
+feed whre we can publish our own pckgs thn anyone can use tht pckg in ur cmpny
+consider u wnt a pckg but ths si the policy of cmpny tht thy shld get all pckgs frm feed only, also tht r on nuget.org
+in ths case-u acn specify a upstream source
+
+VIEW:
+u hve pckgs published on feed-u wnt certain set of pckgs to view tht devlpers can see only those pckgs thn we can create a view
+
+devops-feed settngs-upstream source-add-public source-npmjs.org-.net-add
+thn cnct to feed-in VS-tools-pckgs sources-add-tke frm feed cnct
+now go to nuget pckg mngr-now u can see pckgs
+see video-253
+
+AZURE SECURITY:
+security center in azure-u can see ur overall score - we can also get recmmndations fr security
+setting-pricing tier u cans ee wht u hve
+
+
+MFA(MULTI FACTOR AUTHNTICATION):
+uses usernme, pswrd to signin-but aftr ths-thy will get one more verification-sms,call,or Microsoft authntictor app
+
+Status:
+Disabled- default state for user
+Enabled- user has been enrollled in Azure MFA, thhn u r regrsting-which mthod u prefer
+Enforced- user has cmpltd the regstration process
+
+
+azure ad-users-create new user-let me craete pswrd-create
+on dirctory-security-mfa-configure-users tab-status u can see thre for mfa-slct user- enable-we regtrd-signin with diff acc-now thy will ask which mthod u wnt to verify-verify-done
+aftr cmpltion -in mfa status u can see status as enforced
+
+CONDITIONAL ACCESS POLICIES- devops:
+azure ad-conditional access-new policy-all usders-slct devops as appln-grant-require mfa-enable-create
+
+devops-org settngs-azure ad-policies-enable azure ad policies
+signout-signinwith diff acc-swtch dirctory-it will ask code on sms(mfa), u may hve to rgster if frst time using-verify
+to disble disble in policies in devops and in azure remove cntional access policies
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+								TESTS
+The right set of steps in the build pipeline is
+
+1. Prepare Analysis Configuration – First you prepare the analysis configuration for SonarCloud
+2. Visual Studio Build – Next you need to build your .Net project
+3. Visual Studio Test – Next run the unit tests
+4. Run Code Analysis – Then you run the code analysis using the SonarCloud tools
+
+Here you can use GitHub Enterprise. This allows you to host a Git repository on your on-premise environment to keep it private.	
+
+For product backlog items , you need to make use of the scrum process.
+
+With the CMMI level process , you can track change requests, risks and reviews
+
+Here the ideal solution to use would be Azure Repos - Team Foundation Version Control wherein you can configure security on a file and folder access.
+
+You would use static code analysis tools in the pull request phase.
+
+You can perform penetration testing at the Continuous Delivery request phase
+
+Cobertura can be used to provide code coverage for your Java based applications.
+
+So here you can make use of Views. Here only if a package is meant to be seen, it can be promoted to the view.
+
+Here you can make use of an External Git service connection so that Azure DevOps can pick up the code from the repositories hosted in the on-premises Bitbucket server.
+
+Also, if you need to ensure that jobs can run , it might be difficult to use the Microsoft hosted agents because of the firewall. Then you can host your own self-hosted agents.
+
+Remember in Azure Test plans, you can only add manual test cases. For automated tests , we need to create the tests in a programming language of choice. Then add the project onto an Azure Repos repository. And then add the project to run in the pipeline.
+Here the order of tasks are also important from an exam perspective
+1. Create a test project
+2. Check in the project onto an Azure DevOps repository
+3. Add the automated test to the pipeline
+
+Here you can use GitHub Enterprise. This allows you to host a Git repository on your on-premise environment to keep it private.
+
+Subversion is a centralized source code versioning system.
+
+Here the order of tasks are also important from an exam perspective
+1. Create an agent pool – This would be used for building the application in Azure Pipelines
+2. Create a deployment group – Group the target virtual machines in the deployment group
+3. Add and configure the deployment group job for the pipeline
+4. Execute the pipeline
+
+Here the first step would be to create the DSC metaconfiguration
+Then copy the configuration to the remote machine
+And then run the setdsclocalconfigurationmanager.py file to apply the state configuration
+
+With the help of Visual Studio App Center, you can distribute releases to testers and also collect crash reports
+
+First you can use the kubectl create command to create the Kubernetes cluster
+Next you need to use the helm init command to start working with Helm
+Next you can install the chart with the help of helm install command
+
+You can also create a service hook subscription that connects to your Slack channel. Whenever an event occurs in the build pipeline, a notification can be sent onto the Slack channel.
+
+You can first install Node.js and then install Yeoman. Yeoman can be used to easily create the Terraform modules.
+
+With the Rebase option , you get an option to decide on how the project history will look like. Here you can override the history that is recorded for the Git repository during merges.
+
+Here you would measure the re-work. If the time spent on rework is increasing , that means the technical debt is more in the code base.
+
+First you create a new feed in Azure Artifacts.
+Then you need to publish the package the feed.
+And then finally in Visual Studio, you can add the feed URL
+
+You can use Availability tests in Application Insights to constantly check the status of the web application.
+
+By using SonarQube, you can measure the technical debt in your code.
+
+First upload the configuration that needs to be applied to the Azure virtual machines
+Then compile the configuration into the Azure Automation account
+Next On-board the virtual machines to Azure Automation State Configuration
+Next assign the nodes to the configuration
+Finally check the compliance status of the nodes
+
+First you can go ahead and create a feed in Azure Artifacts and include the upstream sources.
+Then create the Visual Studio project to include the packages and then perform a package restore.
+
+To configure an alert when the web application exceeds normal usage patterns, you can define an Azure Monitor alert that is based on a dynamic threshold.
+Then if the threshold is reached , it can trigger an Azure Automation runbook that could change the settings of the Azure Web App.
+
+First create a service principal.
+Ensure to give the service principal access to the secrets in the kay vault via the access policy
+Then Add the Azure Resource Manager service connection which will be used to access the key vault resource
+
+You can use Azure Security Center to get vulnerability assessments for your virtual machines and the key vault. Currently Windows based images can’t be scanned for vulnerabilities with Azure Security Center.
+
+With an Azure Container Registry task, you can create a task to ensure that if a base image is updated , then the image gets automatically updated in Azure container registry.
+
+When working with the Azure Key vault , which is an Azure resource, you will create a service connection of the type Azure Resource Manager.
+
+A service identity is created in Azure AD. This service identity allows the service connection to authenticate to Azure.
+
+A service principal will be used so that Azure Kubernetes can authenticate onto Azure container registry.
+
+You can use SonarQube to see all security vulnerabilities within your packages. SonarQube helps to improve code quality for your application code.
+
+You have to create a Personal access token and then run the config.cmd file for the self-hosted agent to register the build server with the Azure DevOps project.
+
+So , if you want to persist the data between the builds, you can go ahead and use a self-hosted agent. With the Microsoft hosted agent , the data pertinent to the builds on the machine is lost because those agents are then deallocated after the build is complete.
+
+You can use Personal Access Tokens to authenticate onto Azure Repos. This will not prompt for credentials during authentication.
+
+We can execute the –aggressive flag to the command to ensure that more disk space is saved after the completion of the command.
+
+After executing the git gc command, we can execute the prune command to clean up unreachable objects in the git repository.
+
+For this you also need to remember the sequence of steps that need to be executed
+1) First you need to register a new OAuth App in Developer settings in GitHub Enterprise
+2) Then from Organization settings in Azure DevOps, add an OAuth configuration
+3) And then finally from the Project settings in Azure DevOps create a GitHub connection
+
+Here since you have custom programming languages such as Erlang and Hack, its best to use self-hosted agents and install the runtimes for these programming languages to build the applications. Next self-hosted agents can run on either Azure DevTest Labs virtual machines, on normal virtual machines or on virtual machines that run on Azure Stack. So, which one do we choose? Since we need to run this solution on the hybrid cloud, we can use Azure Stack. This is a hybrid cloud solution from Azure.
+
+When you are planning on using an Azure SQL Database task to update the database , then you need to use a SQL DACPAC file.
+
+For iOS applications, we need to use the .p12 certificate.
+
+Create a Personal Access Token that would be used to authenticate other services with Azure DevOps services
+
+Create a new feed within Azure Artifacts
+
+Create packages for the PowerShell modules and send them across to the Azure Artifacts Feed.
+
+To specify the packages your project depends on, you must list them as "dependencies" or "devDependencies" in your package's package.json file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

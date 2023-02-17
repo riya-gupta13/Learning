@@ -1,0 +1,19 @@
+{"menu": {
+    "RunId":"0000001",
+    "header": "SVG Viewer",
+    "MasterFolder":"C:\\Work\\Work\\Powershell\\PoC",
+    "FromFile" : "C:\\Work\\Work\\Powershell\\PoC\\OldFolder\\OldFile.txt",
+    "ToFile" : "C:\\Work\\Work\\Powershell\\PoC\\NewFolder\\NewFile.txt",
+    "FromFolder" : "C:\\Work\\Work\\Powershell\\PoC\\OldFolder",
+    "ToFolder" : "C:\\Work\\Work\\Powershell\\PoC\\NewFolder",
+    "CreateFolder" : "C:\\Work\\Work\\Powershell\\PoC\\NewFolderCreated",
+
+    "ServiceNameToStop" : "AdobeARMservice",
+    "ServiceNameToStart" : "AdobeARMservice",
+    "Computer_names":["pc1","pc2","svr1","hp-pc"],
+    "menu2":{
+    "menu_2_1":{
+        "menu3":4
+    }
+}
+}} 

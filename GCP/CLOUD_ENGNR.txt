@@ -1,0 +1,1352 @@
+-CLOUD ENGINEER:
+
+COMPUTE ENGINE:
+vms are virtual servers in gco to deploy appln
+-create and manage lifecycle of vm instancs
+we use SSH to cnct to vm
+cloud-Console-Dismiss
+
+CREATING VM:
+name
+lables
+machine
+firewall-http traffic(internet)
+create
+
+MACHINE TYPES:
+e2-machine type fmly
+standrd- type of wrkload
+2-no of CPUs
+
+IMAGE:
+-Software type which u want
+-it has internal and external IP
+
+INTERNAL/EXTERNAL IP
+-external are internet accessible
+-internal are internal to cmp ntwrk
+-u cannot have two resrcs with sme public external ip address
+-butu can resrcs with same internal private ip afddress
+-all vm instances are assigned atleast one internal ip
+-creation of external ip can be enabled for vm
+-whn u stop vm, external ip address is lost
+
+Constant External IP:
+assign static ip address
+static ip costs evn if we r not using it, soalwys release them whn not using
+-it can be switched btwn vms
+
+SIMPLIFY HTTP SERVER:
+-reduce no of steps increating vm instance and settng up a http server:
+-ways:
+-startup script
+-Instance Template
+-Custom Image
+
+STARTUP SCRIPT:
+Bootstraping-install sftwre patches when vm is launched
+-we can configue ths as bootstrap
+in creation of vm- under firewall-mangment-automation startup script-give th script
+
+INSTANCE TEMPLATES:
+-Why we need this is as it specifies the vm instance details in a tempalte -image,type,labels,startupscript etc
+-used to craete vm instances and instance grps
+-cannot be updated-to mke chnge, copy existing template and modify it
+
+craete new instance template
+-with my startup script
+allow http traffic
+craete
+frm there create vm
+u will see inside the startup script is already thre
+
+REDUCING LAUNCH TIME WITH CUSTOM IMAGE:
+-installng OS patches and sftwre at launch of vm instances
+-can be craeted frm an instgance, persistent disk, a snapshot
+c-an be shred across prjcts
+-Depreacte old images(& specify replavcement imge)
+-hardening a image-customize images to ur corporate security stndrds
+-prefer using custon image to startup script
+
+PRE-EMTIBLE VM:
+-short lived chapter
+-can be stopped by GCP any time within 24 hrs
+-Instances get 30 secs wrnng
+-ise preempt is-ur app is fault tolerant, are very cost-senstive,eg: not immedate batch processing jobs
+
+-Restrictions:
+not alwyas avlble
+-no sla and cnnt be migarted to regular vms
+-not automatic resrts
+-free tier credits are nt applcble
+
+HOW TO KEEP TH VM RUNNG AT TIME OF UPDATE:
+-LIVE MIGRATION
+-automatic restart
+-on host maintainnce
+
+GCLOUS
+-CLI INTERFACE FOR google cloud
+-GCP services have specific cli tools also:
+--Cloud Storage-gsutil
+--Cloud BigQuery-bq
+--Cloud Bigtable-cbt
+--Kubernetes-kubectl(in addtn with Gcould)
+
+COMMANDS:
+-gcloud init-initialize or reinitialize 
+-gcloud config list - to list all configurations
+-gcloud config list region
+-gcloud config list account
+-gcloud config list region
+-gclous config configurations create name-it will not only create but activate also
+
+INSTANCE GROUPS:
+-group of vms
+-ytypes:
+-managed:identical vms created using a template:
+--features-autoscaling, autohealing
+-unmanaged:diff configuration for vms in same grp:
+--does not offer autoscaling, autohealing and other services
+--not recmmnded unless u need diff kinds of vms
+-loc can be zonal or regional
+
+MANGED INSTANCE GRP(MIG)
+-vms craeted using instance template
+-features:
+--maintain cedrtain no of instances
+--detect appln failures using health checks
+--increase and decrease instances based on load(Auto Scaling)
+--add load blncr to distribute load
+--create instances in multiple zones
+---reginal MIGs provide higher availbity cmpred to zonal MIGs
+--Release new appln versions without dwntime:
+---Rolling Updates: Release new version step by step. Update a percentage of instances to new version at time
+---Canary depl- Test new version with grp of instances bfore relesaing across al instances
+
+CLOUD LOAD BALNCNG:
+distribute user traffic across instances of app in multiple regions
+-features:
+-health check
+-auto scaling
+-global load blncng with single anycast IP
+ENABLES:
+-High Availabilty
+-Auto Scaling
+-Resiliency
+TYPES:
+UDP-single region
+TCP-multiple region
+HTTPS-multiple region
+external/internal-if u using load blncr internally then use internl otherwise use external load blncr
+EXTERNAL:
+-HTTP/HTTPS TRAFFIC- HTTP load blncng
+-TCP TRAFFIC- SSL offload- SSL Proxy
+-TCP TRAFFIC-IPV4-TCP proxy
+-TCP TRAFFIC-Prserve Client IPs-ntwrk TCP/UDP load blncng else TCP Proxy
+INTERNAL:
+-TCP TRAFFIC/UDP TRFIC-Internal TCP/UDP load blncng
+-HTTP/HTTPS-Internal HTTP/s load blncng
+
+FEATURES:
+EXTERNAL HTTP/S-global-proxy-get req frm client thy trnbfrm and then send but in pass thrgh thy send the same data
+-EXTERNAL TCP/UDP AND INTERNAL TCP/UDP-both are pass thrgh otherwise all are proxy or passthrgh
+
+
+APP ENGINE:
+-simplest way 6o deploy and scale ur applns'-end to end de3v appln mngmnt
+-Supports:
+--java,.net,php,python...
+--use custom runtime and write cod in any lnguage
+--connct to variety of google cloud prods
+-No usage charges-pay for resrcs provisione
+-Feature:
+--automatic laod blncng and auto scaling
+--mngd pltfrm updates and appln health monitrng
+--appln versioning
+--traffic splitting
+-Compute Engine:
+--IAAS
+--More Flexibility
+--More Responsibilty
+--choose image
+--installng sftwrse
+--chossng hrdwre
+--fine grained access/permissions
+--availability
+-App Engine:
+--PaaS
+--Serverless
+--Lesser Responsibilty
+--Lower Flexibility
+
+APP ENGINE ENV:
+-Standard-complte isolation
+-Flexible-using Docker cntnrs
+
+APPLN COMPONENETG HIERARCHY:
+-appln-one app per prjct
+-Services-multiple microservicres or app components
+--u can have multiple services in single appln
+--each service can ahve diff settings
+--earlier called modules
+-Versions
+--each version can run in one or more instance
+--multiple versions can co-exist
+--options to rollback and split traffic
+
+COMPARISON SEE PHOTO
+
+SCALING INSTANCES:
+-AUTOMATIC- autoscale based on cpu utilization,thrghput,max concurrent req
+-BASIC-instances are created when requests are received
+-MANUAL-Configure specific no of instances to run
+
+REQUEST ROUYING:
+-Based on URLs
+-Routing with disptach.yaml file
+-Routing with Cloud Load Balancing
+
+TRAFFIC SPLIT BTWEEN MULTIPLE VERSIONS
+-IP SPLITTING
+--ip addresses can chnge causing accuracy issues
+--if all req origin frm corporate with single ipz, can cause all req to go tot the sme version
+-COOKIE SPLITTING:
+--can be controlled frm ur appln
+--cookie splitting accurately assign users to versions
+-RANDOM
+-randmly do
+-HOW TO DO:
+--inculde  --split-by in gcloud app deploy set --traffic
+
+CREATING CRON JOBS
+-allows u to run scgeduled job at pre-defined intervals
+-Use Cases
+--send report by email every day
+--refresh cache data every 30 mins
+-Configured using crom.yaml
+-Run ths cmmnd
+-- gcloud app deploy cron.yaml
+--perfrms a http get req to configured url on schedule
+
+YAML FILES:
+-dispatch.yaml-based on url path it will route the req
+-queue.yaml-mnge task queues
+
+POINTS FOR APP ENGINE
+-app engine is regional(deployed across regions)
+--cnnt chnge app region
+--for micriservices
+--use standardv2 when u r using supportd lnguages
+--flexible-cntnrzed app
+-atleasr one cntnr always runng whn using flexible
+-go for stndrd if u wnt to be bale to scale dwn no of instances to zero when no load
+-use combination of residnet and dynamic instnces
+--Resident-Run Continuously
+--Dynamic-Added based on load-use ths is u r costsensitive
+if u r not cotssensitive and want good perfrmne then use resident
+-we can have one app per project
+-u can craete multiple services under same app
+app engine is region specific, cannt move to diff region
+-canary deploymnts-deploy v2 without shftng traffic use- --no-promote when settinh traffic
+
+GKE(google cloud engineer)
+-open sorce container orchestration sol
+-provides cluster mngmnt
+-provides all imp cntnr orchestration featuires:
+--autoscaling
+--service discovery
+--load blncr
+--self healing
+--zero dwntime deploymnts
+-minimize auto-repair and auto-upgrade
+-Provides Pod and Cluster Autoscaling
+--for multiple microservices, if we want to increase the the no of instances in the cluster for specific microservice then we use pod otherwise if we want to increase the no of instances also we have to inc the no of clusters for that thts why we need cluster autoscaling
+-enble cloud logging and cloud monitoring with simple config
+-uses cntnr-optimized OS, hrdnd OS built
+-provides suppot fr persistent disks and local SSD
+
+CRETING CLUSTER:
+1. create a kubernetes cluster, to do this enable Kubernets Engine API, then create cluster
+modes:-autopilot and Standard(where u mnge evrythng)
+-AUTOPILOT
+-new mode in gke
+-reduce ur opertional costs in runnning kubernetes cluster
+-provides hands off exp
+--do not worry abt mngng cluster infrastructure nodes
+--GKE will mnge cluster fr u
+select stndrd create
+
+2.login to cloud shell
+3 Connect to Kubernetes Cluster
+--gcloud container clusters get-credentials my-cluster --zone us-central1-a --project solid-course-258105
+4.Deploy Microservice to Kubernetes
+--create deployment and service using kubectl cmnds
+--kubectl create deploymnet name --image=
+5.Increase no of instances of ur microservices
+6 Increase no of nodes in the clusters
+7 Setup autopscaling for the cluster
+8 Setup autosacling for kubernetes cluster
+
+-cluster where we run wrkloads
+-cluster has two nodes
+--Master Node-mnges cluster
+--Worker Node - run ur wrloads
+MASTER NODES COMPONENTS:
+-API SERVER - hndles all cmmniction for K8S cluster
+-Scheduler-decides placment of pods
+-Control Mngr-mnges deplymnts and replica sets
+etcd-distributed db storing cluster state
+WORKER NODE:
+-RUNS UR PODS
+-kUBELET-mngs communication with mster nodes
+
+TYPES OF CLUSTER:
+ZONAL:
+SINGLE-nodes running in same region
+MultiZonal- nodes running in multiple zones
+Regional Cluster-Replicas of cntrol plane in multiple zones of a region
+Private-VPC-native cluster. nofdes only have internal ip
+Alpha- cluster with alpha apis, used to text new K8S features
+
+PODS-KUBERNETES
+-smallest deployable unit in Kubernetes
+-pod contains one or more containers
+-each pod is assigned an ephermal IP address
+-all cntnrs in pod share
+--ntwrk
+--strge
+--ip
+--ports
+--volume
+-Pod Statuses-running/pending/succeeded/failed/unknown
+
+DEPLYMENT/REPLICA SET:
+-A deplymnt is created for each microservice
+--mnges deplymnt dwntimee
+Replica Set-ensures tht specific no of pods are running in sprcific microservice(if smone deltes one pod thn this will ensure anoithr to add)
+-Deploy v2 of microservice-creates new replica set
+--V2 replica is automatically created
+-each pod has its own IP
+--id pod fails and is replaced by replica set, new release hjppns and all existing pods of old release are replaced by ones of new release
+-Create Service:
+-ensures tht external wrld does not get impacted if pod goes up or dwn
+Three types:
+-ClusterIP- Expose service on cluster-internal IP
+--only inside the cluster
+-LoadBalancer-Exposes Service externally using cloud providers load blncer
+--create individual load blncrs for each microservice
+-NodePort-Expose service on each Nodes IP at static port
+--do not want to create an externl load blncr for each microservice
+
+CLOUD FUNCTIONS:
+-file is uploaded in cloud storage
+-an error log is written to cloud logging
+-a msg arrives to cloud Pub/Sub
+-Enter Cloud Functions:
+-Run code in response to events
+--writr ur business logic in diff lnguages
+--don't worry abt servers or scaling or availabilty
+-Pay only for what u use:
+--no of invocations
+--compute time of invocations
+--amount of memory and CPU provisioned
+-Time Bound
+-each invocation runs in sep fxn
+
+CONCEPTS:
+Event-upload object to cloud storgae
+Trigger-respond to event with a fxn call
+-Trigger- whch fxn to triger whn event hppns
+-fxns-take event and prfrm action
+-Events are triggered from:
+--cloud strge
+--cloud pub/sub
+--http post/get/del/put/options
+--firebase
+--cloud firestore
+--stack driver logging
+-No server mngmnt
+-cloud fxns automatically spin up and back dwn in response to events
+-cloud fxns are recommnded for respondng to evnts:
+--not ideal for long runng processes
+--time bound-default 1 min and max-9mins
+
+CLOUD RUN:
+-container to prod in secnds
+--built on top of an open stsndrd-Knative
+--fully mngd serverless pltfrm for cntnrized applns
+---zero infrastructure mngmnt
+---pay per use 
+-Fully integrated end to end developer experience:
+--no limitations in lnguages
+--easily portable beacuse of cntnr based archtecture
+--cloud code, cloud buil;d, cloud monitrng and cloud logging integrations
+-Anthos-
+run clusters anywhere
+-cloud run for anthos-to deply cluster on anthos
+
+ENCRYPTION:
+-DATA STATES
+DATA AT REST- stored on a device or backup
+--exmples data on hrd disk
+DATA IN MOTION-being trnsfrd across a ntwrk
+--also called data in transit
+-exmples:
+---data copied frm on-premise to cloud strge
+---an appln tlkng to db
+-two types:
+--in and out of cloud(frm internet)
+--within cloud
+DATA IN USE- active data processed in a non-persistent state
+--exmples: data in ur RAM
+
+CLOUD KMS:
+-create and manage cryptographic keys(symmetric ans asymmetric)
+-control their use in ur applns and gcp
+-provides an API to encrypt, decrypt or signdata
+-use existng cryptographic keys created on premises
+-integrates with almost all GCP services tht need data encryption:
+--google-managed key: no confgrtion req
+--custmr-mhngdkey: use key frm KMS
+--customer-suppliedkey:provide ur own key
+
+BLOCK AND FILE STORAGE:
+-harddisks attchd to ur cmputers
+-one blck strge devic can be cnnctd to one virtual server
+--u can attach read only block devices with multiple virtual servers and certain cloud providers are exploring multi-writer disks as well
+-u can cnnct multiple diff blck strge devices to one virtual server
+-used as:
+--Direct Attached Storage: similar to hard disk
+--Storage Area Network: high speed ntwrk cnctng a pool of storage devices
+---used by dbs-oracle and microsoft SQL Server
+
+FILE STORAGE:
+-media wrkflows need huge shared storage for supportng processes like video-editing
+-enterprise users need a quick way to share files in a secure and organized way
+-these file shres are shred by several virtual servers
+
+BLOCK STORGAE:
+-Persistent Disks-if u want high durabilty
+--zonal-data replicated in one zone
+--regional-data replicated in multiple zone
+-Local SSDs-if u want high strge
+--local block storage
+FILE STORAGE:
+-FileStore-high perfrmne file storage
+
+BLOCK STORGE:
+TWO TYPES:
+-local SSDs are physically attcjd to host of vm instance
+--temporary data
+--lifecycle tied to vm instance
+-Persistent Disks are ntwrj storage
+--more durable
+--lifecycle not tied to vm instance
+
+LOACL SSDs
+-physically attchd
+--provides very high and very low latency
+-ephermal storge
+--only persists till the time the instance is runnibg
+-data automatically encrypted
+--u cannot configure encryption keys(mngd by google)
+-Lifecycle tied to vm instance
+-only some machine types supprt local SSDs
+-supports SCSI and NVMe interfaces
+-REMEMBER
+--choose NVMe-enbled and multiqueue SCSI images for best performnce
+--larger local SSds, more vCPUs= evn bttr perfrmnce
+ADVANTAGES:
+-very fast
+--higher throughput
+-Ideal for use cases needing high IOPs while storing temporary info
+--exmples-caches, temporary data,scratch files
+DISADVANTAGES
+-ephermal storge
+--lower durability,lower availabilty, lower flexibilty
+-u cannot detach and attach it to another vm instance
+
+PERSISTENT DISKS:
+-ntwrk block strge attchd to vm instance
+-provisioned capacity
+-very flexible
+--increase size when u need it-whn attchd to vm instance
+--perfrmnce scles with size
+-Independant lifecycle from VM instance
+--attach/detach frm one vm instance to anthr
+-Options:Regional and Zonal
+--zonal PDs replicated in single zone. Regional PDs in 2 zones in sme region
+--typically regional PDs are 2x the cost of zonal PDs
+
+see video 129 for types of persistent disk types cmparison
+
+SNAPSHOTS-PERSISTENT DISK
+-are backup for ur disks
+-we can also schedule snapshots
+-can be regional or multu-regional
+-can shre them across prjcts
+-can create disks and instances frm snapshots
+-snapshots are incremental
+-keep similar data tgthr on persistent disk
+--attch multiple disks if needed
+--sep ur operatng sys,volatile data and permanent data
+--helps to bttr organize snapshts and images
+-autodelete snapshots we can do when scheduling the snapshot
+
+-avoid takng snapshots more often thn once an hr
+-disk vol is available for use but snapshots reduce perfrmne
+--creatng snapshots frm disk is fster thn creatng frm images
+-but creatng disks frm image is fster thn creatng snapshots
+-if we are repeatedly creatng disks frm snapshot then craete an image frm snapshot and use the iamge to create disks
+-Snapshots are incremental
+-but u dont lose data by del older snpshots
+-del snapshot only delets data which is not needed by other snapshots
+
+MACHINE IMAGES:
+-is diff from image
+-multiple disks can be attached with vm
+--one boot disk
+--multiple data disk
+-an image is craeted  frm boot persistent disk
+-but machine image is craeted frm VM instance:
+--machine image contains evrythng u need to create vm instance:
+---configuration
+---metadata
+---permissins
+---data frm one or more disks
+-can be used for disk backups, instance cloning and replication
+
+CLOUD FILESTORE:
+-shred cloud file strge
+--supprts NFSv3 [rotocol
+--provisioned capacity
+-Suitable fr hogh perfrmnce wrkloads
+--upto 320TB thrghput of 16 GB/s and 480 IOPS
+-supports HDD and SSD
+-usecases-file share , media wrkflws and content mngmnt
+
+CLOUD STORAGE:
+-most popular, very flexible and inexpensive strge service
+--serverless:autoscaling and infinite scale
+-Storge large objects using a key-value approach:
+--treats entire objct as a unit
+--rcmmnded when u operate on entire objct most of the time
+--also called on object strge
+-provides rest api to access and modufy objcts
+--also provides CLI
+-store all file types-text, binary , backup and archives
+--media files and archives, appln pacckages and logs
+--bckups of ur dbs or strge devices
+--stgng data during on-premise to cloud db migration
+
+CLOUD STORAGE-OBJECTS AND BUCKETS
+-objcts r stored in buckets
+--nmes are globally unique
+--bucket names r used as part of objct urls=>
+can she contain only lower case lttrs,nos,hyphnes,underscores and periods
+--3-63 charcters max. cnt strt with goog prefix or shld not contain google
+--unlimited objcts in a buckets
+--each bucket is associted with prjct
+-each objct is idnetified by unique key:
+--key is unique in a bucket
+-max objct size is 5 TB
+--but u can store unlimited no of such objcts
+
+FEATURES ACROSSS STORAGE CLASES:
+-High durabilty
+-low latency
+-umlimited storage
+--autoscaling
+--no min objct size
+-same APIs across storage classes
+-committed SLA is 99.95% for multiregion and region for single region for Standard, Nearline and Coldline storage classes
+
+UPLOADING AND DWNLODNG OBJCTS:
+-simple upload
+--small files , no metadat
+-Multipart upload
+--small files+objct metadata
+-Resumable upload
+--larger files, evn for smalller files
+-Streaming transfers
+--upload objct on unknown size
+-Parallel composite uploads
+-file divided up to 32 chunks and uploaded in parallel
+--fster if ntwrk and disk speed are not limiting factors
+
+OBJECT VERSIONING:
+-prevents accidental deletion and provides history
+--enabled at bucket lvl
+---can be tuned on/off at any time
+--Live Version
+--if u del live obj, it bcmes non-concurrent obj version
+--if u del non- concurrent obj version, it is deltd
+-older versions are uniquely identified by (object key + a generation number)
+-Reduce costs by deltng older(nonconcurrent)versions
+
+OBJECT LIFECYCLE MHGMNT:
+-files r frequently accessed when thy r craeted 
+--usage reduces with time
+-Identify objects using conditions based on:
+-2 kinds of action
+--setstorageclass actions(chnge one class to anthr)
+--deletion actions(del objcts)
+
+COMMAND:
+-gsutil is used as CLI for  cloud storage cmmnd
+-gsutil mv)move)
+-gsutil ls(list)
+-gsutil mb(create strge bucket)
+-gsutil cp(copy obj)
+-gsutil rewrite
+-gsutil cp(upload/dwnld)
+
+IAM(IDENTITY MNGMNT)
+-u hve resrcs in cloud
+-u have identities that need to access those resrcs and perfrm actions
+-to identify users in cloud
+-in gcp, identify and access mngmnt provides ths service
+-Authentication,
+-authrztion
+-identities
+--gcp user
+--grp of gcp users
+--an app runng in gcp
+--an app runng in ur data cntr
+--unauthnticated userrs
+-provides very grnular cntrol
+--limeted to sngle user
+---perfrm single action
+---on a specific cloud resrc
+---frm specific IP address
+---during specific time window
+
+ROLES AND PERMISSIONS:
+-three types:
+-Basic Roles
+--Viewer - readonly
+--Editor-Viewer +edit 
+--Owner-editor+mnge roles and permi+billing
+--not RECOMMENDED for PRODUCTION
+-Predefined roles
+-diff roles on diff purposes
+-Custom Roles
+--if we wantg to createe we can
+ 
+Binding maps tghe role to who alll can have that roles
+Ploicy TroubleShooter-to see if anyone is having prblm in accessing, we can cme here and chk
+
+SERVICE ACCOUNTS:
+-an app on VM access to cloud strge
+--u dont want to use personal credentials to allow access
+-use Service Accounts:
+--identified by an email addrss
+--does not have pswrd
+---has public/private keypairs
+---cant login via browsers or cookies
+TYPES:
+-DEFAULT-automatically created when servicers used
+-USER MNGD-user created-provides fine grained access cntrol
+-GOOGLE MNGD-created and mngd by Google, used by GCP to perfrm operations on users bhlf
+--in general, we do not need to worry abt thm
+
+ACCESS CONTROL LISTS:
+-who has access to ur buckets and objcts, as well as wht level of access thy have
+-diff from IAM
+--IAM permissions apply to all objects within bucket
+--ACLs can be used to customized specific accesses to diff objcts
+-User gets access if he is allowed by either IAM or CLI
+-use IAM fr cmmn permissions to all objcts in bucket
+-use ACLs if u need to customize access to invidual objcts
+
+-2types:
+-UNIFRM-unifrm bucket level access using IAM
+-FINE GRAINED-use IAMs and ACLs to cntrol access
+--both at bucket lvl and individual objct lvl permissions
+-Use uniform access when all users have same level of access across objects in bucket
+-Fine grained access with ACLs can be used when u need to customize the access at obj lvl
+
+CLOUD STRGE-SIGNED URLS
+-users do not need google accnts
+-use Signed URL functionality
+--a url tht gives permissions for limited time duration to perfrm specific actions'
+-To create a Signed URL
+--create key for service acc/User with desired permissions
+--create Signed URL with the key
+
+DATABASES:
+-provides organized and persistent strge fr ur data
+-to choose between diff db types, we wld need to understand
+--availabilty
+--Durability
+--RTO
+--RPO
+--Consistency
+--Transactions
+
+CONSISTENCY LEVELS:
+-STRONG:synchronous replication to all replicas
+--will be slow if u have multiple replicas or stndbys
+-EVENTUAL:asynchronous replication
+--a little lag-few secnds-bfore chnge is availble in all replicas
+--in intermidiate period,diff replicas might return diff values
+--used when scalability is more imp thn data integrity
+-READ-AFTER-WRITE:inserts r immediately availble
+--however,updates wld hve evntual consistency
+
+CLOUD DATASTORE:
+-mngd serverless NoSQL doc db
+--provied ACID transactions
+--filestore
+---strng consistncy
+---mobile and web client libraries
+--recommended fr small to med db(0 to few terabytes)
+
+CLOUD BIGTABLE:
+-not serverless
+-recommnded for data size> 10 Terabytes to several Petabytes
+-rcmmnded fr large analytical and operational wrkloads:
+--nt recmmnded fr transactional wrkloads
+
+IN MEMORY DBS:
+-retrieving data frm memory is much fster thn retrieving data frm disk
+-in memory dbs like Redis deliver microsecnd latency by storing persistent data in memory
+-recmmnded GCP mngd service
+--memory store
+-Use Cases:Caching, session mngmnt, gaming leader boards, geospatial applns
+
+CLOUD SQL
+-fully mngd reltnl db service
+--configure ur needs and do not need abt mngng
+--supports Mysql,Postgre,SQL
+--Regional Service providing High availabilty
+--Use SSDs or HDDs (Fo best perfrmnce)
+--upto 416 RAM and 30TB of data strge
+-Use Cloud SQL for simple reltnl use cases
+--to migrate local MySQL,PostgreSQL,SQL
+--to reduce ur maintainance cost for a simple reltnl db
+--use Cloud Spanner instead of Cloud SQL:
+--u have huge volumes of reltnl data
+--u need infinite scaling for grwng appln
+--u need a global
+--u need higher availability(99.999%)
+
+CLOUD SQL - FEATURES:
+-automatic encryption
+-High availabilty and failover
+--create standby with automatic failover
+--we have to enable automatic backups and Binary logging
+-Read replicas for read wrkloads
+-cross zone,cross rgion
+-we have to enable automatic backups and Binary logging
+-Automatic storage increase without dwntime
+-point-in-time recvry-enable binary logging
+-Backups
+-supports migration frm othr resrcs
+-u can export data frm UI
+
+CLOUD BIG TABLR:
+-petabyte,wide col Nosql db
+--designed for huge volumes of data
+-hndles millions of read/write at very low latency
+--single row trsxn
+-Not serverless
+-cannot export data using cloud console or gcloud
+-Use cmmnd line tool to wrk with BigTable
+-each tble is key/value map
+-supports high read and write thrghout at low latency
+-cloud Dtafloe-used to export data frm bigtable to cloud strge
+
+MEMORY STORE
+-in memory datastore
+-fully mngd
+--highly availble with 99.9%
+-monitorng can be easily setup using cloud monitorng
+-support Refis Cache and Mencached
+--use Redis for low latency
+
+BIGQUERY
+-exabyte scale modern Datawarehousing sln frm gcp
+--reltnl db
+--use sql like cmmnds to qury massive amnt
+of data
+-importng and exportng data :
+--load data from varietry of srcs
+--vaiert of frmts
+--export to cloud stsrge
+-automatically expire data
+-Quer external data sources without storing data in BigQuery
+-use permnnt or temporray external tbles
+
+ACCESSINGA ND QUERYNG:
+-using:
+--cloud cobnsole
+--bq cmmnd-line tool
+--bigquery rest apu
+--hbase aoi based libraries
+-BigQuery can be expensive as u r runng thm on large datasets
+
+POINTS TO REMMBR:
+-RELTNL DB:
+--small local db-Cloud SQL
+--Highle scalable global db-Cloud Spanner
+--Datawarehouse-BigQuery
+-NOSQL DB:
+--trnsctional db for few terabytes of data-Cloud Datastore
+--Huge volumes of IOT or streaming analytics data-Cloud BigTable
+
+SYNCHRONOUS COMMUNICXATION:
+-applns on web server mke synchronous calls to the logging service
+-wht if logging servuce goes dwn:
+--will ur applns go dwn too
+-What if all sudden there is high load and there are a lot of logs cmng in:
+--log service is not able to hndle the load and goes dwn very often
+
+ASYNCHRONOUS:
+-create a topic and have ur appln put log msgs on topic
+-logging service picks thm up for processng when ready
+-Advantages:
+--Decoupling-Publisher dont care abt who is listening
+--Availability-Publisher uo even if a subscriber is dwn
+--Scalability-Scale consumer instances under high load
+--Durabilty-Message is not lost even if subscriber is dwn
+
+CLOUD PUB SUB:
+-relialbe, scalble,fully mngd asynchronous msgng service
+-backbone for highly availble and hoghly scalble solns
+--auto scale to process billions of msgs per day
+--Low cost(pay for use)
+-Usecases-Event ingestion and delvry for streaming analytics pipelines
+-Supports push and pull msg deliveries
+
+HOW IT WRKS:
+-create topic-no, of publishers can send msgs to this and subscriber and recevievr can read msgs which thy want by subscribng
+-PUBLISHER:
+--sender of msg
+--publioshers send msgs by mkng HTTPs reqsts to pubsub.googleapis.com
+-Subscriber:
+--receiver of msg
+--Pull-subscriber pulls msgs when raedy 
+--Subscriber mkes HTTP reqs to pubsub.googleapis.com
+-Push-Messgaes are sent to subscribers
+--subscribers provide a web hook endpoint at time of reg
+--when msg is received on topic, A HTTPS POST req is sent to web hook endpoint
+-Very Flexible Publisher and Subscriber reltnshps:-one to mny, mny to one,many to many
+
+MSSGE PRIOCESSING IN PUB/SUB:
+-Step1-topic is created
+-Step2-Subscription are created
+--Subscribers register to topic
+--each subscription reprsents discrete pull of msgs
+---multiple clients pull sme subscription-msgs split btween clienbts
+---multiple clients craete a subscription each-each client7 will get evry msg
+-Publisher send msg to topic
+-msgs individually delvrd to each and evry subscripton
+--Subscribers can receive msg either by:
+--push-pub/sub send msg to subscriber
+-pull-subscribers poll fr msgs
+-Subscribers send acknowledgmnts
+-msgs are removed frm subscriptions msg/queue
+--pub/sub ensures the msg is rtetained per subscription until its acknwledgd
+
+SNAPSHOTS IN TOPIC-is a point in time status of specific subscription
+-wht is the stste of processing msg in subscription
+
+PUB/SUB CMMND LINE:
+-gcloud config set project [projrct_id]
+see cmmnds video-204 Video
+
+CLOUD VPC:
+-in a corporate ntwrk or on premises data cnter
+-Corporate ntwrk provides a secure internal ntwrk protecting ur resrcs, data and communicatiuon frm external users
+-to craete ur own private ntwrk in cloud-enter Virtual Private Cloud(VPC)
+=ur own isolated ntwrk in GCP cloud
+--ntwrk traffiuc within a vpc frm all other google cloud VPCs
+--u control all the traffic comming in and going outside of VPC
+-craete all ur GCP resrcs
+--Secure resrcs frm unauthorized access 
+--enable secure communication btween ur cloud resrc
+-VPC is a global resrcs and contains subnets in one or more region
+--not tied to a region or zone. VPC resrcs can be in any region or zone
+
+VPC SUBNETS:
+-each type os resrcs has its own access nned
+--load blncers are accessible frm internet(public)
+-dbs or vm instances shld not be accessibel frm internet
+-to seperate public from private rtesrcs inside a VPC
+-create seperate subnets
+-u want to dstribute resrcs across multiple regions for high availabilty
+-create diff subnets for public and private resrcs:
+--resrcs in public subnet can be accesses frm internet
+--but resrcs in public subnet can tlk to resrcs in private
+-each subnet is created in a region
+
+CREATING VPCS AND SUBNETS:
+-by default, ebery prjct has a default VPC
+-u can create ur own VPCs:
+--OPTION 1: Auto mode VPC ntwrk
+---subnets are automatically created in each rtegion
+---default VPC created automatically in prjct uses auto mode
+--OPTION 2:Custom mode VPC ntwrk
+---no subnets are automatically craeted
+---u have complte over subnets and their IP ranges
+---recmmnded fr prod
+-OPTIOns when u create a subnet:
+--enble Private GOOGle Access-allows VMs to cncnt to Google APIs using private IPs
+--Enable FlowLogs-to troubleshoot any VPC related ntwrk issues
+
+CIDR(CLASSLESS INTER DOMAIN ROUTING) BLOCKS:
+-resrcs in ntwrk use continuous IP address to mke routine easy:
+-how to express a range of addresses tht resrcs in a ntwrk can have- CIDR BLOCK
+-a CIDR block consists of string IP address and a range of(/28)
+
+FIREWALL RULES:
+-control traffic going in or out of ntwrk:
+--stateful
+--each firewall rule has priority assignd to it
+--0 has highest priorirt .65535 has least priority
+--default implied rule with lowest priority(65535)
+--allow all ingress
+--deny all ingress
+--default rukles cant be deltd
+--u can override default rules by defnng new rules with priority 0-65534
+-Defau;t VPC has 4 additional rules with priority 65534
+--allow incmng traffic frm VM instances in sme ntwrk (default allow ntwrk)
+--allow incmng TCp trffic on port 22(SSH)
+--allow incmng TCP traffic on prt 3389(RDP)
+--allow incmngICMP frm any source on ntwrk 
+
+INGRESS AND EGRESS RULES:
+-Ingress rules:
+--incmng traffic frm outside to GCP trgets
+--target-all instyances with TAG/SA
+--source-CIDR instances with TAG/SA
+-Egress Rules:
+--outgoing traffic destination frm GCP trget
+--target-all instyances with TAG/SA
+--destination-CIDR Block
+-Along with each rule, u can also:
+-Priority-Lower the no, higher the priority
+-action on Mtach-Allow or deny traffic
+-Protocol-TCP,UDP,ICMP
+-Enforcemnt rules- Enable or disable the rule
+
+SHARED VPC:
+-created at org or shared folder lvl
+-aloows VPC ntwrk can be shsred betwn prjcts in sme org
+-shared VPC contains one host prjct and multiple service prjcts:
+--Host-cntns shred VPC ntwrk
+--Service-attchd host prjcts
+-hlps u achieve sep of concerns:
+--ntwrk admin responsible for hist prjcts and Resrc users use service prjcts
+
+VPS PEERING:
+-ntwrks in sme prjct, diff prjct and across prjcts in diff org can be peered:
+-all cmmincations hppns using internal Ip addresses 
+--highly efficient because all cmmnication hppns inside Google ntwrk
+--Highly secure bcoz not accerssible frm internet
+--No data trnsfer chrgeds of data trnsfer btween services
+-Ntwrk admin administrstion in NOT chnged
+--admin of one VPC do not get role automatically in peered ntwrk
+
+CLOUD VPN:
+-connct on premise ntwek to GCP ntwrk
+--inplemtnd using IPSec Tunnel
+--trafiic thrgh internet(public)
+--traffic encrypted using internet Key Exchange protocol
+-Two types of Cloud VPN solutions:
+--HA VPN(SLA of 99.99% service availabilty with 2 external IP address)
+---dynamic routing
+--Classic VPN(SLA of 99.99% service availabilty with 2 external IP address)
+---supports static routing
+
+CLOUD INTERCONECT:
+-high speed physical cnnction btween onpremise and VPC ntwrks:
+--highly available and hogh thrghput
+--2types of cnctions possible
+---Dedicated Interconnect-10Gbps or 100Gbps
+---Partner Interconnect-50Gbps or 10Gbps
+-Data exchange hppns thrgh private ntwrk
+--cmmunicatre using VPC ntwrks internal IP addresses frm on premise ntwrk
+--reduces egress costs-as public internet nt used
+-Supported Google APIs and services can be privcately accessed frm in-premise
+-use only fr high bandwidth needs:
+--for low bandwidth, cloud VPN recmmnded
+
+DIRECT PEERING:
+-connect customer ntwrk to google ntwrk usinf ntwrk peering
+--direct path frm on-premise ntwrk to google services
+-NOTa GCP service
+--lower level ntwrk cnction outside of GCP
+-NOT RCMMNDED
+--use cloud interconnect and Cloud VPN
+
+CLOUD OPERATIONS:
+
+cloud monitoring:
+-tools to monitor ur infrastructure
+-measures ket aspects of services
+-create visualizations
+-configure alerts
+--defining alert policies:
+--condtn
+--Notiofications
+--Documntation
+
+CLOUD MONITOTRINFG WORKSPACE:
+-u can use CM to monitor one or GCP prjcts and one or more AWS accntys
+-create a wrkspace
+-wrkspsces are needed to orgnize monitorng info:
+--a wrkspace aloows u to see monitoring info frm multiple prjcts
+--Step I-create wrkspcae in specifuic prjct
+--Step II- add other GCP prjcts to wrkspace
+
+CLOUD LOGGING:
+-real time log mngmnt and analysis tool
+-allows to store,search,analyze and alert massive vol of data
+-exabyte scale, fully mngd service   
+-ingest data frm any source
+-Features:
+--Logs Explorer-search,sort and analyze using flexible queries
+-Logs Dashboard-Rich visualization
+-Logs Metrics-Capture metrics frm logs
+-Logs Router-route diff log entries to diff destinations
+
+CLOUD LOGGING-COLLECTION:
+-most GCP mngd services automatically send logs to cloud logging
+--GKE
+--APP ENGINE
+--CLOUD RUN
+-iNGEST LOGS FRM gce vmS:
+--install logging agent
+--run logging agent on all vm mchnes
+-Ingest logs frmm on-premises
+--use the BindPlane tool frm Blue Medora
+--use the Cloud Logging API
+
+AUDIT AND SECURITY LOGS:
+-Access Transparency Logs:captures actions perfrmd by GCP team on ur content
+-Cloud Audut Logs-answers who did wht,when and where
+--admin activity logs
+--data access logs
+--system event audit logs
+--policy denied audit logs
+-Which service-protoPayload.serviceName
+-Which operation-protoPayload.methodName
+-Which resrc is audited-resource.Type
+-Who is makng call-authenticationInfo.principalEmail
+
+ROUTING LOGS AND EXPORTS
+-logs frm various srcs reaches log router
+-log router chcks against configued rules
+-2 types of logs buckets
+-Required: hold admin activity,sys evnts and access transparency logs
+--zero charge
+--u cannot delete the bucket
+--u cannot chnage retention period
+-Default: all othr logs
+--u r billed based on cloud logging
+--u cnnt del bucket
+--u can edit retention settings
+
+CLOUD LOGGING EXPORT:
+-logs are ideally stored in clouyd logging for limitedc reprt
+--for long term retention 
+---cloud strge bucket
+---bigQuery dataset
+--cloud Pub/Sub
+-how to export
+--craete sinks to these destinations using LogRouter
+---u can create include/exclude filters to limit the logs
+
+CLOUD TRACE:
+-dstributed tracing system for GCP-collect latency data from:
+-supported google cloud service
+-instrumental aaplns
+--supported for-ompute engine, GKE, app engine
+-Trace Client libraries available for-C#, Go, Java,NodeJs,PHP,Python and Ruby
+
+CLOUD DEBUGGER:
+-capture stsete of runng appln
+--inspect state of appln directly in GCP env
+--take snapshots of variables and call stack
+--no need to add logging statements
+--no need to redeploy
+--very lighweight--ver impact to users
+--can be used in any env-test,accptnce,prod
+
+CLOUD PROFILER:
+-to identify bottelnecks in prod:
+-stastical, low overhaed profiler
+--continuously gathers CPU and Memory usage frm prod sys
+--connect profiling data with appln source code
+--concerns:
+--profiling agent(collecting proifiling ibnfo)
+--profiler interface(visualization)
+
+error rportng:
+--real time exceptuon monitoring
+-centralized error mngmnt console
+-use Firebase crash reportng for erros frm android and ios client appln
+-supported for Go,Java,NodeJS,PHP,Python,Ruby
+-Errors can be repotd by
+-seeendng thm to cloud logging
+--by calling error reportng api
+-error reportng can be accessed frm desktop
+--also availble in cloud console mobile app for ios and android
+
+RESRC HIERARCHY
+-resrsc can be created in folder
+-one folder can cotain many prjcts
+-organization can cntain many folders
+-create sep prjcts for diff env
+--complete isolation btwn test and prod env
+-create sep folders for each dep
+--isolte prod applns of one dep frm anthr
+--we can create a shred folder for shred resrcs
+-one prjct per appln per env
+
+BILLING
+-we can setup budget alerts
+-billing data can exported as:
+-big Query(if u want to visulaize it)
+-Cloud storge(for history/archiving)
+
+IAM:
+-LEAST PRIVILEGE
+--BASIC ROLES ARE NOT RCMMND
+--User service accnts with min privileges
+-Seperation of Duties:
+--involve atleast 2 people in sensitive taks
+-Constant Monitoring
+--review cloud audit logs to audit chnges to IAM policies and access to service account keys
+---archive cloud audit logs in cloud strge buckets for long term retention
+--use grps when possible
+---mkes it easy to mnge users and permissions
+
+USER IDENTITY MNGMNT:
+-email used to create free trial accnt
+--access to evrythng in ur GCP orgnztion,folders,prjcts
+--mnge access to other users using their gmail accnts
+-not recmmmnded for enterprises
+-ur enterprise can use Google Wrkspace
+--use Goodgle wrkspace to mnged  users
+-ur enterprise uses an identity provider of its own
+
+CORPORATE DIRECTIRY FEDERATION:
+-Federate cloud identy or google wrkspace with ur external identity provider(IdP) such as active directory or azure ad
+-feaderated is all abt linking ur google accnt with external accntg
+-Enable Single SignOn
+--users are redirected to an IdP to authenticate
+--when users are authenticated, SAML assertion is sent to Google Sign-in
+-examples:
+--Federate Active directory with cloud identity by using Google Cloud Directory(GCDS) and Active Directory Federation Services(AD FS)
+--Federating Azure AD with cloud Identity
+
+IAM MEMBERS/IDENTITIES:
+-google accnt-represents a person
+-service accnt-represents an app accnt
+-Google Grp-collection-google and service accnts
+--has a unique email address
+--hlps to apply access policy to a grp
+-Google wrkspace domain-Google wrkspce(GSUITE) provides collaboration services for enterprises
+--tools like Gmail, Claneder,Meet,Chat,Drive..
+--if ur enterprise is using google wrkspce,u can mnge permisisons using ur google wrkspce
+-Cloud Identity Domain-Cloud identitu as a Service solution tht centrally mnge users nd grps
+
+ORGNZTION POLICY SERVICE:
+-confgure orgnztion policy
+-disablee creation of service accnts
+--allow/deny craetion of resrcs in specific region
+-needs a role -orgnztoion policy admin
+
+IAM POLICY AND RESRTSC HIERARCHY
+-IAM policy can set at any lvl
+-resrcs inherit policies of all parents
+-trhe effctive policy fr a resrc is the union of the policy on that resrc and its parents
+-Policy inheritance is transitive
+-u can't restrict policy at lower level if permission is given at an hiogher lvl
+
+ORGNZTION,BILLING,PRJCT ROLES
+-Organization Admin
+--define resrc hierarchy
+--define access mngmnt policues
+--mnge other users and roles
+-Billing account creator-Create billing accnts
+-Billing account Admin-Mnge billing accnts, cannot create billing accnt
+-Billing Account User-associate prjcts with billing accnts
+--used in combination with prjct creatotr
+--these 2 roles allow user to create new prjct and link it with billing accnt
+-Billing Account Viewer-See all billing accnt details
+
+COMPUTE ENGINE ROLES:
+-Compute engine Admin-cmplete control of compute-instances, images, load blncers,ntwrks,firewalls
+-Compute Instance Admin-create,modify/delete vm and disks
+-Compute Engine Ntwrk Admin-complete access to ntwrkng resrcs
+-Compute Engine Security Admin-cmplte access to firewalls and SSl certifiactes
+-Compute Strge Admin-Cmplte access to disks,images,snapshots
+-Compute Engine Viewer-Read only access to evrythng
+-Compute OS Admin Login-login to compute engine instance as admin user
+-Compute OS login-login to compute engine instance as stndrd user
+
+APP ENGINE ROLES:
+APP ENGINE ROLES(CRUD)
+-app engine creator-for creatng applns
+-App engine admin-applns,services/instances/versions
+-App Engine Viewr-applns,services/instances/versions
+-App enginbe code Viewer-appengine.versions.getFileContents
+-App Engibne Deployer-versions
+-App engine Service Admin-applns,services/instances/versions(CRUD opertions)
+-app engine roles do not allow you to:
+-view and dwnld aapln logs
+-view monitoring chrts in cloud console
+-enble/disable billing
+
+IAM GOOGLE KUBERNETS ENGINE
+-Kubernetes Engine Admin-complte access to clusters and kubernetes API objcts
+-Kubernests Engine Cluster admin-provides access to mngmnt7 of clusters
+-Kubernetes engine dev-mnge kubernetes API objcts
+-Kubernetes engine Viewer-get/list cluster and kubernetes api objcts
+
+CLOUD STRGE - ROLES:
+-Strge admin-strge.buckrets,strge.objcts.*
+-strge objct admin-strge.objcts.*
+-strge obj creatort-strge.objcts.create
+-strge objct viewer-strge.objcts.get,strge.objcts.list
+-Contnr registry stores cntnr images in cloud strsge buckets
+--control access to images in cntnr registry using cloud strge permissions
+
+CLOUD bIGqUERY rULES:
+-bigquery admin-bigquery.*
+-bigquery data owner-bigquery.datasets.*,bigquery.models.*,bigquery.routines.*, bigquery.tables.*
+-data Editotr-bigquery.datasets.(create/get/geyIAMpolicyupdateTag),bigquery.models.*,bigquery.routines.*, bigquery.tables.(create/updte/del/export/get/gertdta..)
+-data viewer-get/list bigquery.(datsets/models/routines/tables)
+-bigquery job users-bigquery,jobs,create
+-bigquery user-data viewer+ get/list(jobsmcpcity,resrevations)
+
+SSHing into LINUX VMS:
+-compute engine linux vms used keybased SSH authentication
+-two options:
+--Metadat mngd-manually craete and configure individual SSH keys
+--OS login-mnge SSH access without mngng individual SSH keys
+---rccmnded for multiple users
+---ur linux user accnt will be linked to ur google identity
+---set enble oslogin to true in metadata
+---ability to import existing linbuc accnts frm on-premise Ad and LDAPy
+---users need to hve roles-roles/compute.osloin or roles/compute.asAdminlogin
+-Windows instances uses pswrtd authntication
+--generte using console or gcloud
+-how to do
+--console-SSH button-ssh keypair is creted
+--or GCLOUD-gcloud compute ssh-a usernme and persistent ssh key pair, ssh keypair can be used for future interactions
+--use customized ssh keys
+
+CLOUD DEPLYMNET MANAGER:
+-autoamte deplymnt and modifiaction of googl cloud resrcs in a cntrolled, predicted 
+--deploy in multiple envronmnts easily
+-avoid configuration drift
+-avpid mistakes with mnual configuyartion
+-version cntrol of ur env
+-always modify the resrcs craeted by deplymnt mnger using deploymnt mngr
+-all configuartion is defined in yaml file
+-deplymnt mngr understands dependancies
+-automatic rollbacks on errors-if creation of db fails, it wld automatic del the subnet and VPC
+-verion control ur configuartion file and mke chnges to it overtimne
+-free ti use-pay only for resrcs provisioned
+-Templates-reusable resrtc defntions tht can be used in multiple config files
+-Deplymnt-collection of resrcs tht r deployed and mngd together
+-Manifests-readonly objct containing original deplymnt configuation
+--generated by deplmnt mngr
+--includes fullly expnded resrc list
+--hlpful fr troubleshooting
+
+CLOUD MARKETPLACE:
+-installing custom sftwer might involve setting up multiple resrcs
+-central repo of easily deployable apps an datasets
+--similar to app store(jenkins,WordPress)
+--u can search and install a complete stack
+--whn slctng sol, u can see components and approx prce
+
+CLOUD DNS:
+-steps in setting website
+-buy domain name-can be frm godaddy
+-setup ur website content
+-route re to my website host server thts is here we use DNS
+-ued to set DNS routing for ur website
+-Cloud DNS-global domain name system
+--setups ur DNS routing for ur website
+--public and private mngd DNS zone
+
+CLOUD DATAFLOW:
+-can be used to do import/export in variety fornats to diff cloud strge
+-PUB/SUB>datafloe>BigQuery
+-PUB/SUB>dataflow>Cloud strge
+-cloud strge> data flow > BigTable
+-Bulk compress files in cloyd strge
+-Convert file formats btween Avro,csv etc
+-Steaming and  Btach usecaess
+--realtime fraud detection, sensor data processing,log data processing,batch processing
+-use pre0built templates
+-based on apache beam(supports Python,java..)
+-serverless
+
+CLOUD DATAPROC:
+-mangd spark and hadoop service
+--variety of jobs are supporeted-spark,pyspark,hive..
+-multiple cluster modes:
+--singlenode/stndrd/high availability
+--use regular/preemptible VMs
+-use case:move ur hadoop and spark clusters to cloyd
+-cloud dataproc is a data analysius platfrm
+-BigQuery-when u run SQL queries on Petabytes
+--go for cloud dataproc when u need more thn queries(complex ml and AI wrkloads)
+
+
+
+QUESTIONS AND ANSWERS:
+
+Set an Object Lifecycle Management policy to delete data older than 2 years. is the right answer.
+Since you don't need data older than 2 years, deleting such data is the right approach. You can set a lifecycle policy to automatically delete objects older than 2 years. The policy is valid on current as well as future objects and doesn't need any human intervention.
+
+Store infrequently accessed data in a Nearline bucket. is the right answer.
+Nearline Storage is a low-cost, highly durable storage service for storing infrequently accessed data. Nearline Storage is ideal for data you plan to read or modify on average once per month or less.
+
+Create a Cloud Identity account for each analyst and add them all to a group. Grant roles/bigquery.dataViewer role to the group. is the right answer.
+dataViewer provides permissions to Read data (i.e. query) and metadata from the table or view, so this is the right role, and this option also rightly uses groups instead of assigning permissions at the user level.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

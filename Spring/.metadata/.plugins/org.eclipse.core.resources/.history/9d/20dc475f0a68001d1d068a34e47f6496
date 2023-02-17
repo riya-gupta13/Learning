@@ -1,0 +1,5 @@
+package com.riya.spring.boot.demo.entities;
+
+public class Product {
+
+}

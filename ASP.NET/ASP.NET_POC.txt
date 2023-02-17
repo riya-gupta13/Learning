@@ -1,0 +1,65 @@
+1--ASP.NET CORE MVC version-5.0.0
+
+2--We created model
+
+3-- We downloaded ---Tools--NuGET--Solution---sqlserver-entitycore.sqlserver--Install
+
+4--SQL Server Dwnld---Then Dwnload Mngmnt Studio- Create a Server-'.'.
+-------------Create Data Folder---create class-- ApplicationDbContext :DbContext{
+
+					public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+							{
+
+							}
+
+							public DbSet<Category> Category { get; set; }
+							}
+			--- froeach model we carete we have to c fraete a table for that we do migration as well as we also have to specify (public DbSet<modelName> modelName { get; set; }) and then do migration
+5 In StartUp.cs file--- public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(
+                Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
+        }
+
+6 Database Settings--- appsettings.json file---Provide 
+		ConnectionStrings--"DefaultConnection": "Server=.;Database=Rayin;Trusted_Connection= True;MultipleActiveResultSets=True"
+7 Add a package-tools-entitycore.tools
+
+8 Tools-Nuget-Package Manager Console--add-migration 'name of it'(example-addCategoryToDatabase)
+
+9 To Update DB-- Package Manager Console- update-database
+
+10 Check in SQL-db created and the table created
+
+11 Create Controller for model-same name as model--right click on name of mathod -add view- create a razor view 
+		-----For each method(action) we need to create a razor view
+
+12 Inside view its all html---for each model we have each view folder-in each view there are views for actions(CRUD operations)
+
+13 Inside View, we can use TAG HELPERS- which are:
+	1. asp-for--we can directly access the attrivute of maodel(@obj.Name)
+	2.asp-action--for post method in form- we csn provide a action name specifiued in controller to call that action
+	3. asp-validation-for--we can do validations for each field of model(in model we can specify the condtion for each field/prop ex:[Range(1,int.MaxValue,ErrorMessage = "Display order must be greater than 0")]
+	)
+	4. asp-route-Id-- used in edit and delete functionality to get the respective id of the row(we can specify it in the button)
+	5. asp-controller- useed to specify the controller if we have sme action name in more than one  controller
+	6 asp-validation-summary-- can be two types=Modelonly/All
+
+14 Controller--inside controller we will soecify diff actions:
+		1. like for add/creating there is only one action-to add to db and save changes
+		2. for getting also we have one action in which we directly get the dta from db in list and display a table in view
+		3. for edit, we have to have 2 actions-one is for finding the id and going to that page and anthr is for updating the db where we take the object as argument
+		4. for delete, we have to have 2 actions-one is for finding the id and going to that page and anthr is for updating the db where we take the object as argument
+
+15 For validations:
+	1.Server-side-- we can specify the tag helpers in the view(asp-validation) and the conditions on the each field/prop we want:
+					[Required]
+					[Range(1,int.MaxValue,ErrorMessage = "Display order must be greater than 0")]
+	2 Client_side---we can specify the tag helpers in the view(asp-validation-summary) and in view we can specify this it will do validations:
+						@section Scripts{
+					@{<partial name = "_ValidationScriptsPartial"/>}}
+
+16. The action name(CRUD) has to be same in controller, same name as the file name for view and same for the asp-action where we are specifying in view(button)
+
